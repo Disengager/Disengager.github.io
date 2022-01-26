@@ -1,0 +1,116 @@
+$link: hsl(215, 45%, 40%)
+$bg: hsl(215, 10%, 19%)
+$bg_slow: hsl(215, 10%, 25%)
+$text: hsl(0, 0%, 80%)
+$toolbar: hsl(0, 0%, 45%)
+$counter: hsl(0, 0%, 45%)
+$line_height: 20px
+$title: indianred
+
+
+body
+	margin: 0
+	padding: 0
+	font-family: system-ui
+
+.line_counter
+	position: absolute
+	top: 45px
+	left: 10px
+	line-height: $line_height
+	color: $counter
+	height: calc(100vh - 45px)
+	overflow: hidden
+
+#tab_bg
+	position: absolute
+	top: 0
+	width: calc(100vw - 17px)
+	height: 45px
+	background-color: $toolbar
+
+.string_separator
+	color: dimgrey
+
+#ide
+	margin: 0
+	padding: 0
+	width: 100%
+	height: 100vh
+	background-color: $bg
+	color: $text
+	overflow: auto
+
+	a
+		color: $link
+
+	ul, li
+		padding: 0
+		margin: 0
+		line-height: $line_height
+
+	li
+		margin: 0 0 0 20px
+
+		span
+			cursor: pointer
+
+			&:hover
+				color: coral
+
+		&::marker
+			&:hover
+				color: coral
+
+#work_expirence
+	.block
+		&__title
+			margin-left: 88px
+#code_example
+	margin: -40px 0 0 30px
+	.block
+		&__title
+			margin-left: 90px
+
+.block
+	margin: 45px 0 0 30px
+	line-height: $line_height
+
+	&.hide
+		.module
+			display: none
+	
+	&__title
+		position: absolute
+		top: 0
+		padding: 13px
+		cursor: pointer
+		user-select: none
+
+		&:hover
+			background-color: $bg_slow
+
+		&.select
+			background-color: $bg
+
+			&:hover
+				background-color: $bg
+
+	.module
+		padding: 0 0 0 10px
+
+		&__spoiler
+			list-style-type: disclosure-open
+			
+			span
+				user-select: none
+
+			&.hide
+				list-style-type: disclosure-closed
+				div
+					display: none
+
+		&__title
+			color: $title
+			text-transform: uppercase
+
