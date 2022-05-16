@@ -1,87 +1,36 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui; }
+body { margin: 0; padding: 0; font-family: system-ui; }
+body::-webkit-scrollbar-thumb { background-image: -webkit-gradient(linear, left top, left bottom, from(#D0368A), color-stop(99%, #708AD4)); background-image: linear-gradient(180deg, #D0368A 0%, #708AD4 99%); -webkit-box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5); box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5); border-radius: 100px; }
+body::-webkit-scrollbar { width: 5px; }
+body::-webkit-scrollbar-track { background: lightblue; }
 
-.line_counter {
-  position: absolute;
-  top: 45px;
-  left: 10px;
-  line-height: 20px;
-  color: #737373;
-  height: calc(100vh - 45px);
-  overflow: hidden; }
+.line_counter { position: absolute; top: 45px; left: 10px; line-height: 20px; color: #737373; height: calc(100vh - 45px); overflow: hidden; }
 
-#tab_bg {
-  position: absolute;
-  top: 0;
-  width: calc(100vw - 17px);
-  height: 45px;
-  background-color: #737373; }
+#tab_bg { position: absolute; top: 0; width: calc(100vw - 17px); height: 45px; background-color: #737373; }
 
-.string_separator {
-  color: dimgrey; }
+.string_separator { color: dimgrey; }
 
-#ide {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: #2c3035;
-  color: #cccccc;
-  overflow: auto; }
-  #ide a {
-    color: #385e94; }
-  #ide ul, #ide li {
-    padding: 0;
-    margin: 0;
-    line-height: 20px; }
-  #ide li {
-    margin: 0 0 0 20px; }
-    #ide li span {
-      cursor: pointer; }
-      #ide li span:hover {
-        color: coral; }
-    #ide li::marker:hover {
-      color: coral; }
+#ide { margin: 0; padding: 0; width: 100%; height: 100vh; background-color: #2c3035; color: #cccccc; overflow: auto; }
+#ide a { color: #385e94; }
+#ide ul, #ide li { padding: 0; margin: 0; line-height: 20px; }
+#ide li { margin: 0 0 0 20px; }
+#ide li span { cursor: pointer; }
+#ide li span:hover { color: coral; }
+#ide li::marker:hover { color: coral; }
 
-#work_expirence .block__title {
-  margin-left: 88px; }
+#work_expirence .block__title { margin-left: 88px; }
 
-#code_example {
-  margin: -40px 0 0 30px; }
-  #code_example .block__title {
-    margin-left: 90px; }
+#code_example { margin: -40px 0 0 30px; }
+#code_example .block__title { margin-left: 90px; }
 
-.block {
-  margin: 45px 0 0 30px;
-  line-height: 20px; }
-  .block.hide .module {
-    display: none; }
-  .block__title {
-    position: absolute;
-    top: 0;
-    padding: 13px;
-    cursor: pointer;
-    user-select: none; }
-    .block__title:hover {
-      background-color: #393f46; }
-    .block__title.select {
-      background-color: #2c3035; }
-      .block__title.select:hover {
-        background-color: #2c3035; }
-  .block .module {
-    padding: 0 0 0 10px; }
-    .block .module__spoiler {
-      list-style-type: disclosure-open; }
-      .block .module__spoiler span {
-        user-select: none; }
-      .block .module__spoiler.hide {
-        list-style-type: disclosure-closed; }
-        .block .module__spoiler.hide div {
-          display: none; }
-    .block .module__title {
-      color: indianred;
-      text-transform: uppercase; }
-
-/*# sourceMappingURL=style.css.map */
+.block { margin: 45px 0 0 30px; line-height: 20px; }
+.block.hide .module { display: none; }
+.block__title { position: absolute; top: 0; padding: 13px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.block__title:hover { background-color: #393f46; }
+.block__title.select { background-color: #2c3035; }
+.block__title.select:hover { background-color: #2c3035; }
+.block .module { padding: 0 0 0 10px; }
+.block .module__spoiler { list-style-type: disclosure-open; }
+.block .module__spoiler span { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.block .module__spoiler.hide { list-style-type: disclosure-closed; }
+.block .module__spoiler.hide div { display: none; }
+.block .module__title { color: indianred; text-transform: uppercase; }

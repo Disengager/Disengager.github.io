@@ -1,0 +1,25 @@
+/* Please define your custom styles here */
+
+.key-button {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #606060;
+  color: white;
+}
+.top {
+  margin-top: -73px;
+  position: fixed;
+}
+
+.bottom {
+  margin-top: -51px;
+  position: fixed;
+}
+.h2_and {
+  margin-left: 142px;
+}
+.h2_x {
+
+  margin-left: 150px;
+}
