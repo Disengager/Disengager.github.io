@@ -260,7 +260,6 @@ const study = lab.util.fromObject({
         { "prime_task": "7 + 9", "target_task": "24 + 19", "prime_task_answer": 16, "prime_task_wronganser": 10, "counterbalancing": 1, "name": "prime69"},
         { "prime_task": "8 + 4", "target_task": "57 + 19", "prime_task_answer": 12, "prime_task_wronganser": 18, "counterbalancing": 1, "name": "prime83"},
         { "prime_task": "8 + 4", "target_task": "12 + 25", "prime_task_answer": 12, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime1"},
-        { "prime_task": "9 + 6", "target_task": "32 + 50", "prime_task_answer": 15, "prime_task_wronganser": 18, "counterbalancing": 3, "name": "prime9"},
       ],
       "sample": {
         "mode": "sequential"
@@ -428,9 +427,6 @@ const study = lab.util.fromObject({
         { "prime_task": "6 + 2", "target_task": "27 + 55", "prime_task_answer": 8, "prime_task_wronganser": 6, "counterbalancing": 2, "name": "prime90"},
         { "prime_task": "1 + 1", "target_task": "25 + 16", "prime_task_answer": 2, "prime_task_wronganser": 8, "counterbalancing": 3, "name": "prime71"},
         { "prime_task": "1 + 8", "target_task": "27 + 27", "prime_task_answer": 9, "prime_task_wronganser": 2, "counterbalancing": 1, "name": "prime75"},
-        { "prime_task": "8 + 2", "target_task": "67 + 19", "prime_task_answer": 10, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime28"},
-        { "prime_task": "6 + 2", "target_task": "17 + 12", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 2, "name": "prime2"},
-        { "prime_task": "5 + 3", "target_task": "44 + 38", "prime_task_answer": 8, "prime_task_wronganser": 5, "counterbalancing": 2, "name": "prime22"},
       ],
       "sample": {
         "mode": "sequential"
