@@ -23,7 +23,7 @@ message_screen = function(text) {
   }
 }
 
-loop_content = function(time) {
+loop_content = function(time, additonal_attr) {
   return [
           {
             "type": "lab.html.Page",
@@ -167,7 +167,7 @@ loop_content = function(time) {
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter\u003E\r\n  \u003Ch2\u003E${ parameters.target_task }\u003C\u002Fh2\u003E\r\n  \u003Cinput name=\"target_task_answer\" type=\"text\" placeholder=\"значение\" id=\"input_${ parameters.name }\" autofocus\u003E\r\n\u003C\u002Fcenter\u003E",
+                "content": "\u003Ccenter\u003E\r\n  \u003Ch2\u003E${ parameters.target_task }\u003C\u002Fh2\u003E\r\n  \u003Cinput name=\"target_task_answer\" type=\"text\" placeholder=\"значение\" id=\"input_${ parameters.name }\" autofocus" + additonal_attr + "\u003E\r\n\u003C\u002Fcenter\u003E",
                 "name": ""
               }
             ],
@@ -332,7 +332,7 @@ const study = lab.util.fromObject({
         "parameters": {},
         "messageHandlers": {},
         "title": "comp",
-        "content": loop_content("1300")
+        "content": loop_content("1300", "")
       }
     },
     {
@@ -340,11 +340,165 @@ const study = lab.util.fromObject({
       "templateParameters": [
         { "prime_task": "3 + 8", "target_task": "31 + 59", "prime_task_answer": 11, "prime_task_wronganser": 17, "counterbalancing": 2, "name": "prime59"},
         { "prime_task": "6 + 1", "target_task": "41 + 49", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 2, "name": "prime74"},
+      ],
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": {},
+      "responses": {
+        "": ""
+      },
+      "parameters": {},
+      "messageHandlers": {
+        "before:prepare": function anonymous(
+        ) {
+        window.params = window
+            .location
+            .search
+            .replace('?','')
+            .split('&')
+            .reduce(
+                function(p,e){
+                    var a = e.split('=');
+                    p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                    return p;
+                },
+                {}
+            );
+
+        window.counterbalancing_list = {}
+
+        console.log(window.params['key'])
+        var xmlhttp = new XMLHttpRequest(),
+            sliceFormData = new FormData(),
+            theUrl = "https://experiments-server.herokuapp.com/key/";
+        sliceFormData.append("key", JSON.stringify(window.params['key']));
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+              if(xmlhttp.responseText == 'NO USER') {
+                window.params['key'] = 'NO USER'
+              } else {
+                let data = JSON.parse(xmlhttp.responseText)
+                window.counterbalancing_list = data
+              }
+            }
+        }
+        xmlhttp.open("POST", theUrl, false);
+        xmlhttp.send(sliceFormData);
+
+        let params = this.internals.parsedOptions.templateParameters
+        if (Object.keys(window.counterbalancing_list).length === 0) {
+          for (var i in params) {
+            let index = parseInt(i) + parseInt(1)
+            console.log('prime' + index)
+            window.counterbalancing_list['prime' + index] = params[i].counterbalancing
+          }
+        }
+
+
+        console.log(window.counterbalancing_list)
+
+
+        }
+      },
+      "title": "arithmetic_loop",
+      "shuffleGroups": [],
+      "template": {
+        "type": "lab.flow.Sequence",
+        "files": {},
+        "responses": {
+          "": ""
+        },
+        "parameters": {},
+        "messageHandlers": {},
+        "title": "comp",
+        "content": loop_content("2000", "")
+      }
+    },
+    {
+      "type": "lab.flow.Loop",
+      "templateParameters": [
         { "prime_task": "9 + 2", "target_task": "30 + 22", "prime_task_answer": 11, "prime_task_wronganser": 19, "counterbalancing": 3, "name": "prime5"},
         { "prime_task": "1 + 6", "target_task": "46 + 11", "prime_task_answer": 7, "prime_task_wronganser": 6, "counterbalancing": 1, "name": "prime45"},
         { "prime_task": "4 + 1", "target_task": "56 + 38", "prime_task_answer": 5, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime32"},
-        { "prime_task": "2 + 6", "target_task": "22 + 76", "prime_task_answer": 8, "prime_task_wronganser": 9, "counterbalancing": 3, "name": "prime16"},
-        { "prime_task": "5 + 1", "target_task": "11 + 19", "prime_task_answer": 6, "prime_task_wronganser": 3, "counterbalancing": 3, "name": "prime87"},
+      ],
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": {},
+      "responses": {
+        "": ""
+      },
+      "parameters": {},
+      "messageHandlers": {
+        "before:prepare": function anonymous(
+        ) {
+        window.params = window
+            .location
+            .search
+            .replace('?','')
+            .split('&')
+            .reduce(
+                function(p,e){
+                    var a = e.split('=');
+                    p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                    return p;
+                },
+                {}
+            );
+
+        window.counterbalancing_list = {}
+
+        console.log(window.params['key'])
+        var xmlhttp = new XMLHttpRequest(),
+            sliceFormData = new FormData(),
+            theUrl = "https://experiments-server.herokuapp.com/key/";
+        sliceFormData.append("key", JSON.stringify(window.params['key']));
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+              if(xmlhttp.responseText == 'NO USER') {
+                window.params['key'] = 'NO USER'
+              } else {
+                let data = JSON.parse(xmlhttp.responseText)
+                window.counterbalancing_list = data
+              }
+            }
+        }
+        xmlhttp.open("POST", theUrl, false);
+        xmlhttp.send(sliceFormData);
+
+        let params = this.internals.parsedOptions.templateParameters
+        if (Object.keys(window.counterbalancing_list).length === 0) {
+          for (var i in params) {
+            let index = parseInt(i) + parseInt(1)
+            console.log('prime' + index)
+            window.counterbalancing_list['prime' + index] = params[i].counterbalancing
+          }
+        }
+
+
+        console.log(window.counterbalancing_list)
+
+
+        }
+      },
+      "title": "arithmetic_loop",
+      "shuffleGroups": [],
+      "template": {
+        "type": "lab.flow.Sequence",
+        "files": {},
+        "responses": {
+          "": ""
+        },
+        "parameters": {},
+        "messageHandlers": {},
+        "title": "comp",
+        "content": loop_content("1800", "")
+      }
+    },
+    {
+      "type": "lab.flow.Loop",
+      "templateParameters": [
         { "prime_task": "9 + 3", "target_task": "44 + 18", "prime_task_answer": 12, "prime_task_wronganser": 16, "counterbalancing": 3, "name": "prime73"},
       ],
       "sample": {
@@ -418,7 +572,7 @@ const study = lab.util.fromObject({
         "parameters": {},
         "messageHandlers": {},
         "title": "comp",
-        "content": loop_content("2000")
+        "content": loop_content("2500", " readonly")
       }
     },
     {
@@ -426,6 +580,84 @@ const study = lab.util.fromObject({
       "templateParameters": [
         { "prime_task": "6 + 2", "target_task": "27 + 55", "prime_task_answer": 8, "prime_task_wronganser": 6, "counterbalancing": 2, "name": "prime90"},
         { "prime_task": "1 + 1", "target_task": "25 + 16", "prime_task_answer": 2, "prime_task_wronganser": 8, "counterbalancing": 3, "name": "prime71"},
+      ],
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": {},
+      "responses": {
+        "": ""
+      },
+      "parameters": {},
+      "messageHandlers": {
+        "before:prepare": function anonymous(
+        ) {
+        window.params = window
+            .location
+            .search
+            .replace('?','')
+            .split('&')
+            .reduce(
+                function(p,e){
+                    var a = e.split('=');
+                    p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                    return p;
+                },
+                {}
+            );
+
+        window.counterbalancing_list = {}
+
+        console.log(window.params['key'])
+        var xmlhttp = new XMLHttpRequest(),
+            sliceFormData = new FormData(),
+            theUrl = "https://experiments-server.herokuapp.com/key/";
+        sliceFormData.append("key", JSON.stringify(window.params['key']));
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+              if(xmlhttp.responseText == 'NO USER') {
+                window.params['key'] = 'NO USER'
+              } else {
+                let data = JSON.parse(xmlhttp.responseText)
+                window.counterbalancing_list = data
+              }
+            }
+        }
+        xmlhttp.open("POST", theUrl, false);
+        xmlhttp.send(sliceFormData);
+
+        let params = this.internals.parsedOptions.templateParameters
+        if (Object.keys(window.counterbalancing_list).length === 0) {
+          for (var i in params) {
+            let index = parseInt(i) + parseInt(1)
+            console.log('prime' + index)
+            window.counterbalancing_list['prime' + index] = params[i].counterbalancing
+          }
+        }
+
+
+        console.log(window.counterbalancing_list)
+
+
+        }
+      },
+      "title": "arithmetic_loop",
+      "shuffleGroups": [],
+      "template": {
+        "type": "lab.flow.Sequence",
+        "files": {},
+        "responses": {
+          "": ""
+        },
+        "parameters": {},
+        "messageHandlers": {},
+        "title": "comp",
+        "content": loop_content("1100", "")
+      }
+    },
+        {
+      "type": "lab.flow.Loop",
+      "templateParameters": [
         { "prime_task": "1 + 8", "target_task": "27 + 27", "prime_task_answer": 9, "prime_task_wronganser": 2, "counterbalancing": 1, "name": "prime75"},
       ],
       "sample": {
@@ -499,7 +731,7 @@ const study = lab.util.fromObject({
         "parameters": {},
         "messageHandlers": {},
         "title": "comp",
-        "content": loop_content("1100")
+        "content": loop_content("6000", " readonly")
       }
     },
     message_screen('Большое спасибо за участие в эксперименте!')
