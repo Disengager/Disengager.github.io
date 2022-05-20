@@ -207,13 +207,17 @@ loop_content = function(time, additonal_attr) {
             "messageHandlers": {
               "run": function anonymous() {
                 window.skip = false;
-                let random = Math.random();
-                if(random > 0 && random < 0.15)
-                  bind_two_length_keys();
-                else if(random > 0.15 && random < 0.30)
-                  bind_enter_keys();
-                else
-                  bind_off();
+                switch (this.parameters.e_reaction) {
+                  case 1:
+                    bind_off();
+                    break;
+                  case 2:
+                    bind_two_length_keys();
+                    break;
+                  default:
+                    bind_enter_keys();
+                }
+                  
               },
               "end": function anonymous() { 
                 if(!window.skip)
@@ -295,27 +299,36 @@ const study = lab.util.fromObject({
     {
       "type": "lab.flow.Loop",
       "templateParameters": [
-        { "prime_task": "8 + 4", "target_task": "12 + 25", "prime_task_answer": 12, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime1"},
-        { "prime_task": "6 + 2", "target_task": "17 + 12", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 2, "name": "prime2"},
-        { "prime_task": "7 + 3", "target_task": "19 + 27", "prime_task_answer": 10, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime3"},
-        { "prime_task": "3 + 2", "target_task": "15 + 16", "prime_task_answer": 5, "prime_task_wronganser": 7, "counterbalancing": 1, "name": "prime4"},
-        { "prime_task": "9 + 2", "target_task": "30 + 22", "prime_task_answer": 11, "prime_task_wronganser": 19, "counterbalancing": 3, "name": "prime5"},
-        { "prime_task": "5 + 4", "target_task": "22 + 51", "prime_task_answer": 9, "prime_task_wronganser": 1, "counterbalancing": 2, "name": "prime6"},
-        { "prime_task": "7 + 4", "target_task": "20 + 48", "prime_task_answer": 11, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime7"},
-        { "prime_task": "5 + 2", "target_task": "39 + 23", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 1, "name": "prime8"},
-        { "prime_task": "9 + 6", "target_task": "32 + 50", "prime_task_answer": 15, "prime_task_wronganser": 18, "counterbalancing": 3, "name": "prime9"},
-        { "prime_task": "8 + 9", "target_task": "59 + 34", "prime_task_answer": 17, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime10"},
-        { "prime_task": "9 + 5", "target_task": "16 + 50", "prime_task_answer": 14, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime11"},
-        { "prime_task": "9 + 2", "target_task": "39 + 48", "prime_task_answer": 11, "prime_task_wronganser": 12, "counterbalancing": 2, "name": "prime12"},
-        { "prime_task": "8 + 7", "target_task": "29 + 40", "prime_task_answer": 15, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime13"},
-        { "prime_task": "4 + 5", "target_task": "36 + 58", "prime_task_answer": 9, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime14"},
-        { "prime_task": "4 + 1", "target_task": "54 + 38", "prime_task_answer": 5, "prime_task_wronganser": 6, "counterbalancing": 3, "name": "prime15"},
-        { "prime_task": "2 + 6", "target_task": "22 + 76", "prime_task_answer": 8, "prime_task_wronganser": 9, "counterbalancing": 3, "name": "prime16"},
-        { "prime_task": "8 + 9", "target_task": "51 + 43", "prime_task_answer": 17, "prime_task_wronganser": 15, "counterbalancing": 1, "name": "prime17"},
-        { "prime_task": "4 + 2", "target_task": "53 + 19", "prime_task_answer": 6, "prime_task_wronganser": 8, "counterbalancing": 2, "name": "prime18"},
-        { "prime_task": "3 + 4", "target_task": "28 + 22", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 3, "name": "prime19"},
-        { "prime_task": "2 + 4", "target_task": "15 + 58", "prime_task_answer": 6, "prime_task_wronganser": 9, "counterbalancing": 2, "name": "prime20"},
-        { "prime_task": "1 + 3", "target_task": "25 + 53", "prime_task_answer": 4, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime21"},
+        { "prime_task": "8 + 4", "target_task": "12 + 25", "prime_task_answer": 12, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime1", "e_reaction": 1},
+        { "prime_task": "6 + 2", "target_task": "17 + 12", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 2, "name": "prime2", "e_reaction": 1},
+        { "prime_task": "7 + 3", "target_task": "19 + 27", "prime_task_answer": 10, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime3", "e_reaction": 2},
+        { "prime_task": "3 + 2", "target_task": "15 + 16", "prime_task_answer": 5, "prime_task_wronganser": 7, "counterbalancing": 1, "name": "prime4", "e_reaction": 3},
+        { "prime_task": "9 + 2", "target_task": "30 + 22", "prime_task_answer": 11, "prime_task_wronganser": 19, "counterbalancing": 3, "name": "prime5", "e_reaction": 1},
+        { "prime_task": "5 + 4", "target_task": "22 + 51", "prime_task_answer": 9, "prime_task_wronganser": 1, "counterbalancing": 2, "name": "prime6", "e_reaction": 1},
+        { "prime_task": "7 + 4", "target_task": "20 + 48", "prime_task_answer": 11, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime7", "e_reaction": 1},
+        { "prime_task": "5 + 2", "target_task": "39 + 23", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 1, "name": "prime8", "e_reaction": 3},
+        { "prime_task": "9 + 6", "target_task": "32 + 50", "prime_task_answer": 15, "prime_task_wronganser": 18, "counterbalancing": 3, "name": "prime9", "e_reaction": 1},
+        { "prime_task": "8 + 9", "target_task": "59 + 34", "prime_task_answer": 17, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime10", "e_reaction": 2},
+        { "prime_task": "9 + 5", "target_task": "16 + 50", "prime_task_answer": 14, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime11", "e_reaction": 1},
+        { "prime_task": "9 + 2", "target_task": "39 + 48", "prime_task_answer": 11, "prime_task_wronganser": 12, "counterbalancing": 2, "name": "prime12", "e_reaction": 2},
+        { "prime_task": "8 + 7", "target_task": "29 + 40", "prime_task_answer": 15, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime13", "e_reaction": 1},
+        { "prime_task": "4 + 5", "target_task": "36 + 58", "prime_task_answer": 9, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime14", "e_reaction": 2},
+        { "prime_task": "4 + 1", "target_task": "54 + 38", "prime_task_answer": 5, "prime_task_wronganser": 6, "counterbalancing": 3, "name": "prime15", "e_reaction": 3},
+        { "prime_task": "2 + 6", "target_task": "22 + 76", "prime_task_answer": 8, "prime_task_wronganser": 9, "counterbalancing": 3, "name": "prime16", "e_reaction": 1},
+        { "prime_task": "8 + 9", "target_task": "51 + 43", "prime_task_answer": 17, "prime_task_wronganser": 15, "counterbalancing": 1, "name": "prime17", "e_reaction": 2},
+        { "prime_task": "4 + 2", "target_task": "53 + 19", "prime_task_answer": 6, "prime_task_wronganser": 8, "counterbalancing": 2, "name": "prime18", "e_reaction": 1},
+        { "prime_task": "3 + 4", "target_task": "28 + 22", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 3, "name": "prime19", "e_reaction": 1},
+        { "prime_task": "2 + 4", "target_task": "15 + 58", "prime_task_answer": 6, "prime_task_wronganser": 9, "counterbalancing": 2, "name": "prime20", "e_reaction": 2},
+        { "prime_task": "1 + 3", "target_task": "25 + 53", "prime_task_answer": 4, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime21", "e_reaction": 1},
+        { "prime_task": "5 + 3", "target_task": "44 + 38", "prime_task_answer": 8, "prime_task_wronganser": 5, "counterbalancing": 2, "name": "prime22", "e_reaction": 1},
+        { "prime_task": "8 + 5", "target_task": "11 + 27", "prime_task_answer": 13, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime23", "e_reaction": 3},
+        { "prime_task": "6 + 6", "target_task": "50 + 29", "prime_task_answer": 12, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime24", "e_reaction": 1},
+        { "prime_task": "2 + 3", "target_task": "22 + 16", "prime_task_answer": 5, "prime_task_wronganser": 2, "counterbalancing": 1, "name": "prime25", "e_reaction": 3},
+        { "prime_task": "7 + 6", "target_task": "56 + 29", "prime_task_answer": 13, "prime_task_wronganser": 18, "counterbalancing": 2, "name": "prime26", "e_reaction": 2},
+        { "prime_task": "6 + 3", "target_task": "26 + 72", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 3, "name": "prime27", "e_reaction": 2},
+        { "prime_task": "8 + 2", "target_task": "67 + 19", "prime_task_answer": 10, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime28", "e_reaction": 2},
+        { "prime_task": "7 + 4", "target_task": "27 + 35", "prime_task_answer": 11, "prime_task_wronganser": 10, "counterbalancing": 3, "name": "prime29", "e_reaction": 3},
+        { "prime_task": "7 + 8", "target_task": "48 + 25", "prime_task_answer": 15, "prime_task_wronganser": 19, "counterbalancing": 2, "name": "prime30", "e_reaction": 2},
       ],
       "sample": {
         "mode": "sequential"
