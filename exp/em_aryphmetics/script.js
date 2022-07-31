@@ -306,151 +306,7 @@ const study = lab.util.fromObject({
           "r_2": 1,
           "r_3": 1
         },
-        { "prime_task": "6 + 2", "target_task": "17 + 12", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 2, "name": "prime2",  
-          "r_1": 1,
-          "r_2": 1,
-          "r_3": 1
-        },
-        { "prime_task": "7 + 3", "target_task": "19 + 27", "prime_task_answer": 10, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime3",  
-          "r_1": 2,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "3 + 2", "target_task": "15 + 16", "prime_task_answer": 5, "prime_task_wronganser": 7, "counterbalancing": 1, "name": "prime4",  
-          "r_1": 1,
-          "r_2": 1,
-          "r_3": 3
-        },
-        { "prime_task": "9 + 2", "target_task": "30 + 22", "prime_task_answer": 11, "prime_task_wronganser": 19, "counterbalancing": 3, "name": "prime5",  
-          "r_1": 1,
-          "r_2": 1,
-          "r_3": 1
-        },
-        { "prime_task": "5 + 4", "target_task": "22 + 51", "prime_task_answer": 9, "prime_task_wronganser": 1, "counterbalancing": 2, "name": "prime6",  
-          "r_1": 3,
-          "r_2": 3,
-          "r_3": 3
-        },
-        { "prime_task": "7 + 4", "target_task": "20 + 48", "prime_task_answer": 11, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime7",  
-          "r_1": 1,
-          "r_2": 1,
-          "r_3": 3
-        },
-        { "prime_task": "5 + 2", "target_task": "39 + 23", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 1, "name": "prime8",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "9 + 6", "target_task": "32 + 50", "prime_task_answer": 15, "prime_task_wronganser": 18, "counterbalancing": 3, "name": "prime9",  
-          "r_1": 1,
-          "r_2": 2,
-          "r_3": 3
-        },
-        { "prime_task": "8 + 9", "target_task": "59 + 34", "prime_task_answer": 17, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime10",  
-          "r_1": 2,
-          "r_2": 3,
-          "r_3": 3
-        },
-        { "prime_task": "9 + 5", "target_task": "16 + 50", "prime_task_answer": 14, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime11",  
-          "r_1": 1,
-          "r_2": 1,
-          "r_3": 2
-        },
-        { "prime_task": "9 + 2", "target_task": "39 + 48", "prime_task_answer": 11, "prime_task_wronganser": 12, "counterbalancing": 2, "name": "prime12",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "8 + 7", "target_task": "29 + 40", "prime_task_answer": 15, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime13",  
-          "r_1": 2,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "4 + 5", "target_task": "36 + 58", "prime_task_answer": 9, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime14",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "4 + 1", "target_task": "54 + 38", "prime_task_answer": 5, "prime_task_wronganser": 6, "counterbalancing": 3, "name": "prime15",  
-          "r_1": 1,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "2 + 6", "target_task": "22 + 76", "prime_task_answer": 8, "prime_task_wronganser": 9, "counterbalancing": 3, "name": "prime16",  
-          "r_1": 3,
-          "r_2": 3,
-          "r_3": 3
-        },
-        { "prime_task": "8 + 9", "target_task": "51 + 43", "prime_task_answer": 17, "prime_task_wronganser": 15, "counterbalancing": 1, "name": "prime17",  
-          "r_1": 1,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "4 + 2", "target_task": "53 + 19", "prime_task_answer": 6, "prime_task_wronganser": 8, "counterbalancing": 2, "name": "prime18",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "3 + 4", "target_task": "28 + 22", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 3, "name": "prime19",  
-          "r_1": 3,
-          "r_2": 2,
-          "r_3": 1
-        },
-        { "prime_task": "2 + 4", "target_task": "15 + 58", "prime_task_answer": 6, "prime_task_wronganser": 9, "counterbalancing": 2, "name": "prime20",  
-          "r_1": 1,
-          "r_2": 2,
-          "r_3": 3
-        },
-        { "prime_task": "1 + 3", "target_task": "25 + 53", "prime_task_answer": 4, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime21",  
-          "r_1": 2,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "5 + 3", "target_task": "44 + 38", "prime_task_answer": 8, "prime_task_wronganser": 5, "counterbalancing": 2, "name": "prime22",  
-          "r_1": 1,
-          "r_2": 2,
-          "r_3": 3
-        },
-        { "prime_task": "8 + 5", "target_task": "11 + 27", "prime_task_answer": 13, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime23",  
-          "r_1": 3,
-          "r_2": 2,
-          "r_3": 1
-        },
-        { "prime_task": "6 + 6", "target_task": "50 + 29", "prime_task_answer": 12, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime24",  
-          "r_1": 1,
-          "r_2": 2,
-          "r_3": 3
-        },
-        { "prime_task": "2 + 3", "target_task": "22 + 16", "prime_task_answer": 5, "prime_task_wronganser": 2, "counterbalancing": 1, "name": "prime25",  
-          "r_1": 2,
-          "r_2": 3,
-          "r_3": 1
-        },
-        { "prime_task": "7 + 6", "target_task": "56 + 29", "prime_task_answer": 13, "prime_task_wronganser": 18, "counterbalancing": 2, "name": "prime26",  
-          "r_1": 3,
-          "r_2": 1,
-          "r_3": 2
-        },
-        { "prime_task": "6 + 3", "target_task": "26 + 72", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 3, "name": "prime27",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "8 + 2", "target_task": "67 + 19", "prime_task_answer": 10, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime28",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
-        { "prime_task": "7 + 4", "target_task": "27 + 35", "prime_task_answer": 11, "prime_task_wronganser": 10, "counterbalancing": 3, "name": "prime29",  
-          "r_1": 3,
-          "r_2": 3,
-          "r_3": 3
-        },
-        { "prime_task": "7 + 8", "target_task": "48 + 25", "prime_task_answer": 15, "prime_task_wronganser": 19, "counterbalancing": 2, "name": "prime30",  
-          "r_1": 2,
-          "r_2": 2,
-          "r_3": 2
-        },
+
       ],
       "sample": {
         "mode": "sequential"
@@ -508,7 +364,28 @@ const study = lab.util.fromObject({
         "content": loop_content("2500", "")
       }
     },
-    message_screen('Большое спасибо за участие в эксперименте!')
+    message_screen('Большое спасибо за участие в эксперименте!'),
+    {
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "required": true,
+          "type": "html",
+          "content": "<form><center><br><div class='form'>Оцените ваше раздражение по шкале от 1 до 10. <br><input name='angry_scale' type='range' min='1' max='10'></div></center></form>",
+          "name": ""
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Continue →",
+      "submitButtonPosition": "hidden",
+      "files": {},
+      "responses": {
+        "keypress(Space)": "next"
+      },
+      "parameters": {},
+      "messageHandlers": {},
+      "title": "manual"
+  }
   ]
 })
 
