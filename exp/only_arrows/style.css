@@ -32,15 +32,16 @@ span {
 }
 
 .sharp-mask div:first-child {
-  margin: 0 0 -45px -5px;
+  margin: 0 0 -63px -5px;
 }
 
 .sharp-mask div:last-child {
-  margin: -45px 0 0px 5px;
+  margin: -63px 0 0px 5px;
 }
 
 .sharp-mask {
-  font-size: 40px;
+  font-size: 48px;
+  margin-top: 8px;
 }
 
 .cross {
