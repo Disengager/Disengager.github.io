@@ -1,0 +1,127 @@
+ .draggable {
+     width: 130px;
+     height: 142px;
+     padding: 0.5em;
+     float: left;
+     margin: 10px 10px 10px 0;
+     border: 1px solid #dddddd;
+     background: #ffffff;
+     color: #333333;
+}
+ .droppable {
+     width: 150px;
+     height: 250px;
+     padding: 0.5em;
+     float: left;
+     margin: 10px;
+     border: 1px solid #dddddd;
+     background: #ffffff;
+     color: #333333;
+}
+ .roles, .cards {
+     display: flex;
+     flex-wrap: wrap;
+}
+ .top-menu {
+     position: fixed;
+     height: 50px;
+     width: calc(100% - 18px);
+     z-index: 9;
+     background-color: white;
+     display: flex;
+     justify-content: space-between;
+}
+ .screen {
+     padding-top: 50px 
+}
+ .button {
+     padding: 15px;
+     background-color: #4997ff;
+     color: white;
+     font-weight: 700;
+     cursor: pointer;
+     user-select: none;
+}
+ .label {
+     position: absolute;
+     background-color: white;
+     padding: 5px;
+     font-weight: 700;
+     color: black;
+     overflow: hidden;
+     max-width: 100px;
+     max-height: 17px;
+}
+ .choice ._form {
+     text-align: left;
+     display: inline-block;
+     width: 400px;
+}
+ .choice input {
+     width: 400px;
+     padding: 5px 
+}
+ img {
+     width: 100% 
+}
+ .choice ol {
+     list-style-type: none;
+     margin: 0;
+     margin-left: 100px;
+     padding: 0;
+     width: 500px;
+     display: flex
+}
+ .choice ol li {
+     margin: 3px;
+     padding: 1px;
+     float: left;
+     width: 130px;
+     height: 145px;
+     font-size: 1em;
+     text-align: center;
+}
+ .choice ol .ui-selecting {
+     background: #747474;
+}
+ .choice ol .ui-selected {
+     background-color: black;
+     color: white;
+     padding: 3px;
+}
+ .choiceinput[type=text] {
+     padding: 5px;
+     margin-bottom: 10px;
+}
+ .roles_estimate ._form .ui-slider {
+    width: 200px;
+     display: inline-block;
+}
+ .roles_estimate ._form .eq {
+     width: 500px;
+}
+ .roles_estimate ._form .eq > div {
+     width: 100%;
+     margin-bottom: 10px;
+}
+ .roles_estimate ._form .construct {
+     display: inline-block;
+     overflow:hidden;
+     margin: 0 10px 0 10px;
+}
+.role_estimate ._poster {
+     width: 300px;
+}
+
+.biographi ._form input {
+  display: block;
+  width: 300px;
+  padding: 5px;
+}
+
+.feedback ._form textarea {
+  display: block;
+  padding: 10px;
+  width: 400px;
+  height: 171px;
+}

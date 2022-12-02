@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.6.0.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script>
+  var card_role = {},
+      // последовательность сравнений разных ролей
+      sequence = [
+        [1, 2, 3],
+        [3, 6, 10],
+        [1, 8, 11],
+        [4, 6, 9],
+        [1, 2, 12],
+        [4, 7, 10],
+        [3, 6, 8],
+        [5, 9, 11],
+        [2, 7, 12],
+        [1, 5, 10],
+        [2, 3, 4],
+        [5, 7, 8]
+      ],
+      // класс для вспомогательных функций
+      utils = {
+        // получить параметр из элемента
+        get_from_attr: function(params) {
+          let result = {}
+          for (param in params) 
+            for (attr in params[param].attrs) 
+              result[params[param].prefix + params[param].attrs[attr]] = $(params[param].object).attr(params[param].attrs[attr])
+          return result
+        },
+        download_result: function() {
+          let result =  Object.assign({}, slider.choice_result(), slider.biography_result(), slider.estimate_result(), slider.feedback_result());
+          let blob = new Blob([JSON.stringify(result)], { type: 'text/json' })
+          document.getElementById('download_link').href = URL.createObjectURL(blob)
+        }
+      },
+      slider = {
+        current: 0,
+        min: 1, 
+        max: 13,
+        swipe: function(i) {
+          let current = this.current + i;
+          if (current < this.min) current = this.min;
+          if (current > this.max) current = this.max;
+
+          this.current = current;
+          $( '.screen' ).css("display", "none");
+          $( '#' + this.current ).css("display", "block");
+          let info = utils.get_from_attr([{'object': '#' + this.current, attrs: ['class'], prefix: ''}]);
+
+          $( '.choice li' ).each(function() {
+            let info = utils.get_from_attr([{'object': this, attrs: ['role_id'], prefix: ''}]),
+                card = card_role[info.role_id];
+
+            if (card == undefined) return true;
+            $( this ).html( "<span class='label' title='" + card[1] + "'>" + card[1]+ "</span><img src='" + card[0]  + ".jpg'>" );
+            //добавить роль для более удобного вывода результатов
+            $( this ).attr( "role", card[1] );
+          });
+
+          if (info.class.includes('estimate')) {
+            let result = this.choice_result();
+            for (var i = 1; i < Object.keys(result.roles).length + 1; i++) {
+              let selector = '.roles_estimate ._poster:eq(' + (i-1) + ')';
+              $(selector)
+                .find('._caption')
+                .first()
+                .text( result.roles[i][1] )
+                .attr("role_id", i)
+              $(selector)
+                .find('img')
+                .first()
+                .attr("src", result.roles[i][0] + ".jpg")
+
+              for (var j = 0; j < result.constructs.length; j++) {
+                let selector_2 = '.role_estimate:eq(' + (i-1) + ') .eq > div:eq(' + j + ')';
+                console.log(result.constructs.length);
+                console.log(selector_2);
+                $(selector_2)
+                  .find('.construct')
+                  .first()
+                  .text( result.constructs[j][0] )
+                  .attr('title', result.constructs[j][0])
+                $(selector_2)
+                  .find('.construct')
+                  .last()
+                  .text( result.constructs[j][1] )
+                  .attr('title', result.constructs[j][1])
+              }
+            }
+          }
+          if (info.class.includes('finish')) {
+            utils.download_result();
+          }
+        },
+        choice_result: function() {
+          let result = { roles: card_role }
+          result.constructs = []
+
+          $( '.choice' ).each(function() {
+            let id = $(this).attr('id'), 
+                inputs = $( this ).find('input');
+            // если шаблон то с ним ничего не делать
+            if (id == -1) return true;
+
+            result[ id ] = { choises: {}, constructs: [], roles: [] };
+            result[ id ].constructs = [ $( inputs[0] ).val(), $( inputs[1] ).val() ]
+            result.constructs.push([ $( inputs[0] ).val(), $( inputs[1] ).val() ])
+            
+            $( this )
+              .find('li')
+              .each(function() {
+                let info = utils.get_from_attr([{'object': this, attrs: ['role_id', 'role', 'class'], prefix: ''}]);
+                result[ id ].choises[ info.role_id ] = info.class
+                result[ id ].roles.push(info.role)
+              });
+          });
+          console.log(result)
+          return result
+                   
+        },
+        biography_result: function() {
+          let result = { biography: {} }
+          result.biography.name = $('#name').val()
+          result.biography.age = $('#age').val()
+          result.biography.sex = $('#sex').val()
+          result.biography.position = $('#position').val()
+          console.log(result)
+          return result
+        },
+        feedback_result: function() {
+          let result = { feedback: {} }
+          result.feedback.comment = $('#feedback').val();
+          console.log(result)
+          return result
+        },
+        estimate_result: function() {
+          let result = { estimate: [] }
+          $('.role_estimate').each(function() {
+            let caption = $(this).find('._caption'),
+                eq = $(this).find('.eq'),
+                selector = function(eq) { return '> div:eq(' + eq + ')' };
+
+            let constructs_loop = function(count) { 
+              let result = [];  
+              for (var i = 0; i < count; i++) 
+                result.push([
+                  eq.find(selector(i)).find('.construct').first().text(),
+                  eq.find(selector(i)).find('.construct').last().text(),
+                  eq.find(selector(i)).find('span').first().slider("value")])
+              return result;
+            }
+
+            result.estimate.push({
+              role_id: caption.attr('role_id'),
+              role: caption.text(),
+              constructs: constructs_loop(12)
+            });
+          });
+          console.log(result);
+          return result;
+        },
+        choice_generate: function(min, max) {
+          for (var i = min; i < max; i++) {
+            let j = 0, //дли итератора по ролям
+                comparison = $("#-1").clone(); //клонирую элемент
+            
+            comparison.attr('id', i); //меняю id
+            comparison.find('li').each(function() {
+              $(this).attr('role_id', sequence[i-2][j])
+              j++;
+            });
+            comparison.find('input[name=1_1]').attr('name', i + '_1')
+            comparison.find('input[name=1_2]').attr('name', i + '_2')
+            comparison.appendTo( ".choices" );
+          }
+        },
+        estimate_generate: function(role_count, construct_count) {
+          
+          for(var i = 0; i < construct_count-1; i++) {
+            let clone = $('.role_estimate .eq > div').first().clone();
+            clone.appendTo( ".role_estimate .eq" ); 
+          }
+
+          for(var i = 0; i < role_count-1; i++) {
+            let clone = $('.role_estimate').first().clone();
+            clone.appendTo( ".roles_estimate" ); 
+          }
+        },
+        load: function(params) { 
+          //choice_start - с какой страницы вставить первую с выбором
+          //choice_count - какое количество страниц с выбором будет
+          //estimate_role_count - количество ролей для оценки
+          //estimate_construct_count - количество конструктов для оценки
+          //min, max - сколько экранов допускать
+          this.choice_generate(params.choice_start, params.choice_count);
+          this.estimate_generate(params.estimate_role_count, params.estimate_construct_count);
+          this.min = params.min;
+          this.max = params.max;
+        }
+      }
+
+
+
+  $( function() {
+    slider.load({
+      choice_start: 2, 
+      choice_count: 14,
+      estimate_role_count: 12,
+      estimate_construct_count: 12,
+      min: 0,
+      max: 16
+    });
+
+    //инициализация области перетаскивания
+    $( ".draggable" ).draggable();
+    $( ".droppable" ).droppable({
+       drop: function( event, ui ) {
+        let info = utils.get_from_attr([
+                                        {'object': this, attrs: ['role_id', 'role'], prefix: ''},
+                                        {'object': ui.draggable[0], attrs: ['card_name'], prefix: ''}
+                                      ]);
+
+        card_role[info.role_id] = [info.card_name, info.role];
+      }
+    });
+    $( "ol" ).selectable();
+
+
+    //замена картинок в областях
+    $( ".draggable" ).each(function() { 
+      let info = utils.get_from_attr([{'object': this, attrs: ['card_name'], prefix: ''}]);
+
+      $( this ).html( "<img src='" +  info.card_name + ".jpg'>" ) 
+    });
+    //подписывание ролей
+    $( ".droppable" ).each(function() { 
+      let info = utils.get_from_attr([{'object': this, attrs: ['role'], prefix: ''}]);
+
+      $( this ).html( info.role ) 
+    });
+     
+    //добавление слайдеров
+    $( ".role_estimate ._form .eq > div" ).each(function() {
+      // read initial values from markup and remove that
+      let span = $(this).find('span');
+      $( span ).empty().slider({
+        max: 3,
+        min: -3, 
+        value: $( span ).text(),
+        range: "min",
+        animate: true,
+        orientation: "horizontal"
+      });
+    });
+
+    
+    
+    
+
+  });
+  </script>
+</head>
+<body>
+<div class="top-menu">
+  <div class="button" onclick="slider.swipe(-1)">Вернутся</div>
+  <div class="button" onclick="slider.swipe(1)">Следующее</div>
+</div>
+<div id="0" class="screen biographi">
+  <center>
+    <b>Ответьте на несколько вопросов о себе.</b> <br><br>
+    <div class="_form">
+      Как к вам обращаться?<br>
+      <input type="text" id="name">
+      <br>Сколько вам лет?<br>
+      <input type="number" id="age">
+      <br>Ваш пол?<br>
+      <input type="text" id="sex">
+      <br>Ваш должность ?(если где то работаете)<br>
+      <input type="text" id="position">
+    </div>
+  </center>
+</div>
+<div id="1" class="screen" style="display: none;">
+  <div class="cards">
+    <div class="draggable" card_name="creator" ></div>
+    <div class="draggable" card_name="innocent"></div>
+    <div class="draggable" card_name="sage"></div>
+    <div class="draggable" card_name="explorer"></div>
+    <div class="draggable" card_name="outlaw"></div>
+    <div class="draggable" card_name="magician"></div>
+    <div class="draggable" card_name="hero"></div>
+    <div class="draggable" card_name="lover"></div>
+    <div class="draggable" card_name="jester"></div>
+    <div class="draggable" card_name="everyman"></div>
+    <div class="draggable" card_name="caregiver"></div>
+    <div class="draggable" card_name="ruler"></div>
+  </div>
+  <br>
+  <div class="roles">
+    <div class="droppable" role_id=1 role="Я сам"></div>
+    <div class="droppable" role_id=2 role="Мать"></div>
+    <div class="droppable" role_id=3 role="Отец"></div>
+    <div class="droppable" role_id=4 role="Супруг (партнер по отношениям или любой другой человек, подходящий на данную роль)"></div>
+    <div class="droppable" role_id=5 role="Друг того же пола"></div>
+    <div class="droppable" role_id=6 role="Некто очень нелюбимый"></div>
+    <div class="droppable" role_id=7 role="Друг противоположного пола"></div>
+    <div class="droppable" role_id=8 role="Учитель, который оказал значимое влияние"></div>
+    <div class="droppable" role_id=9 role="Некто, вызывающий жалость"></div>
+    <div class="droppable" role_id=10 role="Самый нелюбимый политик"></div>
+    <div class="droppable" role_id=11 role="Брат или сестра"></div>
+    <div class="droppable" role_id=12 role="Я сам через 10 лет"></div>
+  </div>
+</div>
+<div class="choices">
+  <div id="-1" class="screen choice" style="display: none;">
+    <center>
+      Выберите персонажа, <br>который отличается от двух других
+      <ol>
+        <li class="ui-state-default" role_id=1></li>
+        <li class="ui-state-default" role_id=2></li>
+        <li class="ui-state-default" role_id=3></li>
+      </ol><br>
+      <div class="_form">
+        Напишите каким важным качеством два оставшихся персонажа, <br>похожи друг на друга: <br>
+        <input type="text" name="1_1" > <br>
+        Напишите каким важным качеством два оставшихся персонажа, <br>отличаются от выбранного: <br>
+        <input type="text" name="1_2"> <br>
+    </div>
+    </center>
+  </div>
+</div>
+<div id="14" class="screen estimate" style="display: none;">
+  <center>
+     Теперь оцените каждого персонажа:<br><br>
+     <div class="roles_estimate">
+        <div class="role_estimate" style="display: flex; justify-content: center; margin-bottom: 50px;">
+
+          <div class="_poster">
+            <div class="_caption">Я сам</div>
+            <img src="creator.jpg">
+          </div>
+
+          <div class="_form">
+              <div class="eq">
+                  <div>
+                    <div class="construct">конструкт 1</div>   <span>0</span>   <div class="construct">конструкт 2</div>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+     </div>
+
+  </center>
+</div>
+
+<div id="15" class="screen feedback" style="display: none;">
+  <center>
+    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <div class="_form">
+      Ваш комментарий
+      <textarea id="feedback"></textarea>
+    </div>
+  </center>
+</div>
+
+<div id="16" class="screen finish" style="display: none;">
+  <center>
+    <b>Большое спасибо за участие в исследовании!</b>
+    <br>Обязательно сохраните результаты и сбросьте их исследователю <br>(можно по почте disengageramv@gmail.com)<br>
+    <a id="download_link" download="data.json">Сохранить результаты</a>
+    <div id="result"></div>
+  </center>
+</div>
+
+
+ 
+ 
+</body>
+</html>
