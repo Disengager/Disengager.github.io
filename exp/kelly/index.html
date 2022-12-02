@@ -280,6 +280,8 @@
 </div>
 <div id="0" class="screen biographi">
   <center>
+    Здравствуйте. 
+    <br>Спасибо, что отклинулись и решили поучаствовать в 
     <b>Ответьте на несколько вопросов о себе.</b> <br><br>
     <div class="_form">
       Как к вам обращаться?<br>
@@ -288,14 +290,18 @@
       <input type="number" id="age">
       <br>Ваш пол?<br>
       <input type="text" id="sex">
-      <br>Ваш должность ?(если где-то работаете)<br>
+      <br>Ваша основная деятельность (работа/учёба, где и кем)?<br>
       <input type="text" id="position">
     </div>
   </center>
 </div>
 <div id="1" class="screen" style="display: none;">
   <br>
-  <div class="instruction"><b>Подготовительный этап.</b></div><br>
+  <div class="instruction"><b>Подготовительный этап.</b>
+    Соотнесите представленные изображения с социальными ролями, указанными ниже.  <br>Для этого перетащите изображение на соответствующую область. 
+
+  </div>
+  <br>
   <div class="cards">
     <div class="draggable" card_name="creator" ></div>
     <div class="draggable" card_name="innocent"></div>
@@ -328,7 +334,7 @@
 </div>
 <div id="2" class="screen feedback" style="display: none;">
   <center>
-    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <b>Если у вас возникли вопросы и предложения по ходу тестирования методики, <br>пожалуйста, запишите их ниже.</b> <br><br><br>
     <div class="_form">
       Ваш комментарий
       <textarea id="feedback_1"></textarea>
@@ -339,24 +345,25 @@
   <div id="-1" class="screen choice" style="display: none;">
     <div class="countdown">Этап 1 - 1/12</div>
     <center>
-      Выберите персонажа, <br>который отличается от двух других
+      Выберите одного персонажа, который отличается от двух других. <br>
       <ol>
         <li class="ui-state-default" role_id=1></li>
         <li class="ui-state-default" role_id=2></li>
         <li class="ui-state-default" role_id=3></li>
       </ol><br>
       <div class="_form">
-        Напишите каким важным качеством два невыбранных персонажа, <br>похожи друг на друга: <br>
+        Напишите, каким важным психологическим качеством этот выбранный персонаж отличается от двух других: <br>
+        <input type="text" name="1_2"> <br><BR>
+        Напишите, какое общее важное психологическое качество у двух других <br>
         <input type="text" name="1_1" > <br>
-        Напишите каким важным качеством два небранных персонажа, <br>отличаются от выбранного: <br>
-        <input type="text" name="1_2"> <br>
+        
     </div>
     </center>
   </div>
 </div>
 <div id="15" class="screen feedback" style="display: none;">
   <center>
-    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <b>Если у вас возникли вопросы и предложения по ходу тестирования методики, <br>пожалуйста, запишите их ниже.</b> <br><br><br>
     <div class="_form">
       Ваш комментарий
       <textarea id="feedback_2"></textarea>
@@ -365,8 +372,9 @@
 </div>
 <div id="16" class="screen estimate" style="display: none;">
   <center>
-     <b> Этап 2. </b>
-     Теперь оцените каждого персонажа:<br><br>
+     <b> Этап 2. </b><br>     
+     Расположите бегунки в соответствии с тем, <br> как вы представляете психологические качества каждого персонажа. <br><br>
+
      <div class="roles_estimate">
         <div class="role_estimate" style="display: flex; justify-content: center; margin-bottom: 50px;">
 
@@ -391,7 +399,7 @@
 
 <div id="17" class="screen feedback" style="display: none;">
   <center>
-    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <b>Если у вас возникли вопросы и предложения по ходу тестирования методики, <br>пожалуйста, запишите их ниже.</b> <br><br><br>
     <div class="_form">
       Ваш комментарий
       <textarea id="feedback_3"></textarea>
@@ -401,12 +409,11 @@
 
 <div id="18" class="screen finish" style="display: none;">
   <center>
-    <b>Большое спасибо за участие в исследовании!</b>
-    <br>Обязательно сохраните результаты и сбросьте их исследователю <br>(можно по почте disengageramv@gmail.com)<br>
+    <br><br><b>Обязательно сохраните результаты и сбросьте их по почте <br>disengageramv@gmail.com</b><br>
     <a id="download_link" download="data.json">Сохранить результаты</a><br>
     Если вам интересна интепретация ваших результатов - <br>мы её обязательно дадим, только напишите об этом на вышеуказанную почту. 
     <br><br>
-    <b>Спасибо большое, что приняли участие в исследовании!</b>
+    <b>Спасибо большое, что приняли участие в тестировании методики!</b>
     <div id="result"></div>
   </center>
 </div>
