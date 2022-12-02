@@ -65,6 +65,8 @@
             $( this ).attr( "role", card[1] );
           });
 
+
+
           if (info.class.includes('estimate')) {
             let result = this.choice_result();
             for (var i = 1; i < Object.keys(result.roles).length + 1; i++) {
@@ -137,7 +139,9 @@
         },
         feedback_result: function() {
           let result = { feedback: {} }
-          result.feedback.comment = $('#feedback').val();
+          result.feedback.comment_1 = $('#feedback_1').val();
+          result.feedback.comment_2 = $('#feedback_2').val();
+          result.feedback.comment_3 = $('#feedback_3').val();
           console.log(result)
           return result
         },
@@ -174,9 +178,10 @@
             
             comparison.attr('id', i); //меняю id
             comparison.find('li').each(function() {
-              $(this).attr('role_id', sequence[i-2][j])
+              $(this).attr('role_id', sequence[i-3][j])
               j++;
             });
+            comparison.find('.countdown').html('Этап 1 - ' + (i-2) + '/12' )
             comparison.find('input[name=1_1]').attr('name', i + '_1')
             comparison.find('input[name=1_2]').attr('name', i + '_2')
             comparison.appendTo( ".choices" );
@@ -211,12 +216,12 @@
 
   $( function() {
     slider.load({
-      choice_start: 2, 
-      choice_count: 14,
+      choice_start: 3, 
+      choice_count: 15,
       estimate_role_count: 12,
       estimate_construct_count: 12,
       min: 0,
-      max: 16
+      max: 18
     });
 
     //инициализация области перетаскивания
@@ -283,12 +288,14 @@
       <input type="number" id="age">
       <br>Ваш пол?<br>
       <input type="text" id="sex">
-      <br>Ваш должность ?(если где то работаете)<br>
+      <br>Ваш должность ?(если где-то работаете)<br>
       <input type="text" id="position">
     </div>
   </center>
 </div>
 <div id="1" class="screen" style="display: none;">
+  <br>
+  <div class="instruction"><b>Подготовительный этап.</b></div><br>
   <div class="cards">
     <div class="draggable" card_name="creator" ></div>
     <div class="draggable" card_name="innocent"></div>
@@ -308,7 +315,7 @@
     <div class="droppable" role_id=1 role="Я сам"></div>
     <div class="droppable" role_id=2 role="Мать"></div>
     <div class="droppable" role_id=3 role="Отец"></div>
-    <div class="droppable" role_id=4 role="Супруг (партнер по отношениям или любой другой человек, подходящий на данную роль)"></div>
+    <div class="droppable" role_id=4 role="Партнёр (вторая половника)"></div>
     <div class="droppable" role_id=5 role="Друг того же пола"></div>
     <div class="droppable" role_id=6 role="Некто очень нелюбимый"></div>
     <div class="droppable" role_id=7 role="Друг противоположного пола"></div>
@@ -319,8 +326,18 @@
     <div class="droppable" role_id=12 role="Я сам через 10 лет"></div>
   </div>
 </div>
+<div id="2" class="screen feedback" style="display: none;">
+  <center>
+    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <div class="_form">
+      Ваш комментарий
+      <textarea id="feedback_1"></textarea>
+    </div>
+  </center>
+</div>
 <div class="choices">
   <div id="-1" class="screen choice" style="display: none;">
+    <div class="countdown">Этап 1 - 1/12</div>
     <center>
       Выберите персонажа, <br>который отличается от двух других
       <ol>
@@ -329,16 +346,26 @@
         <li class="ui-state-default" role_id=3></li>
       </ol><br>
       <div class="_form">
-        Напишите каким важным качеством два оставшихся персонажа, <br>похожи друг на друга: <br>
+        Напишите каким важным качеством два невыбранных персонажа, <br>похожи друг на друга: <br>
         <input type="text" name="1_1" > <br>
-        Напишите каким важным качеством два оставшихся персонажа, <br>отличаются от выбранного: <br>
+        Напишите каким важным качеством два небранных персонажа, <br>отличаются от выбранного: <br>
         <input type="text" name="1_2"> <br>
     </div>
     </center>
   </div>
 </div>
-<div id="14" class="screen estimate" style="display: none;">
+<div id="15" class="screen feedback" style="display: none;">
   <center>
+    <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
+    <div class="_form">
+      Ваш комментарий
+      <textarea id="feedback_2"></textarea>
+    </div>
+  </center>
+</div>
+<div id="16" class="screen estimate" style="display: none;">
+  <center>
+     <b> Этап 2. </b>
      Теперь оцените каждого персонажа:<br><br>
      <div class="roles_estimate">
         <div class="role_estimate" style="display: flex; justify-content: center; margin-bottom: 50px;">
@@ -362,21 +389,24 @@
   </center>
 </div>
 
-<div id="15" class="screen feedback" style="display: none;">
+<div id="17" class="screen feedback" style="display: none;">
   <center>
     <b>Если у вас есть один или несколько комментариев по поводу исследования, <br>пожалуйста напишите их ниже.</b> <br><br><br>
     <div class="_form">
       Ваш комментарий
-      <textarea id="feedback"></textarea>
+      <textarea id="feedback_3"></textarea>
     </div>
   </center>
 </div>
 
-<div id="16" class="screen finish" style="display: none;">
+<div id="18" class="screen finish" style="display: none;">
   <center>
     <b>Большое спасибо за участие в исследовании!</b>
     <br>Обязательно сохраните результаты и сбросьте их исследователю <br>(можно по почте disengageramv@gmail.com)<br>
-    <a id="download_link" download="data.json">Сохранить результаты</a>
+    <a id="download_link" download="data.json">Сохранить результаты</a><br>
+    Если вам интересна интепретация ваших результатов - <br>мы её обязательно дадим, только напишите об этом на вышеуказанную почту. 
+    <br><br>
+    <b>Спасибо большое, что приняли участие в исследовании!</b>
     <div id="result"></div>
   </center>
 </div>

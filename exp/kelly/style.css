@@ -125,3 +125,11 @@
   width: 400px;
   height: 171px;
 }
+
+.countdown {
+  position: absolute;
+  right: 178px;
+  top: 25px;
+  z-index: 99;
+  font-weight: 700;
+}
