@@ -1,0 +1,22 @@
+/* Please define your custom styles here */
+.feedback_form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.feedback_form .item::first-letter {
+  color: #bababa;
+}
+
+.feedback_form .item {
+  border: 1px solid #d0caca;
+  padding: 0 10px 0 10px;
+}
+
+.feedback_form .item input {
+  margin: 0 10px 0 10px;
+  width: 157px;
+} 
+.feedback_form .item input:focus {
+  width: 400px;
+} 
