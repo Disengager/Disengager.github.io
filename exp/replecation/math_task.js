@@ -24,7 +24,9 @@ function load_test() {
 	  "answer_duration": [],
 	  "get_duration": function() {
 	   	//максимум 7000 - 5 // 1400 минимум 0
-	    return(math.median(this.answer_duration.slice(3))/5)
+	   	if(this.answer_duration.length > 3)
+	    	return(math.median(this.answer_duration.slice(3))/5)
+	    return(50)
 	  }
 	}
 }
@@ -420,6 +422,9 @@ function load_main() {
 	  },
 	  set_answer: function(key, value) {
 	  	this.answers[key] = value
+	  },
+	  is_skip: function() {
+	  	return window.main.last_time < window.test.answer_time
 	  }
 
 	}

@@ -214,90 +214,54 @@ load_test();
             "content": [
               {
                 "type": "i-text",
-                "left": "-1",
-                "top": "-7",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "-6",
+                "left": 0,
                 "top": 0,
                 "angle": 0,
-                "width": 124.58,
+                "width": 77.86,
                 "height": 31.64,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
               },
               {
                 "type": "i-text",
-                "left": "2",
-                "top": "5",
+                "left": "-2",
+                "top": "-5",
                 "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
+                "width": 88.98,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
               },
               {
                 "type": "i-text",
-                "left": -12,
-                "top": -10.97,
+                "left": "3",
+                "top": "7",
                 "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
+                "width": 88.98,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -13.01,
-                "top": 12.02,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
@@ -314,7 +278,7 @@ load_test();
             "parameters": {},
             "messageHandlers": {},
             "title": "mask",
-            "timeout": "100"
+            "timeout": "500"
           },
           {
             "type": "lab.canvas.Screen",
@@ -383,8 +347,7 @@ load_test();
             "parameters": {},
             "messageHandlers": {},
             "title": "target",
-            "timeout": "1000",
-            "tardy": true
+            "timeout": "1000"
           },
           {
             "type": "lab.html.Page",
@@ -551,7 +514,6 @@ window.test.last_time = window.test.answer_duration[window.test.answer_duration.
             "parameters": {},
             "messageHandlers": {},
             "title": "instruction_after_3_trials",
-            "tardy": true,
             "skip": "${ parameters.counter != 2 }"
           }
         ]
@@ -649,7 +611,7 @@ window.test.last_time = window.test.answer_duration[window.test.answer_duration.
       ],
       "sample": {
         "mode": "sequential",
-        "n": "${  Object.keys(window.main.prime).length }"
+        "n": "78"
       },
       "files": {},
       "responses": {
@@ -733,113 +695,6 @@ console.log(window.main)
             "content": [
               {
                 "type": "i-text",
-                "left": "-1",
-                "top": "-7",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "-6",
-                "top": 0,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "2",
-                "top": "5",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -12,
-                "top": -10.97,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -13.01,
-                "top": 12.02,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              }
-            ],
-            "viewport": [
-              800,
-              600
-            ],
-            "files": {},
-            "responses": {
-              "": ""
-            },
-            "parameters": {},
-            "messageHandlers": {},
-            "title": "mask",
-            "timeout": "100"
-          },
-          {
-            "type": "lab.canvas.Screen",
-            "content": [
-              {
-                "type": "i-text",
                 "left": 0,
                 "top": 0,
                 "angle": 0,
@@ -868,98 +723,61 @@ console.log(window.main)
             "parameters": {},
             "messageHandlers": {},
             "title": "priming",
-            "timeout": "33",
-            "tardy": true
+            "timeout": "20"
           },
           {
             "type": "lab.canvas.Screen",
             "content": [
               {
                 "type": "i-text",
-                "left": "-1",
-                "top": "-7",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "-6",
+                "left": 0,
                 "top": 0,
                 "angle": 0,
-                "width": 124.58,
+                "width": 77.86,
                 "height": 31.64,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
               },
               {
                 "type": "i-text",
-                "left": "2",
-                "top": "5",
+                "left": "-2",
+                "top": "-5",
                 "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
+                "width": 88.98,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
               },
               {
                 "type": "i-text",
-                "left": -12,
-                "top": -10.97,
+                "left": "3",
+                "top": "7",
                 "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
+                "width": 88.98,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#####",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -13.01,
-                "top": 12.02,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
@@ -1027,8 +845,7 @@ console.log(window.main)
             "parameters": {},
             "messageHandlers": {},
             "title": "target",
-            "timeout": "400",
-            "tardy": true
+            "timeout": "400"
           },
           {
             "type": "lab.canvas.Screen",
@@ -1045,113 +862,6 @@ console.log(window.main)
             "messageHandlers": {},
             "title": "empty",
             "timeout": "${ window.test.get_duration() }"
-          },
-          {
-            "type": "lab.canvas.Screen",
-            "content": [
-              {
-                "type": "i-text",
-                "left": "-1",
-                "top": "-7",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "-6",
-                "top": 0,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "2",
-                "top": "5",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -12,
-                "top": -10.97,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -13.01,
-                "top": 12.02,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              }
-            ],
-            "viewport": [
-              800,
-              600
-            ],
-            "files": {},
-            "responses": {
-              "": ""
-            },
-            "parameters": {},
-            "messageHandlers": {},
-            "title": "mask",
-            "timeout": "50"
           },
           {
             "type": "lab.canvas.Screen",
@@ -1186,44 +896,25 @@ console.log(window.main)
             "parameters": {},
             "messageHandlers": {},
             "title": "priming",
-            "timeout": "33",
-            "tardy": true
+            "timeout": "20"
           },
           {
             "type": "lab.canvas.Screen",
             "content": [
               {
                 "type": "i-text",
-                "left": "-1",
-                "top": "-7",
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": "-6",
+                "left": 0,
                 "top": 0,
                 "angle": 0,
                 "width": 124.58,
-                "height": 31.64,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#######",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
@@ -1231,53 +922,35 @@ console.log(window.main)
               {
                 "type": "i-text",
                 "left": "2",
-                "top": "5",
+                "top": "9",
                 "angle": 0,
                 "width": 124.58,
-                "height": 31.64,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#######",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
               },
               {
                 "type": "i-text",
-                "left": -12,
-                "top": -10.97,
+                "left": "-5",
+                "top": "-6",
                 "angle": 0,
                 "width": 124.58,
-                "height": 31.64,
+                "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "black",
-                "text": "########",
+                "text": "#######",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
-                "fontSize": "28",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -13.01,
-                "top": 12.02,
-                "angle": 0,
-                "width": 124.58,
-                "height": 31.64,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black",
-                "text": "########",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "28",
+                "fontSize": "32",
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
@@ -1294,7 +967,7 @@ console.log(window.main)
             "parameters": {},
             "messageHandlers": {},
             "title": "mask",
-            "timeout": "50"
+            "timeout": "60"
           },
           {
             "type": "lab.html.Page",
@@ -1330,8 +1003,7 @@ window.main.last_time = window.main.answer_duration[window.main.answer_duration.
 }
             },
             "title": "answer",
-            "timeout": "7000",
-            "tardy": true
+            "timeout": "7000"
           },
           {
             "messageHandlers": {},
@@ -1343,7 +1015,7 @@ window.main.last_time = window.main.answer_duration[window.main.answer_duration.
             "content": "\u003Cheader class=\"content-vertical-center content-horizontal-center\"\u003E\n  \n\u003C\u002Fheader\u003E\n\u003Cmain\u003E\n  \u003Ccenter\u003E\u003Ch3\u003EВремя вышло!\u003C\u002Fh3\u003E\u003C\u002Fcenter\u003E\n\u003C\u002Fmain\u003E\n\u003Cfooter class=\"content-vertical-center content-horizontal-center\"\u003E\n  Пожалуйста нажмите Enter, чтобы перейти к следующему примеру.\n\u003C\u002Ffooter\u003E\n",
             "parameters": {},
             "files": {},
-            "skip": "${ window.main.last_time \u003C window.test.answer_time }",
+            "skip": "${ window.main.is_skip() }",
             "tardy": true
           }
         ]
@@ -1370,6 +1042,464 @@ window.main.last_time = window.main.answer_duration[window.main.answer_duration.
       "messageHandlers": {},
       "title": "feedback_form",
       "tardy": true
+    },
+    {
+      "type": "lab.canvas.Screen",
+      "content": [
+        {
+          "type": "i-text",
+          "left": 0,
+          "top": -25,
+          "angle": 0,
+          "width": 538.52,
+          "height": 435.37,
+          "stroke": null,
+          "strokeWidth": 1,
+          "fill": "black",
+          "text": "В начале каждой пробы перед ###### \nвыводились примеры (например, 8 + 2)\n\n\nСейчас вводите ответ не примера с\nдвухзнанчыми цифрами \n(например, 23 + 34), а примера с\nоднозначными (например, 8 + 2)\n\n\nЕсли вы ничего не увидели - введите 0 в \nполе для ответа",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "fontSize": "28",
+          "fontFamily": "sans-serif",
+          "lineHeight": 1.16,
+          "textAlign": "center"
+        },
+        {
+          "type": "i-text",
+          "left": 0,
+          "top": 275,
+          "angle": 0,
+          "width": 511.92,
+          "height": 36.16,
+          "stroke": null,
+          "strokeWidth": 1,
+          "fill": "black",
+          "text": "Нажмите Enter, чтобы продолжить",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "fontSize": "28",
+          "fontFamily": "sans-serif",
+          "lineHeight": 1.16,
+          "textAlign": "center"
+        }
+      ],
+      "viewport": [
+        800,
+        600
+      ],
+      "files": {},
+      "responses": {
+        "keypress(Enter)": "start_check"
+      },
+      "parameters": {},
+      "messageHandlers": {},
+      "title": "Instruction"
+    },
+    {
+      "type": "lab.flow.Loop",
+      "templateParameters": [
+        {
+          "task_key": "task",
+          "": ""
+        }
+      ],
+      "sample": {
+        "mode": "sequential",
+        "n": "15"
+      },
+      "files": {},
+      "responses": {
+        "": ""
+      },
+      "parameters": {},
+      "messageHandlers": {
+        "before:prepare": function anonymous(
+) {
+load_main();
+console.log(window.main)
+}
+      },
+      "title": "check_part (script)",
+      "indexParameter": "counter",
+      "tardy": true,
+      "shuffleGroups": [],
+      "template": {
+        "type": "lab.flow.Sequence",
+        "files": {},
+        "responses": {
+          "": ""
+        },
+        "parameters": {},
+        "messageHandlers": {},
+        "title": "trial",
+        "content": [
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 18.69,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "+",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "52",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "cross",
+            "timeout": "100"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "empty",
+            "timeout": "100"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 578.2,
+                "height": 31.64,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${ window.main.prime[parameters.counter+1] }",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "28",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "priming",
+            "timeout": "20"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 77.86,
+                "height": 31.64,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#####",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": "-2",
+                "top": "-5",
+                "angle": 0,
+                "width": 88.98,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#####",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": "3",
+                "top": "7",
+                "angle": 0,
+                "width": 88.98,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#####",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "mask",
+            "timeout": "500"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "empty",
+            "timeout": "100"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 579.78,
+                "height": 31.64,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${ window.main.target[parameters.counter+1] }",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "28",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "target",
+            "timeout": "400"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "empty",
+            "timeout": "${ window.test.get_duration() }"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 658.34,
+                "height": 31.64,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${ window.main.get_from_type(parameters.counter) }",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "28",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "priming",
+            "timeout": "20"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 124.58,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#######",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": "2",
+                "top": "9",
+                "angle": 0,
+                "width": 124.58,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#######",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": "-5",
+                "top": "-6",
+                "angle": 0,
+                "width": 124.58,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "#######",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "32",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "mask",
+            "timeout": "60"
+          },
+          {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "required": true,
+                "type": "html",
+                "content": "\u003Ccenter\u003E\r\n  \u003Cinput style=\"position:absolute; margin-left: -100px\" name=\"check_answer\" type=\"number\" autofocus required placeholder=\"введите ответ\"\u003E\r\n\u003C\u002Fcenter\u003E\r\n\r\n  ",
+                "name": ""
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Дальше →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "after:end": function anonymous(
+) {
+//alert('done')
+console.log('answer');
+console.log(this.parameters.counter+1)
+window.main.set_answer(
+  window.main.target[this.parameters.counter+1], 
+  this.data.answer
+)
+
+window.main.answer_duration.push(this.data.duration)
+window.main.last_time = window.main.answer_duration[window.main.answer_duration.length - 1] + 50
+}
+            },
+            "title": "answer"
+          }
+        ]
+      }
     },
     {
       "type": "lab.html.Form",
