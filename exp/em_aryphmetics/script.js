@@ -306,7 +306,71 @@ const study = lab.util.fromObject({
           "r_2": 1,
           "r_3": 1
         },
-
+        { "prime_task": "6 + 2", "target_task": "17 + 12", "prime_task_answer": 9, "prime_task_wronganser": 7, "counterbalancing": 2, "name": "prime2",  
+          "r_1": 1,
+          "r_2": 1,
+          "r_3": 1
+        },
+        { "prime_task": "7 + 3", "target_task": "19 + 27", "prime_task_answer": 10, "prime_task_wronganser": 13, "counterbalancing": 1, "name": "prime3",  
+          "r_1": 2,
+          "r_2": 3,
+          "r_3": 1
+        },
+        { "prime_task": "3 + 2", "target_task": "15 + 16", "prime_task_answer": 5, "prime_task_wronganser": 7, "counterbalancing": 1, "name": "prime4",  
+          "r_1": 1,
+          "r_2": 1,
+          "r_3": 3
+        },
+        { "prime_task": "9 + 2", "target_task": "30 + 22", "prime_task_answer": 11, "prime_task_wronganser": 19, "counterbalancing": 3, "name": "prime5",  
+          "r_1": 1,
+          "r_2": 1,
+          "r_3": 1
+        },
+        { "prime_task": "5 + 4", "target_task": "22 + 51", "prime_task_answer": 9, "prime_task_wronganser": 1, "counterbalancing": 2, "name": "prime6",  
+          "r_1": 3,
+          "r_2": 3,
+          "r_3": 3
+        },
+        { "prime_task": "7 + 4", "target_task": "20 + 48", "prime_task_answer": 11, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime7",  
+          "r_1": 1,
+          "r_2": 1,
+          "r_3": 3
+        },
+        { "prime_task": "5 + 2", "target_task": "39 + 23", "prime_task_answer": 7, "prime_task_wronganser": 5, "counterbalancing": 1, "name": "prime8",  
+          "r_1": 2,
+          "r_2": 2,
+          "r_3": 2
+        },
+        { "prime_task": "9 + 6", "target_task": "32 + 50", "prime_task_answer": 15, "prime_task_wronganser": 18, "counterbalancing": 3, "name": "prime9",  
+          "r_1": 1,
+          "r_2": 2,
+          "r_3": 3
+        },
+        { "prime_task": "8 + 9", "target_task": "59 + 34", "prime_task_answer": 17, "prime_task_wronganser": 11, "counterbalancing": 1, "name": "prime10",  
+          "r_1": 2,
+          "r_2": 3,
+          "r_3": 3
+        },
+        { "prime_task": "9 + 5", "target_task": "16 + 50", "prime_task_answer": 14, "prime_task_wronganser": 15, "counterbalancing": 3, "name": "prime11",  
+          "r_1": 1,
+          "r_2": 1,
+          "r_3": 2
+        },
+        { "prime_task": "9 + 2", "target_task": "39 + 48", "prime_task_answer": 11, "prime_task_wronganser": 12, "counterbalancing": 2, "name": "prime12",  
+          "r_1": 2,
+          "r_2": 2,
+          "r_3": 2
+        },
+        { "prime_task": "8 + 7", "target_task": "29 + 40", "prime_task_answer": 15, "prime_task_wronganser": 13, "counterbalancing": 2, "name": "prime13",  
+          "r_1": 2,
+          "r_2": 3,
+          "r_3": 1
+        },
+        { "prime_task": "4 + 5", "target_task": "36 + 58", "prime_task_answer": 9, "prime_task_wronganser": 8, "counterbalancing": 1, "name": "prime14",  
+          "r_1": 2,
+          "r_2": 2,
+          "r_3": 2
+        },
       ],
       "sample": {
         "mode": "sequential"
