@@ -183,7 +183,7 @@ const study = lab.util.fromObject({
         }
       ],
       "sample": {
-        "mode": "draw",
+        "mode": "sequential",
         "n": ""
       },
       "files": {},
