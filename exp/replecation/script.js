@@ -975,7 +975,7 @@ console.log(window.main)
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter\u003E\r\n  \u003Cdiv style=\"font-size: ${ window.get_font_size() }em; margin-top: -3px;\"\u003E${ window.main.target[parameters.counter + 1] }\u003C\u002Fdiv\u003E\r\n  \u003Cinput style=\"position:absolute; margin-left: -100px\" name=\"answer\" type=\"number\" autofocus required placeholder=\"введите ответ\"\u003E\r\n\u003C\u002Fcenter\u003E\r\n\r\n  ",
+                "content": "\u003Ccenter\u003E\r\n  \u003Cdiv style=\"font-size: ${ window.get_font_size() }em; margin-top: -3px;\"\u003E${ window.main.target[parameters.counter + 1] }\u003C\u002Fdiv\u003E\r\n  \u003Cinput style=\"position:absolute; margin-left: -100px\" name=\"answer\" type=\"number\" oninput=\" if(document.querySelector('#type_answer').value == '') document.querySelector('#type_answer').value = Date.now()\" onfocus=\"document.querySelector('#start_screen').value = Date.now()\" autofocus required placeholder=\"введите ответ\"\u003E\r\n\r\n\u003Cinput type=\"hidden\" name=\"start_screen\" id=\"start_screen\" value=\"\" onload=\"this.value = Date.now()\"\u003E\r\n\u003Cinput type=\"hidden\" name=\"type_answer\" id=\"type_answer\" value=\"\"\u003E\r\n\u003C\u002Fcenter\u003E\r\n\r\n  ",
                 "name": ""
               }
             ],
