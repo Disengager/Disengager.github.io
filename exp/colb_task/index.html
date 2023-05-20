@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Experiment</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.2/math.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+    <script src="static/task.js?version=0.5501374026908541"></script>
+  <script>
+    window.font_size = 28
+    window.font_family = "Sans-serif"
+    window.get_font_size = function() { 
+      let body = document.getElementsByTagName("body")[0];
+      return(
+        ((body.offsetHeight)/386.206).toFixed(2)
+      )
+      }
+  </script>
+
+  <!-- lab.js library and experiment code -->
+  <!-- lab.js library code -->
+  <script src="lib/lab.js" data-labjs-script="library"></script>
+  <script src="lib/lab.fallback.js" data-labjs-script="fallback"></script>
+  <link rel="stylesheet" href="lib/lab.css">
+  <!-- study code and styles -->
+  <script src="script.js" defer="true"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="math_task.css?version=0.9551078929846424"> 
+</head>
+<body>
+  <!-- If you're looking to fill all available browser space,
+       try replacing the class below with "container fullscreen" -->
+  <div class="container fullscreen" data-labjs-section="main">
+    <main class="content-vertical-center content-horizontal-center">
+      <div>
+        <h2>Loading Experiment</h2>
+        <p>The experiment is loading and should start in a few seconds</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
