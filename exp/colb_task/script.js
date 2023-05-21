@@ -389,7 +389,7 @@ console.log(window.main)
             "parameters": {},
             "messageHandlers": {},
             "title": "priming",
-            "timeout": "20"
+            "timeout": "68"
           },
           {
             "type": "lab.canvas.Screen",
