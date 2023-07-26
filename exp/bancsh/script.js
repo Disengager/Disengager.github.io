@@ -247,22 +247,6 @@ console.log(stimules.length)
             "messageHandlers": {},
             "title": "стимулы",
             "tardy": true
-          },
-          {
-            "type": "lab.canvas.Screen",
-            "content": [],
-            "viewport": [
-              800,
-              600
-            ],
-            "files": {},
-            "responses": {
-              "": ""
-            },
-            "parameters": {},
-            "messageHandlers": {},
-            "title": "задержка",
-            "timeout": "36"
           }
         ]
       }
