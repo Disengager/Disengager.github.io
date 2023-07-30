@@ -29,7 +29,7 @@ const study = lab.util.fromObject({
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 600px\"\u003E  \r\n\u003Ch3\u003EИнформированное согласие\u003C\u002Fh3\u003E\r\nИсследовательская группа факультета психологии\r\nСанкт-Петербургского государственного университета\r\nприглашает Вас принять участие в психологическом исследовании, \r\nцелью которого является изучение работы когнитивного бессознательного \r\nна материале буквенных рядов. \u003Cp\u003E\u003Cb\u003EПомните, что:\u003C\u002Fb\u003E\u003Cbr\u003E\r\n•\tВаше участие в исследовании исключительно добровольно.\u003Cbr\u003E\r\n•\tВы можете отказаться от участия на любом этапе.\u003C\u002Fp\u003E\r\n\u003Cp\u003EВсе данные, собранные в ходе исследования, будут обработаны обезличенно. \r\nУчастие в исследовании не предполагает получение респондентом \r\nденежной или материальной компенсации или какой-либо другой \r\nпрямой выгоды. Однако информация, полученная в ходе этого исследования, \r\nможет в будущем принести пользу и Вам, и другим людям.\u003C\u002Fp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EСогласен\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 580px\"\u003E  \r\n\u003Ch3\u003EИнформированное согласие\u003C\u002Fh3\u003E\r\nИсследовательская группа факультета психологии\r\nСанкт-Петербургского государственного университета\r\nприглашает Вас принять участие в психологическом исследовании, \r\nцелью которого является изучение работы когнитивного бессознательного \r\nна материале буквенных рядов. \u003Cp\u003E\u003Cb\u003EПомните, что:\u003C\u002Fb\u003E\u003Cbr\u003E\r\n•\tВаше участие в исследовании исключительно добровольно.\u003Cbr\u003E\r\n•\tВы можете отказаться от участия на любом этапе.\u003C\u002Fp\u003E\r\n\u003Cp\u003EВсе данные, собранные в ходе исследования, будут обработаны обезличенно. \r\nУчастие в исследовании не предполагает получение респондентом \r\nденежной или материальной компенсации или какой-либо другой \r\nпрямой выгоды. Однако информация, полученная в ходе этого исследования, \r\nможет в будущем принести пользу и Вам, и другим людям.\u003C\u002Fp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EСогласен\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
@@ -49,7 +49,7 @@ const study = lab.util.fromObject({
       "items": [
         {
           "type": "text",
-          "content": "\u003Ccenter\u003E\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 500px\"\u003E  \nВам будут продемонстрированы 24 буквенных ряда, каждый из которых состоит из 5 букв.\u003Cp\u003E\nДемонстрация будет произведена \u003Cb\u003Eодин раз.\u003C\u002Fb\u003E\u003Cp\u003E\n\u003Cb\u003EВаша задача - постараться запомнить как можно больше буквенных рядов.\u003C\u002Fb\u003E\u003Cp\u003E\nПозже Вам потребуется опознать продемонстрированные буквенные ряды.\u003Cbr\u003E\u003Cbr\u003E\nЕсли Вам понятны условия, нажмите кнопку \u003Cb\u003E\"Начать\"\u003C\u002Fb\u003E.\u003Cp\u003E\nПосле нажатия кнопки сконцентрируйтесь на крестике в центре экрана, через 1.5 секунды в этом месте начнется демонстрация буквенных рядов.\u003Cp\u003E\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Fcenter\u003E\n"
+          "content": "\u003Ccenter\u003E\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 520px\"\u003E  \nВам будут продемонстрированы 24 буквенных ряда, каждый из которых состоит из 5 букв.\u003Cp\u003E\nДемонстрация ряда будет произведена \u003Cb\u003Eочень быстро\u003C\u002Fb\u003E (меньше секунды) и всего \u003Cb\u003Eодин раз.\u003C\u002Fb\u003E\u003Cp\u003E\n\u003Cb\u003EВаша задача - постараться запомнить как можно больше буквенных рядов.\u003C\u002Fb\u003E\u003Cp\u003E\nПозже Вам потребуется опознать продемонстрированные буквенные ряды.\u003Cbr\u003E\u003Cbr\u003E\nЕсли Вам понятны условия, нажмите кнопку \u003Cb\u003E\"Начать\"\u003C\u002Fb\u003E.\u003Cp\u003E\nПосле нажатия кнопки сконцентрируйтесь на крестике в центре экрана, через 1.5 секунды в этом месте начнется демонстрация буквенных рядов.\u003Cp\u003E\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Fcenter\u003E\n"
         }
       ],
       "scrollTop": true,
@@ -114,12 +114,7 @@ const study = lab.util.fromObject({
         "": ""
       },
       "parameters": {},
-      "messageHandlers": {
-        "before:prepare": function anonymous(
-) {
-console.log(stimules.length)
-}
-      },
+      "messageHandlers": {},
       "title": "Запоминание",
       "indexParameter": "counter",
       "shuffleGroups": [],
@@ -138,7 +133,7 @@ console.log(stimules.length)
             "items": [
               {
                 "type": "text",
-                "content": "\u003Ccenter style=\"color: white;\"\u003E${ stimules.get_tg()[parameters.counter] }\u003C\u002Fcenter\u003E\n"
+                "content": "\u003Ccenter style=\"color: white; font-size: 24px;\"\u003E${ stimules.get_tg()[parameters.counter] }\u003C\u002Fcenter\u003E\n"
               }
             ],
             "scrollTop": true,
@@ -195,7 +190,7 @@ console.log(stimules.length)
       "type": "lab.flow.Loop",
       "templateParameters": [
         {
-          "temp": "1",
+          "tmp": "-",
           "": ""
         }
       ],
@@ -216,6 +211,7 @@ console.log(stimules.length)
       },
       "title": "Узнавание",
       "indexParameter": "counter",
+      "tardy": true,
       "shuffleGroups": [],
       "template": {
         "type": "lab.flow.Sequence",
@@ -231,8 +227,10 @@ console.log(stimules.length)
             "type": "lab.html.Page",
             "items": [
               {
-                "type": "text",
-                "content": "\u003Ccenter\u003E\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\nВидели ли Вы это слово раньше?\n\u003Chr\u003E\n\u003Ccenter\u003E${ stimules.get_all()[parameters.counter] }\u003C\u002Fcenter\u003E\n\u003Chr\u003E\n\u003Cdiv id=\"progressbarcontainer\"\u003E\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ stimules.get_progress(parameters.counter) }%\"\u003E\n    \u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Fdiv\u003E\n\u003Ccenter\u003E\n\n\u003Cdiv class=\"bottom_block\"\u003E\n\u003Cdiv\u003E← Видел(а)\u003C\u002Fdiv\u003E\n\u003Cdiv\u003EНе видел(а) →\u003C\u002Fdiv\u003E \n\u003C\u002Fdiv\u003E"
+                "required": true,
+                "type": "html",
+                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\r\nВидели ли Вы это слово раньше?\r\n\u003Chr\u003E\r\n\u003Ccenter style=\"font-size: 20px;\"\u003E${ stimules.get_all()[parameters.counter] }\u003C\u002Fcenter\u003E\r\n\u003Chr\u003E\r\n\u003Cdiv id=\"progressbarcontainer\"\u003E\r\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ stimules.get_progress(parameters.counter) }%\"\u003E\r\n    \u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\r\n\u003Cdiv class=\"bottom_block\"\u003E\r\n\u003Cdiv\u003E← Видел(а)\u003C\u002Fdiv\u003E\r\n\u003Cdiv\u003EНе видел(а) →\u003C\u002Fdiv\u003E \r\n\u003C\u002Fdiv\u003E",
+                "name": ""
               }
             ],
             "scrollTop": true,
@@ -240,13 +238,19 @@ console.log(stimules.length)
             "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
-              "keydown(ArrowLeft)": "видел",
-              "keydown(ArrowRight)": "не_видел"
+              "keydown(ArrowLeft)": "${ stimules.get_all()[parameters.counter] }",
+              "keydown(ArrowRight)": "-"
             },
             "parameters": {},
-            "messageHandlers": {},
-            "title": "стимулы",
-            "tardy": true
+            "messageHandlers": {
+              "commit": function anonymous(
+) {
+console.log(this.data)
+}
+            },
+            "title": "ответы",
+            "tardy": true,
+            "correctResponse": "${ stimules.is_correct(parameters.counter) == true? stimules.get_all()[parameters.counter] : '-' }"
           }
         ]
       }
@@ -330,8 +334,15 @@ console.log(stimules.length)
         "": ""
       },
       "parameters": {},
-      "messageHandlers": {},
-      "title": "Финал"
+      "messageHandlers": {
+        "run": function anonymous(
+) {
+//список экранов, которые отсылать (чтобы не пладить мусор)
+send_form(this, ["ответы", "Проверка_на_бессознательность", "Анкета"])
+}
+      },
+      "title": "Финал",
+      "timeout": "100"
     }
   ]
 })

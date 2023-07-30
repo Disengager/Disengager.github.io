@@ -79,6 +79,56 @@ var base_stimules = {
 			"Телоп",
 			"Ровет"	
 		],
+		correct: [
+			false,
+			false,
+			true, 
+			true,
+			false,
+			false,
+			false,
+			true,
+			true,
+			true,
+			true,
+			false,
+			false,
+			true,
+			false,
+			true,
+			false,
+			true,
+			true,
+			false,
+			true,
+			false,
+			true,
+			true,
+			false,
+			false,
+			true,
+			false,
+			true,
+			true,
+			false,
+			false,
+			true,
+			true,
+			false,
+			true,
+			false,
+			false,
+			true,
+			true,
+			false,
+			false,
+			false,
+			false,
+			true,
+			true,
+			true,
+			false
+		],
 		get_progress: function(counter) {
 			return(counter / this.get_all().length * 100)
 		},
@@ -88,8 +138,9 @@ var base_stimules = {
 		get_all: function() {
 			return(this.check)
 		},
-
-
+		is_correct: function(counter) {
+			return(this.correct[counter])
+		},
 	},
 	'2': {
 		targets: [
@@ -168,6 +219,56 @@ var base_stimules = {
 			"Намеп",
 			"Расеп"	
 		],
+		correct: [
+			true,
+			true,
+			true,
+			false,
+			false,
+			true,
+			false,
+			true,
+			false,
+			true,
+			false,
+			false,
+			true,
+			false,
+			true,
+			true,
+			true,
+			false,
+			false,
+			false,
+			true,
+			false,
+			true,
+			false,
+			false,
+			true,
+			true,
+			false,
+			true,
+			false,
+			false,
+			false,
+			true,
+			false,
+			true,
+			true,
+			false,
+			false,
+			true,
+			true,
+			true,
+			false,
+			true,
+			false,
+			false,
+			true,
+			false,
+			true
+		],
 		get_progress: function(counter) {
 			return(counter / this.get_all().length * 100)
 		},
@@ -177,12 +278,15 @@ var base_stimules = {
 		get_all: function() {
 			return(this.check)
 		},
-	
+		is_correct: function(counter) {
+			return(this.correct[counter])
+		},
 	}
 }
 //выбранна последовательность 
 var stimules = [],
-	params = {};
+	params = {}, 
+	seq = 1;
 
 //при старте страницы	
 	params = window
@@ -201,6 +305,43 @@ var stimules = [],
 
 if(params['cb'] == undefined)
 	stimules = base_stimules['1']
-else
+else {
 	stimules = base_stimules[params['cb']];
+	seq = params['cb'];
+}
 
+
+
+function send_form(th, select) {
+	let data = th.options.datastore.data,
+		result = [];
+
+	for(ind in data) {
+		for(ind2 in select) 
+			if(data[ind].sender == select[ind2])
+				result.push(data[ind])
+	}
+	
+
+	let xmlhttp = new XMLHttpRequest(),
+    	slice_formdata = new FormData(),
+    	the_url = "https://script.google.com/macros/s/AKfycby5FURuthB-aNu2R5MpfXi13WWv85Mc9Jww7WeKRsa3PMtAl_C51iFmhep337xrUjA3/exec";
+    
+    slice_formdata.append('seq', seq);
+    slice_formdata.append('data', JSON.stringify(result));
+
+    /*		
+	xmlhttp.onreadystatechange = function() {
+	    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+	      if(xmlhttp.responseText == 'NO USER') {
+	        window.params['key'] = 'NO USER'
+	      } else {
+	        let data = JSON.parse(xmlhttp.responseText)
+	        window.counterbalancing_list = data
+	      }
+	    }
+	}
+	*/
+	xmlhttp.open("POST", the_url, false);
+	xmlhttp.send(slice_formdata);
+}
