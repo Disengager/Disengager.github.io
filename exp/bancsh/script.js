@@ -238,8 +238,8 @@ console.log(stimules.length)
             "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
-              "keydown(ArrowLeft)": "${ stimules.get_all()[parameters.counter] }",
-              "keydown(ArrowRight)": "-"
+              "keydown(ArrowLeft)": "${ stimules.get_all()[parameters.counter] }||+",
+              "keydown(ArrowRight)": "${ stimules.get_all()[parameters.counter] }||-"
             },
             "parameters": {},
             "messageHandlers": {
@@ -250,7 +250,7 @@ console.log(this.data)
             },
             "title": "ответы",
             "tardy": true,
-            "correctResponse": "${ stimules.is_correct(parameters.counter) == true? stimules.get_all()[parameters.counter] : '-' }"
+            "correctResponse": "${ stimules.is_correct(parameters.counter) == true? (stimules.get_all()[parameters.counter] + \"||+\") : (stimules.get_all()[parameters.counter] + '||-') }"
           }
         ]
       }
@@ -338,7 +338,7 @@ console.log(this.data)
         "run": function anonymous(
 ) {
 //список экранов, которые отсылать (чтобы не пладить мусор)
-send_form(this, ["ответы", "Проверка_на_бессознательность", "Анкета"])
+send_form(this, ["ответы"], ["Проверка_на_бессознательность"], ["Анкета"])
 }
       },
       "title": "Финал",

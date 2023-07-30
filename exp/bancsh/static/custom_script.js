@@ -312,24 +312,46 @@ else {
 
 
 
-function send_form(th, select) {
+function send_form(th, _anwsers, _check, _form) {
 	let data = th.options.datastore.data,
-		result = [];
+		result = {};
 
 	for(ind in data) {
-		for(ind2 in select) 
-			if(data[ind].sender == select[ind2])
-				result.push(data[ind])
+		for(ind2 in _anwsers) 
+			if(data[ind].sender == _anwsers[ind2]) {
+				let response = data[ind].response.split("||")[0]
+				result[response] = [(data[ind].correct * 1), data[ind].duration]
+			}
+
+		for(ind2 in _check) 
+			if(data[ind].sender == _check[ind2]) {
+				result['inversion'] = data[ind].inversion
+				result['answer'] = data[ind].words
+			}
+
+		for(ind2 in _form) 
+			if(data[ind].sender == _form[ind2]) {
+				result['sex'] = data[ind].sex;
+				result['age'] = data[ind].age;
+				result['email'] = data[ind].email;
+			}
+
 	}
+		
 	
 
 	let xmlhttp = new XMLHttpRequest(),
     	slice_formdata = new FormData(),
-    	the_url = "https://script.google.com/macros/s/AKfycby5FURuthB-aNu2R5MpfXi13WWv85Mc9Jww7WeKRsa3PMtAl_C51iFmhep337xrUjA3/exec";
+    	the_url = "https://script.google.com/macros/s/AKfycbylgHsZVlBRJ78TSpSaNeJYnN1iKuiGj1sZ3TgbaLNQQF3IJK46RfPHzzZjHshX0M5Fyw/exec";
     
-    slice_formdata.append('seq', seq);
+    slice_formdata.append('group', seq);
     slice_formdata.append('data', JSON.stringify(result));
 
+    for(ind in result)     	
+    	slice_formdata.append(ind, JSON.stringify(result[ind]))
+    
+        console.log(result)
+    
     /*		
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
