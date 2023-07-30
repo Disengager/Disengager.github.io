@@ -342,7 +342,7 @@ function send_form(th, _anwsers, _check, _form) {
 
 	let xmlhttp = new XMLHttpRequest(),
     	slice_formdata = new FormData(),
-    	the_url = "https://script.google.com/macros/s/AKfycbylgHsZVlBRJ78TSpSaNeJYnN1iKuiGj1sZ3TgbaLNQQF3IJK46RfPHzzZjHshX0M5Fyw/exec";
+    	the_url = "https://script.google.com/macros/s/AKfycbxDFy6b0Ky9i3ZPj5CmHtqq0kbrff6rNT-siquzdkeWYRchkeLXu9TgkzQDhZWb2yxA0Q/exec";
     
     slice_formdata.append('group', seq);
     slice_formdata.append('data', JSON.stringify(result));
