@@ -1,0 +1,175 @@
+/* Please define your custom styles here */
+body {
+  background-color: #0f131a;
+}
+.container {
+  border: none;
+}
+.w-m {
+  max-width: 700px;
+}
+.bottom_block div {
+  border-radius: 5px;
+  padding: 5px;
+  color: #ffffff7d;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+/* 3 */
+.btn-3 {
+  background: rgb(0,172,238);
+background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  
+}
+.custom_select {
+  background: rgb(0,172,238);
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 100px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  color: #11263d;
+  font-weight: 700;
+  text-align: center;
+}
+.custom_select:hover {
+  color: black;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover{
+   color: rgba(2,126,251,1);
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+#progressbarcontainer{
+  position: relative;
+  margin: 2% 15%;
+  width: 70%;
+  height: 8px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #dddddd;
+  padding: 1px;
+  box-shadow: 0 0 2px #153687;
+  cursor: pointer;
+}
+#divtext{
+    position: relative;
+    margin: 5% 15% 0% 15%;
+    width: 70%;
+    color: #ffffff;
+    -webkit-transition: color .5s; 
+    transition: color .5s;
+}
+#progressbar{
+  position: absolute;
+  z-index: 1;
+  width: 0%;
+  margin: 0;
+  left: 0;
+  right: auto;
+  height: 100%;
+  background-color: #0468ff;
+  -webkit-transition: width .5s;
+  transition: width .5s;
+  box-shadow: 0 0 3px #0468ff;
+}
+.detect_card {
+  background-color: #0f131a;
+  color:white;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  width: 300px;
+  height: 500px;
+  padding: 20px;
+}
+
+.bottom_block {
+  position: fixed;
+  width: 261px;
+  margin: 5% auto; /* Only centers horizontally not vertically! */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.bottom_block div {
+  padding: 10px;
+}
