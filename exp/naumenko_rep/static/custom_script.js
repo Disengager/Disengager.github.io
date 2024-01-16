@@ -194,7 +194,7 @@ var sizes = {
 		return Math.abs(this.size_px)
 	},
 	stimules_size: function() {
-		return sizes.size_px / 12
+		return sizes.size_px / 14.384615384615385
 	}
 }
 
