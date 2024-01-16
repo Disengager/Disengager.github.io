@@ -95,7 +95,7 @@ class Stim {
 	}
 	read_csv(link) {
 		let xhr = new XMLHttpRequest();
-
+		setTimeout(() => {  console.log("Пауза 1"); }, 2000);
 		xhr.open("GET", link)
 		xhr.send();
 
@@ -117,7 +117,7 @@ class Stim {
 					share.push(tmp)
 			}
 
-		  console.log("test read csv")
+		  	console.log("test read csv")
 			console.log(share)
 			stimules.targets = share
 		};  
