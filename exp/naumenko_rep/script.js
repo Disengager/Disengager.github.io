@@ -110,6 +110,7 @@ size.paint()
       "parameters": {},
       "messageHandlers": {},
       "title": "Последовательность",
+      "tardy": true,
       "indexParameter": "counter",
       "shuffleGroups": [],
       "template": {
