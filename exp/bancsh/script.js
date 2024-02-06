@@ -229,7 +229,7 @@ console.log(stimules.length)
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\r\nВидели ли Вы это слово раньше?\r\n\u003Chr\u003E\r\n\u003Ccenter style=\"font-size: 20px;\"\u003E${ stimules.get_all()[parameters.counter] }\u003C\u002Fcenter\u003E\r\n\u003Chr\u003E\r\n\u003Cdiv id=\"progressbarcontainer\"\u003E\r\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ stimules.get_progress(parameters.counter) }%\"\u003E\r\n    \u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\r\n\u003Cdiv class=\"bottom_block\"\u003E\r\n\u003Cdiv\u003E← Видел(а)\u003C\u002Fdiv\u003E\r\n\u003Cdiv\u003EНе видел(а) →\u003C\u002Fdiv\u003E \r\n\u003C\u002Fdiv\u003E",
+                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\r\nВидели ли Вы раньше этот стимул?\r\n\u003Chr\u003E\r\n\u003Ccenter style=\"font-size: 20px;\"\u003E${ stimules.get_all()[parameters.counter] }\u003C\u002Fcenter\u003E\r\n\u003Chr\u003E\r\n\u003Cdiv id=\"progressbarcontainer\"\u003E\r\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ stimules.get_progress(parameters.counter) }%\"\u003E\r\n    \u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\r\n\u003Cdiv class=\"bottom_block\"\u003E\r\n\u003Cdiv\u003E← Видел(а)\u003C\u002Fdiv\u003E\r\n\u003Cdiv\u003EНе видел(а) →\u003C\u002Fdiv\u003E \r\n\u003C\u002Fdiv\u003E",
                 "name": ""
               }
             ],
@@ -261,49 +261,7 @@ console.log(this.data)
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 460px; height: 250px\"\u003E\r\nВ настоящем исследовании наряду с бессмысленными буквенными рядами были использованы зашифрованные \u003Cb\u003Eслова-инверсии\u003C\u002Fb\u003E (слова, написанные наоборот)\u003Cp\u003EПример слова-инверсии: \u003Cb style=\"color:rgba(69, 192, 250, 1)\"\u003Eакызум – музыка.\u003C\u002Fb\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
-          "name": ""
-        }
-      ],
-      "scrollTop": true,
-      "submitButtonText": "Continue →",
-      "submitButtonPosition": "hidden",
-      "files": {},
-      "responses": {
-        "": ""
-      },
-      "parameters": {},
-      "messageHandlers": {},
-      "title": "Инструкция_3"
-    },
-    {
-      "type": "lab.html.Page",
-      "items": [
-        {
-          "required": true,
-          "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 430px; height: 450px\"\u003E\r\nСкажите, заметили ли Вы, что некоторые из предъявленных Вам стимулов в обратном прочтении образуют реальные слова?\u003Cbr\u003E\r\n\u003Cselect class=\"custom-btn custom_select\" name=\"inversion\"\u003E\r\n  \u003Coption value=\"yes\" selected\u003EДа\u003C\u002Foption\u003E\r\n  \u003Coption value=\"no\"\u003EНет\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\r\n\u003Cp\u003EЕсли да, будьте добры, постарайтесь написать через запятую те зашифрованные слова, которые Вам удалось заметить.\u003Cp\u003E\r\n\u003Ctextarea name=\"words\" cols=\"40\" rows=\"3\"\u003E\u003C\u002Ftextarea\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
-          "name": ""
-        }
-      ],
-      "scrollTop": true,
-      "submitButtonText": "Continue →",
-      "submitButtonPosition": "hidden",
-      "files": {},
-      "responses": {
-        "": ""
-      },
-      "parameters": {},
-      "messageHandlers": {},
-      "title": "Проверка_на_бессознательность"
-    },
-    {
-      "type": "lab.html.Page",
-      "items": [
-        {
-          "required": true,
-          "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 470px; height:  430px\"\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"email\"\u003EТакже Вы можете указать свою почту в поле ниже, дабы мы могли связаться с Вами и пригасить на следующий эксперимент.\u003C\u002Flabel\u003E\u003Cp\u003E\r\n\u003Cinput type=\"email\" name=\"email\"\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EЗакончить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 470px; height:  430px\"\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"email\"\u003EПочта: \u003C\u002Flabel\u003E\u003Cp\u003E\r\n\u003Cinput type=\"email\" required name=\"email\"\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EЗакончить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
