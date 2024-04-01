@@ -1,0 +1,152 @@
+p10 {
+	font-size: 35px;
+	color: #df0505;	
+}
+
+p11 {
+	font-size: 30px;
+	color: #000000;	
+}
+
+.text_input {
+	width: 350px;
+}
+#aha{
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%,-50%)
+}
+#yesno{
+	position: fixed;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%,-50%)
+}
+
+#how1{
+	position: fixed;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%,-50%)
+}
+
+#how2{
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%,-50%);}
+
+p1{
+	font-size: 80px;
+}
+
+p2 {
+  font-size: 35px;
+}
+
+p3{
+	font-size: 16px	
+}
+
+p4{
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+p5{
+	font-size: 20px;
+}
+
+p6{
+	font-size: 30px;
+	color: #717d88;
+}
+
+p7 {
+	font-size: 30px
+}
+
+p8{
+	font-size: 30px;
+	color: #000000;
+}
+
+img{
+	width: 700px;
+}
+
+#counter{
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	top: 80%;
+	background-color: rgb(255, 255, 255);
+	border-color: #FFFFFF;
+}
+
+#triad2{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%)
+}
+
+.container{
+	position: fixed;
+}
+.slider {
+	position: absolute;
+	background: #FFFFFF;
+	border-radius: 8px;
+	width: 800px;
+	height: 50px;
+}
+
+output {
+	position: absolute;
+	left: 400px;
+	top: -20px;
+	transform: translate(-50%,-50%);
+	padding: 10px 14px;
+	background: #000000;
+	color: #fff;
+	border-radius: 5px 5px 5px 5px;
+	font-weight: bold;
+}
+
+#fader {
+	position: relative;
+	width: 800px;
+	height: 40px;
+	background: linear-gradient(90deg, green, yellow, red);
+	-webkit-appearance: none;
+	outline: none;
+	border-radius: 6px;
+}
+
+#fader::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background: #000000;
+}
+
+#filler{
+	color: #FFFFFF;
+}
+
+#box1{
+	position: fixed;
+	left: 50%;
+	top: 65%;
+	transform: translate(-50% -50%)
+}
+
+#box2{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50% -50%)
+}
