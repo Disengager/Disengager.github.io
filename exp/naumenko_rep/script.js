@@ -10,12 +10,12 @@ const study = lab.util.fromObject({
     },
     {
       "type": "lab.plugins.Download",
-      "filePrefix": "naumenko_rep",
+      "filePrefix": "rep",
       "path": undefined
     }
   ],
   "metadata": {
-    "title": "naumenko_rep",
+    "title": "rep",
     "description": "",
     "repository": "",
     "contributors": ""
@@ -78,8 +78,10 @@ size.paint()
       "type": "lab.html.Page",
       "items": [
         {
-          "type": "text",
-          "content": "\u003Ccenter\u003E\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height: 480px\"\u003E  \n${ window.instruction }\n\u003Cp\u003E\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\n\u003C\u002Fdiv\u003E\n\u003C\u002Fcenter\u003E\n"
+          "required": true,
+          "type": "html",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height: 585px;\"\u003E  \r\n${ window.instruction }\r\n\u003Cp\u003E\r\n  Ограничение на ответ - 2.5 секунды. \r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "name": ""
         }
       ],
       "scrollTop": true,
@@ -108,7 +110,16 @@ size.paint()
         "": ""
       },
       "parameters": {},
-      "messageHandlers": {},
+      "messageHandlers": {
+        "run": function anonymous(
+) {
+document.body.style.cursor = 'none';
+},
+        "end": function anonymous(
+) {
+document.body.style.cursor = 'default';
+}
+      },
       "title": "Последовательность",
       "tardy": true,
       "indexParameter": "counter",
@@ -122,6 +133,7 @@ size.paint()
         "parameters": {},
         "messageHandlers": {},
         "title": "Секвенция",
+        "plugins": [],
         "content": [
           {
             "type": "lab.canvas.Screen",
@@ -274,6 +286,7 @@ stimules.fill_custom_column(
 }
             },
             "title": "Стимулы *код",
+            "timeout": "2500",
             "tardy": true
           },
           {
@@ -294,7 +307,16 @@ stimules.fill_custom_column(
               "keydown(Enter)": "Enter"
             },
             "parameters": {},
-            "messageHandlers": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'default';
+},
+              "end": function anonymous(
+) {
+document.body.style.cursor = 'none';
+}
+            },
             "title": "Тренировка",
             "skip": "${ parameters.counter != 1 }"
           }
@@ -329,7 +351,7 @@ stimules.fill_custom_column(
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  350px\"\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EОтправить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  350px\"\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EОтправить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
@@ -349,8 +371,10 @@ stimules.fill_custom_column(
       "type": "lab.html.Page",
       "items": [
         {
-          "type": "text",
-          "content": "\u003Ccenter\u003E\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  200px\"\u003E\n\u003Ch3\u003EБлагодарим за участие в эксперименте!\u003C\u002Fh3\u003E\n\u003Cp\u003EКоличество правильных ответов: ${ right_answers }. Количество неправильных: ${ wrong_answers }.\n\u003C\u002Fdiv\u003E\n\u003C\u002Fcenter\u003E"
+          "required": true,
+          "type": "html",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  200px\"\u003E\r\n\u003Ch3\u003EБлагодарим за участие в эксперименте!\u003C\u002Fh3\u003E\r\n\u003Cp\u003EКоличество правильных ответов: ${ right_answers }. Количество неправильных: ${ wrong_answers }.\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "name": ""
         }
       ],
       "scrollTop": true,
