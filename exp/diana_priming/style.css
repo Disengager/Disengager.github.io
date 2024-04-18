@@ -1,0 +1,22 @@
+/* Please define your custom styles here */
+
+.prob {
+  font-size: 30px; 
+  font-weight: 600;
+}
+
+.prob .target {
+  letter-spacing: 50px; 
+  color: red;
+}
+
+.prob .distractor {
+  margin-top: -25px; 
+  margin-left: 70px; 
+  letter-spacing: 50px; 
+  color: #16b816;
+}
+
+button {
+  cursor: pointer;
+}
