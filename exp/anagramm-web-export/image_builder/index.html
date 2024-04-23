@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="jquery-3.7.1.slim.js" 
+			integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+			crossorigin="anonymous"></script>
+	<script src="html2canvas.min.js"></script>
+	<title>Image Builder</title>
+	<style type="text/css">
+		body {
+			width: 100%;
+			height: 100%;
+			font-family: arial;
+		}
+		#image_1 {
+			width: 720px;
+			height: 720px;
+			background: url('template_1.jpg');
+		}
+		#image_1 div, #image_2 div {
+			font-size: 60px;
+			width: 60px;
+    		height: 60px;
+			text-align: center;
+			position: absolute;
+			text-transform: uppercase;
+		}
+		#image_1 .ch_1 {
+		    top: 175px;
+		    left: 337px;
+		}
+		#image_1 .ch_2 {
+		    top: 295px;
+    		left: 554px;
+		}
+		#image_1 .ch_3 {
+		    top: 504px;
+    		left: 554px;
+		}
+		#image_1 .ch_4 {
+ 			top: 618px;
+    		left: 337px;
+		}
+		#image_1 .ch_5 {
+	       top: 504px;
+ 		   left: 119px;
+		}
+		#image_1 .ch_6 {
+			top: 295px;
+	    	left: 119px;
+		}
+		#image_2 {
+			width: 720px;
+			height: 720px;
+			background: url('template_2.jpg');
+		}
+		#image_2 .ch_1 {
+		    top: 205px;
+    		left: 1055px;
+		}
+		#image_2 .ch_2 {
+		    top: 380px;
+    		left: 1290px;
+		}
+		#image_2 .ch_3 {
+		    top: 609px;
+    		left: 1182px;
+		}
+		#image_2 .ch_4 {
+ 			top: 609px;
+    		left: 931px;
+		}
+		#image_2 .ch_5 {
+	        top: 380px;
+    		left: 823px;
+		}
+		.screen {
+			display: flex;
+		}
+		.block_title {
+			width: 100%;
+			text-align: center;
+		}
+		.block {
+			border: 1px solid #efefef;
+		}
+		.form {
+			width: 100%;
+			text-align: center;
+		}
+		.form input[type=text]{
+			padding: 5px;
+		}
+		.form input[type=button]{
+			padding: 5px;
+		}
+		#output_1, #output_2 {
+			display: none;
+		}
+		a {
+			appearance: auto;
+		    user-select: none;
+		    align-items: flex-start;
+		    text-align: center;
+		    box-sizing: border-box;
+		    background-color: buttonface;
+		    color: buttontext;
+		    white-space: pre;
+		    padding-block: 1px;
+		    padding-inline: 6px;
+		    border-width: 2px;
+		    border-style: outset;
+		    border-color: buttonborder;
+		    border-image: initial;
+		    padding: 5px;
+		    border: 1px solid black;
+		    border-radius: 3px;
+		    font-size: 14px;
+		    cursor: pointer;
+		}
+	</style>
+	<script>
+		function ch_6_translate(cls, len) {
+			let text = $('#text_input_' + cls)[0].value;
+			console.log(text)
+			for (var i = 0; i <= len; i++) {
+				let j = i + 1
+				$('#image_' + cls + ' .ch_' + j).html(text[i]);	
+			}
+			toCanvas(cls)
+		}
+
+		function toCanvas(cls) {
+            let div = $('#image_' + cls)[0];
+            $('#output_' + cls).html('');
+ 
+            html2canvas(div).then(
+                function (canvas) {
+                	$('#output_' + cls)[0].appendChild(canvas);
+
+                	let link = $('#text_save_' + cls)[0];
+                	link.href = $('#output_' + cls + ' canvas')[0].toDataURL()
+                	link.download = $('#text_input_' + cls)[0].value + '.jpg'
+                })
+        }
+        
+	</script>
+</head>
+<body>
+	<div class="screen">
+		<div class="block">
+			<div class="block_title"><h2>6 буквенные</h2></div>
+			<div id="image_1" class="image_cls">
+				<div class="ch_1">-</div>
+				<div class="ch_2">-</div>
+				<div class="ch_3">-</div>
+				<div class="ch_4">-</div>
+				<div class="ch_5">-</div>
+				<div class="ch_6">-</div>
+			</div>
+			<div class="form">
+				<input type="text" id="text_input_1">
+				<input type="button" value="Преобразовать" onclick="ch_6_translate(1, 6);">
+				<a id="text_save_1" download>Скачать</a>
+			</div>
+		</div>
+		<div class="block">
+			<div class="block_title"><h2>5 буквенные</h2></div>
+			<div id="image_2" class="image_cls">
+				<div class="ch_1">1</div>
+				<div class="ch_2">2</div>
+				<div class="ch_3">3</div>
+				<div class="ch_4">4</div>
+				<div class="ch_5">5</div>
+			</div>
+			<div class="form">
+				<input type="text" id="text_input_2">
+				<input type="button" value="Преобразовать" onclick="ch_6_translate(2, 5);">
+				<a id="text_save_2" download>Скачать</a>
+			</div>
+		</div>
+	</div>
+    <div id="output_1"></div>
+    <div id="output_2"></div>
+</body>
+</html>
