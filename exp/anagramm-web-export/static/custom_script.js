@@ -42,7 +42,7 @@ stimules.fill_custom_column(this, ["prime", "targets_category", "correct", "colo
 */
 
 
-var the_url = "https://script.google.com/macros/s/AKfycbxlgAk52ChBGg5iEdwDmJxshYRpjK_expx4shb_b2-nBbAWZ9-xuCmIXyGu2BI_Da5G/exec" //куда отправлять результаты
+var the_url = "https://script.google.com/macros/s/AKfycbz4syJfKuzUFXyTmD07wXHddLIx2IEHhoWCqxg4KgjdiHfPaWzGsKoCq2x7jaVmBiPt/exec" //куда отправлять результаты
 let seq_n = 1, //номер последовательности по дефолту
 		links = { //ссылки на последовательности
 			1: 'static/sequence_1.csv', 
