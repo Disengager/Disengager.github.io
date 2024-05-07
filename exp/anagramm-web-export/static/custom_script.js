@@ -44,6 +44,7 @@ stimules.fill_custom_column(this, ["prime", "targets_category", "correct", "colo
 
 var the_url = "https://script.google.com/macros/s/AKfycbz4syJfKuzUFXyTmD07wXHddLIx2IEHhoWCqxg4KgjdiHfPaWzGsKoCq2x7jaVmBiPt/exec" //куда отправлять результаты
 let seq_n = 1, //номер последовательности по дефолту
+		block_seq = [0,1,2,3] //последовательность предъявления блоков
 		links = { //ссылки на последовательности
 			1: 'static/sequence_1.csv', 
 			2: 'static/sequence_2.csv',
@@ -222,6 +223,48 @@ class Stim {
 	},
 	*/
 }
+const codec = 'audio/ogg; codecs=opus'
+var setupRecorder = function(stream, stop_event) {
+  console.log("Preparing recorder...");
+  
+  let mediaRecorder = new MediaRecorder(stream);
+  let chunks = []; 
+  
+  mediaRecorder.onstart = function() {
+    console.log("Recording started...");
+  }
+
+  mediaRecorder.onstop = async function(e) {
+    console.log("Recording stopped...");
+    let c = this.c;
+
+    blobToAudio = (blob) => {
+      return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+
+        reader.readAsDataURL(blob);
+      })
+    }
+    const blob = new Blob(chunks, { 'type' : codec });
+    let audio = await blobToAudio(blob);
+    console.log(c)
+    c.options.datastore.set('audio', audio);
+    console.log("data stored...");
+    console.log(audio);
+    if(stop_event != false) c.end(reason = stop_event);
+    console.log('stop')
+  }
+
+  mediaRecorder.ondataavailable = function(e) {
+    chunks.push(e.data);
+  }
+
+  return(mediaRecorder);
+}
+
 
 var sizes = {
 	card_width: 600,
@@ -232,6 +275,12 @@ var sizes = {
 	canvas_hight: 0,
 	get_size_px: function() {
 		return Math.abs(this.size_px)
+	},
+	get_font_size: function() {
+		return this.get_size_px() / 3.85
+	},
+	get_img_size: function() {
+		return this.get_size_px() * 2.33
 	},
 	stimules_size: function() {
 		return sizes.size_px / 11.333333333333334
@@ -307,30 +356,40 @@ var params = {};
 if(params['cb'] != undefined)
 	seq_n = params['cb'] * 1
 
+if(params['block_seq'] != undefined) {
+	block_seq = params['block_seq'].split('.').map(function(item) {
+    return parseInt(item);
+	});
+}
+
+
 var stimules = new Stim(links[seq_n]),
 		block = {}
 
-
-
 function onloadstim() {
-	block = {
-			0: {
-				stimules: stimules.filter({'RUN': 'Run0'}).shuffle_stim(),
-				info: 'Тренировка окончена, если у вас есть вопросы, можете задать их.'
-			},
-			1: {
-				stimules: stimules.filter({'RUN': 'Run1'}).shuffle_stim().add_jitter(),
-				info: 'Первый блок окончен, можете передохнуть, осталось два блока. '
-			},
-			2: {
-				stimules: stimules.filter({'RUN': 'Run2'}).shuffle_stim().add_jitter(),
-				info: 'Второй блок окончен, можете передохнуть, остался один блок. ',
-			},
-			3: {
-				stimules: stimules.filter({'RUN': 'Run3'}).shuffle_stim().add_jitter(),
-				info: 'На этом окончается основная часть исследования, не могли бы вы....'
-			}
-		};
+
+	block = {}
+	block[0] = {
+			stimules: stimules.filter({'RUN': 'Run' + block_seq[0]}).shuffle_stim(),
+			info: 'Тренировка окончена, если у вас есть вопросы, можете задать их. Когда будете готовы, нажмите «ПРОБЕЛ», чтобы перейти ко третьему блоку. '
+	}
+	block[1] = {
+		stimules: stimules.filter({'RUN': 'Run' + block_seq[1]}).shuffle_stim().add_jitter(),
+		info: 'Вы успешно завершили первый блок! Если возникли какие-либо проблемы обратитесь к экспериментатору. У вас есть несколько минут, чтобы отдохнуть. Когда будете готовы, нажмите «ПРОБЕЛ», чтобы перейти ко второму блоку. '
+	}
+	block[2] = {	
+		stimules: stimules.filter({'RUN': 'Run' + block_seq[2]}).shuffle_stim().add_jitter(), 
+		info: 'Вы успешно завершили второй блок! Если возникли какие-либо проблемы обратитесь к экспериментатору. У вас есть несколько минут, чтобы отдохнуть. Когда будете готовы, нажмите «ПРОБЕЛ», чтобы перейти ко третьему блоку. ',
+	}
+	block[3] = {	
+		stimules: stimules.filter({'RUN': 'Run' + block_seq[3]}).shuffle_stim().add_jitter(),
+		info: 'На этом основная часть исследования закончена, в завершении необходимо ответить на несколько вопросов. Нажмите «ПРОБЕЛ», чтобы завершить исследование. '
+	}
 }
 
+
+
+
+
 window.font_size = 24;
+

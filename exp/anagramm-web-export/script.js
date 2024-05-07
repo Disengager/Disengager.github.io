@@ -29,7 +29,28 @@ const study = lab.util.fromObject({
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height: 520px\"\u003E  \r\n\u003Ch3\u003EИнформированное согласие\u003C\u002Fh3\u003E\r\nЗдравствуйте. Приглашаем Вас принять участие в психологическом исследовании.\r\n\u003Cp\u003E\u003Cb\u003EПомните, что:\u003C\u002Fb\u003E\u003Cbr\u003E\r\n•\tВаше участие в исследовании исключительно добровольно.\u003Cbr\u003E\r\n•\tВы можете отказаться от участия на любом этапе.\u003C\u002Fp\u003E\r\n\u003Cp\u003EВсе данные, собранные в ходе исследования, будут обработаны обезличенно. \r\nУчастие в исследовании не предполагает получение респондентом \r\nденежной или материальной компенсации или какой-либо другой \r\nпрямой выгоды. Однако информация, полученная в ходе этого исследования, \r\nможет в будущем принести пользу и Вам, и другим людям.\u003C\u002Fp\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EСогласен\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter style=\"width: 1000px; font-size: ${ sizes.get_font_size() * 0.6 }px\"\u003E\r\nЗдравствуйте!\u003Cbr\u003E Cпасибо, что согласились принять участие во втором этапе исследования.\r\n\u003Cbr\u003E\u003Cbr\u003E\r\n\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E",
+          "name": ""
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonPosition": "hidden",
+      "files": {},
+      "responses": {
+        "keydown(Enter)": "Enter"
+      },
+      "parameters": {},
+      "messageHandlers": {},
+      "title": "Приветствтие",
+      "tardy": true
+    },
+    {
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "required": true,
+          "type": "html",
+          "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size() * 0.5 }px\"\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height: auto;\" \u003E\r\n\u003Clabel for=\"id\"\u003EВведите id:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"id\" name=\"id\" required autofocus\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EОтправить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
@@ -38,12 +59,17 @@ const study = lab.util.fromObject({
       "submitButtonPosition": "hidden",
       "files": {},
       "responses": {
-        "keydown(Enter)": "Enter"
+        "": ""
       },
       "parameters": {},
-      "messageHandlers": {},
-      "title": "Информированное согласие",
-      "plugins": []
+      "messageHandlers": {
+        "end": function anonymous(
+) {
+this.state['группа'] = seq_n
+}
+      },
+      "title": "Анкета",
+      "tardy": true
     },
     {
       "type": "lab.html.Page",
@@ -51,7 +77,38 @@ const study = lab.util.fromObject({
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height: 585px;\"\u003E  \r\nИсследование направлено на решение анаграмм. \r\n\u003Cp\u003E\r\n  Ограничение на ответ - 22 секунды. \r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv\u003E  \r\n\u003Cdiv style=\"font-size: ${ sizes.get_font_size() * 0.6 }px\"\u003E  \r\nВ целях обеспечения корректного отображения элементов на экране необходима небольшая калибровка.\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccanvas id=\"size_canv\" width=\"556\" height=\"40\"\u003E\u003C\u002Fcanvas\u003E\r\n\u003Cdiv class=\"size_card\"\u003E\r\n  \u003Cimg src=\"${ this.files['card3-img.png'] }\" style=\"opacity: 90%;\"\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\" focus\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
+          "name": ""
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Continue →",
+      "submitButtonPosition": "hidden",
+      "files": {
+        "card3-img.png": "embedded\u002Fd8beb294039271d46c8fbb4a61fa2f05cd035b9e5167cb0a1455ce6e08b690df.png"
+      },
+      "responses": {
+        "": ""
+      },
+      "parameters": {},
+      "messageHandlers": {
+        "run": function anonymous(
+) {
+window.size  = new Size(40, "size_canv")
+size.paint()
+}
+      },
+      "title": "Размеры *код",
+      "plugins": [],
+      "tardy": true
+    },
+    {
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "required": true,
+          "type": "html",
+          "content": "\u003Ccenter style=\"width: 1000px; font-size: ${ sizes.get_font_size() * 0.4 }px; text-align: left\"\u003E\r\n\u003Cp\u003EПожалуйста, ознакомьтесь с инструкцией. \r\nНа данном этапе Вам будет предложено решать анаграммы. Анаграммы представляют собой наборы букв, расположенных по кругу, из которых нужно составить слово.  \u003C\u002Fp\u003E\r\n\r\n\u003Cp\u003EВсего будет 78 анаграмм, Вам необходимо решать их как можно быстрее, максимум на решение каждой отводится 20 секунд. Чтобы дать ответ, нажмите «ПРОБЕЛ» и назовите ответ вслух. Время на ответ - 5 секунд. \u003C\u002Fp\u003E\r\n\r\n\r\n\u003Cbr\u003E\r\nНажмите «ПРОБЕЛ», чтобы перейти дальше. \r\n\r\n\u003C\u002Fcenter\u003E\r\n",
           "name": ""
         }
       ],
@@ -59,46 +116,33 @@ const study = lab.util.fromObject({
       "submitButtonPosition": "hidden",
       "files": {},
       "responses": {
-        "keydown(Enter)": "Enter"
+        "keydown(Space)": "Space"
       },
       "parameters": {},
       "messageHandlers": {},
-      "title": "Инструкция"
+      "title": "Инструкция_1",
+      "tardy": true
     },
     {
-      "type": "lab.canvas.Screen",
-      "content": [
+      "type": "lab.html.Page",
+      "items": [
         {
-          "type": "i-text",
-          "left": 0,
-          "top": 0,
-          "angle": 0,
-          "width": 18.69,
-          "height": 36.16,
-          "stroke": null,
-          "strokeWidth": 1,
-          "fill": "black",
-          "text": "+",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-          "fontSize": 32,
-          "fontFamily": "sans-serif",
-          "lineHeight": 1.16,
-          "textAlign": "center"
+          "required": true,
+          "type": "html",
+          "content": "\u003Ccenter style=\"width: 1000px; font-size: ${ sizes.get_font_size() * 0.4 }px; text-align: left\"\u003E\r\n  \u003Cp\u003EПосле этого появится вопрос о других версиях ответа. Другие версии – это те слова, которые всплывали у Вас по ходу решения анаграммы, и которые Вы отвергли. Пожалуйста, называйте вслух все версии, которые возникали, а если их не было, скажите слово «нет». \u003C\u002Fp\u003E\r\n\u003Cp\u003EУ вас будет возможность потренироваться, перед началом основного задания.  \r\n\u003Cbr\u003E\u003Cbr\u003EНажмите «ПРОБЕЛ», чтобы перейти к тренировочной части. \r\n \u003C\u002Fp\u003E\r\n\r\n\u003Cbr\u003E\u003Cbr\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
+          "name": ""
         }
       ],
-      "viewport": [
-        800,
-        600
-      ],
+      "scrollTop": true,
+      "submitButtonPosition": "hidden",
       "files": {},
       "responses": {
-        "": ""
+        "keydown(Space)": "Space"
       },
       "parameters": {},
       "messageHandlers": {},
-      "title": "Фиксационный крест",
-      "timeout": "3000"
+      "title": "Инструкция_2",
+      "tardy": true
     },
     {
       "type": "lab.flow.Loop",
@@ -133,6 +177,34 @@ const study = lab.util.fromObject({
         "tardy": true,
         "content": [
           {
+            "type": "lab.html.Page",
+            "items": [
+              {
+                "required": true,
+                "type": "html",
+                "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size()}px\"\u003E+\u003C\u002Fcenter\u003E",
+                "name": ""
+              }
+            ],
+            "scrollTop": true,
+            "submitButtonText": "Continue →",
+            "submitButtonPosition": "hidden",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'none';
+}
+            },
+            "title": "Фиксационный крест",
+            "timeout": "3000",
+            "tardy": true
+          },
+          {
             "type": "lab.flow.Loop",
             "templateParameters": [
               {
@@ -149,10 +221,6 @@ const study = lab.util.fromObject({
             },
             "parameters": {},
             "messageHandlers": {
-              "run": function anonymous(
-) {
-document.body.style.cursor = 'none';
-},
               "end": function anonymous(
 ) {
 document.body.style.cursor = 'default';
@@ -172,189 +240,211 @@ document.body.style.cursor = 'default';
               "messageHandlers": {},
               "title": "Секвенция",
               "plugins": [],
+              "tardy": true,
               "content": [
                 {
-                  "type": "lab.canvas.Screen",
-                  "content": [
+                  "type": "lab.html.Page",
+                  "items": [
                     {
-                      "type": "image",
-                      "left": 0,
-                      "top": 0,
-                      "angle": 0,
-                      "width": 720,
-                      "height": 720,
-                      "stroke": null,
-                      "strokeWidth": 0,
-                      "fill": "black",
-                      "src": "${ this.files[block[parameters.i].stimules.get_an_img(parameters.counter)] }",
-                      "autoScale": false
+                      "required": true,
+                      "type": "html",
+                      "content": "\u003Ccenter\u003E\u003Cimg src=\"${ this.files[block[parameters.i].stimules.get_an_img(parameters.counter)] }\" width=\"720px\" height=\"720px\"\u003E\u003C\u002Fcenter\u003E",
+                      "name": ""
                     }
                   ],
-                  "viewport": [
-                    800,
-                    600
-                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "hidden",
                   "files": {
-                    "АБКАИН.jpg": "embedded\u002Fef38ddd06d111106012dc9e32c46b654c2f148e49503b9ff01269b451ab06940.jpg",
-                    "АВОВД.jpg": "embedded\u002F1a391ea65b95b41c1a5a863c3737fb48ce451c4e024d5dc73406ff62ecaf359c.jpg",
-                    "АДАКРБ.jpg": "embedded\u002F4114ebb7bc6a09b02838d17a8ffa58d8874ee1700984af079dd2938c50387542.jpg",
-                    "АЕСМХ.jpg": "embedded\u002F8ee33d3dcc9d44435e079752066ff0aba580be0d71a6724265b8729efc03c720.jpg",
-                    "АНККПО.jpg": "embedded\u002F50b451c67018d24784beab0cee081779aa32f6aa5baac687b3002c891355c44c.jpg",
-                    "АНУИТМ.jpg": "embedded\u002F1865aec9959ccb449272f823ec0e5e134b21e2b97c90da8563ecb70c774edbd7.jpg",
-                    "АОБЛТ.jpg": "embedded\u002F229ca1bd2b7c3461713aee9f3c9f8adcb391bed90837427efcc11d67b14206d9.jpg",
-                    "АОПОДР.jpg": "embedded\u002F641c33a047059e184e039413f106ac43e59a24a087e771495376972b2aa3412b.jpg",
-                    "АПУРД.jpg": "embedded\u002F2d64495f8f61bac5469a7437621e0601502aa251df49ea4fa84bc868b4ed806e.jpg",
-                    "АРПОБК.jpg": "embedded\u002Fe92a5ba6532748af7b16fe63d7041f66764737d224a51a6a67e86844ddb65073.jpg",
-                    "АУМСК.jpg": "embedded\u002F3d53994fa31b6a96e7c1d70304e337ad9f85ff58b66669df96f44d4829771801.jpg",
-                    "БЛГУЬО.jpg": "embedded\u002F4d93e9b1486db571d19233cc982b00f92943960646fccae7e9f8228980391507.jpg",
-                    "ВАПАДР.jpg": "embedded\u002F48ec3cb920f188255dfc8e8be2f051ebb6a5e2f318db26f58df07d78a1674a47.jpg",
-                    "ВАПОАР.jpg": "embedded\u002F5f45fe515fa75e593c2b761a199d5e42ce44852f80f711b5ed4e1b2042032bfe.jpg",
-                    "ВДОЗЬГ.jpg": "embedded\u002F60fdfa14c193fd1677029b973d406beb96971888073de153666ecb2fb71d18aa.jpg",
-                    "ВСОТЛ.jpg": "embedded\u002Fd0d366f99e09d8c7d576174b1855ea5b9502986bf32c6391f511d1c2bc3b7b6b.jpg",
-                    "ДАООЛК.jpg": "embedded\u002F28c33f650da0426c3d09d2d3a0caff391a329ff513960b12a6718a8c1a7a6289.jpg",
-                    "ДЗЕАЗВ.jpg": "embedded\u002F1f10ac815c1dbd8a075f93beb38906a676a2f343056959e5e3776dec9d992b25.jpg",
-                    "ДЛСОЕ.jpg": "embedded\u002F7a0fa843f78020d1ad2e42fd6fdeea371a132634ecdb794a8138482d2670c30d.jpg",
-                    "ДССОУ.jpg": "embedded\u002Ff42d9f3be37d8a605d739d11b453de768eef0bcc2a62299a5093d88053f465a3.jpg",
-                    "ЕАНПЛ.jpg": "embedded\u002Fead6adfba1e67db25a6ac7e03969b76d82c4a59aa72e4a7ae0b603c3bf4c6a7a.jpg",
-                    "ЕНЛЬО.jpg": "embedded\u002F942c9a1c3bcb70fc4df1f107e416eb9369e8ca80350a871a3fbe212566b1b86d.jpg",
-                    "ЕПЛЧО.jpg": "embedded\u002F9053af51d98e9de439ecac7964be59eae401c7264131c40696c5cb19ea4760e9.jpg",
-                    "ЕСОЛКО.jpg": "embedded\u002F5fddaa7a64d51d6f608a10ecd3bc60de2facca3dda66a6a67362c87218cc52d2.jpg",
-                    "ЕТСАСР.jpg": "embedded\u002F5d37f51e6a511bb542b0448e55b090bf15b8027df6115e6f00a7bb895a0db5ee.jpg",
-                    "ЖАВОК.jpg": "embedded\u002F6a08bd6b72bcefb206fab266e53e508b9237938363869682d99f3632fdecdd58.jpg",
-                    "ЗОГАЛ.jpg": "embedded\u002F51ef0af973a9d40d7b48588427b773ca4d7f96e89a94b790847c77e2821523e7.jpg",
-                    "ЗПАТО.jpg": "embedded\u002Fca8fb1b0ccdd838445f1f1c645faba138f9094c95ba3a7b31b1660ca639e6cd0.jpg",
-                    "ИСАРХА.jpg": "embedded\u002F4fa8c8e8e5629a60b6dea4831518b26b145ff511f52ff8d846bf9c1a0cdb8112.jpg",
-                    "ИСЕНПЯ.jpg": "embedded\u002F56ece929b0fba7b7e890e6b3d3eb6029884abeff744ef2e30e807289201445f8.jpg",
-                    "КВОИС.jpg": "embedded\u002Fd5d3bf7c652f65b67aaaf4a6ddcfc8f3e29b2a80ef7a5f3db8365deb0d5b2969.jpg",
-                    "КЛУНВА.jpg": "embedded\u002Fedb7c942d4648311c6f1b664c1c700109fb3383744256a16c29d0adc00596821.jpg",
-                    "КПОАЛТ.jpg": "embedded\u002Ff1fbe5b3c673070d0fb2a1a4ed0e1a2930af6baaa7d74ca1527c08ef1008b6b3.jpg",
-                    "КСАТНА.jpg": "embedded\u002F0f6024436dd0201b12661a6079bd6427e3a0169fbf12cbcdab097b18c0816383.jpg",
-                    "КУОРГ.jpg": "embedded\u002F00d6ff3d98f7ce3b39135b31e2a679fb798071ccf1a5bed5ddc29b7e3c3b91df.jpg",
-                    "ЛЕЗЯМ.jpg": "embedded\u002F691582f81825fb76473d5744bc45c6136f6c0b367c928914aa1b7df6580b38b5.jpg",
-                    "ЛКБОАО.jpg": "embedded\u002F152616399ffc920e4ff84096e64813a1f74fbe36be71e766412c0a96bbdb0e36.jpg",
-                    "ЛООГД.jpg": "embedded\u002Fce145828d8d825eb81fb991714f91c941b0fa914e4e989afa9ea310782cf6832.jpg",
-                    "ЛУЖНРА.jpg": "embedded\u002F7fd652362e30a62cd401d687798b925693d0f690e34d224bfa6e06512aefc13e.jpg",
-                    "ЛЬАТВС.jpg": "embedded\u002Fdcc5472c57ae9f50135dc1ca8f5d5928c4211e4406a5e3d0ad24ae79c7b832b3.jpg",
-                    "МРОНЕ.jpg": "embedded\u002F6fefbe8482e51bdc58412d94762edceb3eb89e7613d774866fe28461a251c223.jpg",
-                    "НВИАД.jpg": "embedded\u002F05bee7d58d29b877a56754906b1abe9e222de14c0a61e1a8cc2ae7a538bdc60d.jpg",
-                    "НИГАСЛ.jpg": "embedded\u002F119a423353e5ac2fe7356d111e775ccba17fd443c48aa146b2ba2968030a8077.jpg",
-                    "НКМАРА.jpg": "embedded\u002Fdab773ee12c4d95c1245ad2222c0b936aa1588ae36ba2c366c1b284e16c957b1.jpg",
-                    "НОАДИР.jpg": "embedded\u002F624f85f7ad10a219acf80b06b04be0ff18a67cba290c946af75208ecd9a1cab3.jpg",
-                    "ОАДКС.jpg": "embedded\u002Fd97baab880f1fd812d75587a5f964d386dc091b5f07ba036d8b45016e9758d52.jpg",
-                    "ОБОАРД.jpg": "embedded\u002Ffed5c9350be725442b6cb20e34df18f5f643ad210c0f1264b7a57a57f4ccfc5d.jpg",
-                    "ОМСОЛА.jpg": "embedded\u002F219d8226dd2510882fbf86fec7f4eafb06c5fb2e09da7ed80a579a0af67b6b60.jpg",
-                    "ОТОМРЗ.jpg": "embedded\u002Fbf8d0701b1113f9d8fd8c02eaa111d1d0f826f9014abffa95b2d21aa73ea293f.jpg",
-                    "ПАГПРУ.jpg": "embedded\u002F44f0cf85b3445f9b0b5e344939e827b84fd26208e688eb7a5c4d1707bc2fcd70.jpg",
-                    "ПКОУЛ.jpg": "embedded\u002F3c92fa076f374860ed8ef0628614e8891fd3f5689460468cb6022ff4f58e50aa.jpg",
-                    "ПТАСО.jpg": "embedded\u002F78d8f5fce6b0c3f0394443158eb83644362880456c69618cb5f541525de0f004.jpg",
-                    "РААЖК.jpg": "embedded\u002Ffebe5873ea70e288c839346d2d5da489ba70ece5be00d7ab9e3fee8e446e2133.jpg",
-                    "РИГАВ.jpg": "embedded\u002F270bec7f998a8176259f62e9b9113253f79306640c3fc4f7a7df5f20b6285e82.jpg",
-                    "РКПУА.jpg": "embedded\u002Fadf0d4318642ffef03584c315b777ffa9f2243dc500a8c7d656c1087c761401b.jpg",
-                    "РОКВОА.jpg": "embedded\u002Ff9fdb280a53a7612e3f218208ced0fe31ef85099d9f407a104dcbdc4104a2fdc.jpg",
-                    "РПИАК.jpg": "embedded\u002F19b04eeb1492d9214b2bafbba3859187cecc4dda85981edba686bd1c6e0c092c.jpg",
-                    "РЯКПТА.jpg": "embedded\u002F9498c76fbdefabcc14f6a60b30cc4b8ed692073ee38c3bec8ace1373adca496b.jpg",
-                    "САИВТ.jpg": "embedded\u002Ffe7d4ecf9f8aa949a4ccb54ce5d2ea77dad01693ac93c483036e010f1a4c0f42.jpg",
-                    "САКВЛА.jpg": "embedded\u002Fec1c2f8fa650338155cc5b8767ff14529be39b986ff95c8df8b953aaa63b6f6d.jpg",
-                    "САТИВЛ.jpg": "embedded\u002F7fa52a43f643c80995ef159d2d5b0df41141973223c742ad331dca839a0c7fa4.jpg",
-                    "СОУМР.jpg": "embedded\u002Fd007e7eb8c6994f548eddf632ed168827feae05f2ea4046ca4afb07e15b357a6.jpg",
-                    "ТАЛОСД.jpg": "embedded\u002Fc78dbe4fcc074bbe1718b56de8f1b53024544af4515914626144af806f7965f1.jpg",
-                    "ТАЛПИ.jpg": "embedded\u002Fcfa8cf0e370f8337f52e422f2943b81644c81060614e84364d8ebd72b6e28e0b.jpg",
-                    "ТЕКСРЕ.jpg": "embedded\u002F2c5c93a7b909815d4a0cd8782ee14f8c139fe90b0971906be043ea5351ea60e6.jpg",
-                    "ТНКПУ.jpg": "embedded\u002F92c0a5a17d84d1203ac9c87a38c6fb1cb9230a0ab728553cead485179d67fb8c.jpg",
-                    "ТООГЬН.jpg": "embedded\u002F72f47f6adc26809440094c1424a7dbc8bbf0bed43888674b9df55b46cb79745d.jpg",
-                    "ТФРЛИ.jpg": "embedded\u002Fbae1f791e2b97b660d97ff4e3c43e4ad67a0d310ab5b9fb2e1be11a6f41da207.jpg",
-                    "УАТКРК.jpg": "embedded\u002F8486f4466af84a3c45c32b89876a07b09465176438f7d19f3c1c05652548f34c.jpg",
-                    "УГДЬР.jpg": "embedded\u002F87e32a426d6a2562a53ba6edcc0848e0fa9d2e89fe65df0411fe391f8e42a33b.jpg",
-                    "УРЕСБ.jpg": "embedded\u002Fa7eb046aa70ae8b03d868345f8e55bef3433dddfa29113453c756cb9d1a35692.jpg",
-                    "УТНБО.jpg": "embedded\u002F2be808b0293b0df4fb0d552df649ef3235ad002e4dd479930cbd6bd88fe73a99.jpg",
-                    "УШКИВН.jpg": "embedded\u002Ff42c2af8244ab7f69399bff3e8623e967e2c4501e659333ca4a3afb8ede73614.jpg",
-                    "ХГООТР.jpg": "embedded\u002F01f4479d7a00f5e3823cdc620c03a73e953c97b15d33ce24e1e4292a571d55a2.jpg",
-                    "ЦВОЕДР.jpg": "embedded\u002F5a2fe8b93def34efe5e460607aed1689796a0c34acf2ca763f66ddfee99494f8.jpg",
-                    "ЦРЕТПЕ.jpg": "embedded\u002F310ada225d128d8bd32d6e91ac35b943e7bd2986f98913a6e312a88d2b508b95.jpg",
-                    "ЧЛАПЕЬ.jpg": "embedded\u002Fe8116f5f5284f42562f59974c3db6028611902aac9a3c47a4a2f0125da640bf2.jpg",
-                    "ШМРАИ.jpg": "embedded\u002F9f29d3dd225260c906c4ad2981f6cb93c7b2c2bc767a549405c8b56fdcdb4211.jpg",
-                    "ШНАМАИ .jpg": "embedded\u002F0bb67d1b5ead723232f0737c930ec3e86cc646582682085e9f0a083ba4807800.jpg",
-                    "ЮСЛАРТ.jpg": "embedded\u002Fa1ba08018293fdb0709838794f2b849306be1fbe36d3932714158de5943c71df.jpg",
-                    "ЯРИАТП.jpg": "embedded\u002F0e1a277b081526908f85472e473459d1bf16d651731369fd68e42bb14c6102ee.jpg"
+                    "САКВЛА.jpg": "embedded\u002Faba823c2cdf950c787d0e72291fc54a0e60060a8a68fabb275b7c0fa77a712c9.jpg",
+                    "АДАКРБ.jpg": "embedded\u002Fe2ffc0a5de557293ac9a21abce5e75806db00e483e389080aa492a9685cfef47.jpg",
+                    "ИСЕНПЯ.jpg": "embedded\u002Fc7925967c5d710803acc9e21559e55239f117afb399186b456e02802445ac9f2.jpg",
+                    "ТАЛОСД.jpg": "embedded\u002F04265e360f6f255481b610c59db9eb17a845c99a83845ac1851a2de61c1e9592.jpg",
+                    "КПОАЛТ.jpg": "embedded\u002F784ab1a52fcb8df45a06cbad752818e0933779b9d9eba3cffa4f9ef410ec7b14.jpg",
+                    "АОПОДР.jpg": "embedded\u002Fc3763ec1767922fc420a1422dacec54ce0993deb0e89b8ec20c021a3c4a2a4cf.jpg",
+                    "ЛЬАТВС.jpg": "embedded\u002F2d94ce9981090dca4709c68dd967fc290541d9fff3578aa382e9e5b302e0bd0a.jpg",
+                    "ДЗЕАЗВ.jpg": "embedded\u002Ff1398b57b83cd71fa968c99671e5b3cfb2cfad4ea960b7a29df93d1b29fbcad7.jpg",
+                    "АВОАРП.jpg": "embedded\u002Fd3893fcf5cc929ba6153fd827cc07dfe3e293eafa936304bb8bfaeba03a3dadc.jpg",
+                    "АРПОБК.jpg": "embedded\u002F29534eca5dac823828aac685048c5f178062a54dfa3ae29da785af6fff0a0f7d.jpg",
+                    "РЯКПТА.jpg": "embedded\u002Fe0cb5724f236a0f5c01d7fa6780166e7c7c69b3639bf4aa0331ae9af2b24a181.jpg",
+                    "РОКВОА.jpg": "embedded\u002F369831eb9ee6ed54b7c8c83caeca5e6e17c2e0271e074ac4c85707e97c2806c0.jpg",
+                    "КРОАМШ.jpg": "embedded\u002F2636a44253daa017caf0fdfb48f5ec413cbeafcd59f5e267848397580b9374bf.jpg",
+                    "ТЕКСРЕ.jpg": "embedded\u002Ffd43501e054cb55896dbf4a7c5e357a9e6440c6fa3e983c099fdbd7417370c43.jpg",
+                    "КСАТНА.jpg": "embedded\u002Fbd2954c08abf8c5ff88a27e79f4afbe2cc34d0a0a6dc70d9e3e83ab2c1c4ad72.jpg",
+                    "ЧЛАПЕЬ.jpg": "embedded\u002F15e271b8f5c27f7d846f82e8dc2fe5c92530ef25d8c31190c869d961b8e54afb.jpg",
+                    "ЦРЕТПЕ.jpg": "embedded\u002Faf427903d02404c78c7975b6512c5bc1b7e660eb10ff0f6f56fa9371d7611bef.jpg",
+                    "ИСАРХА.jpg": "embedded\u002F041612b3224c717d4be07ca3c0fd57101babbc5d39a250d9b7ea4ddca4d5574e.jpg",
+                    "ВРПАДА.jpg": "embedded\u002F0fef7bb2877ad7b29c78c5848baabf56c81a2aa35cb80bd24c2f7dc7a8187c7c.jpg",
+                    "ОБОАРД.jpg": "embedded\u002F2c6b16d1ebf0a003791bc3a390c5d1c4ef7b6b3b971d69a7f6f3ea9ae991d694.jpg",
+                    "ЕТСАСР.jpg": "embedded\u002F4b81fec089c25bea2ca6c1ae5d87a7e3f5add2e73c2d906ffd81045b3f88a171.jpg",
+                    "САТИВЛ.jpg": "embedded\u002Fa0a3e8d79916884283e3e830365f05085160500083eb7ce2957e89028149c000.jpg",
+                    "НИГАСЛ.jpg": "embedded\u002Fa0443bdc2c2cd9b739c9f4bfbf3af1a32abea3b9097d01046031772a3e22a5b9.jpg",
+                    "ДАООЛК.jpg": "embedded\u002Fbea5a843db55471b835b70da36472f394dbf00ea5d09daee43a99cb089258a5c.jpg",
+                    "ОТОМРЗ.jpg": "embedded\u002Fda791c2663724bcb1a81f7fe1154e163d0aec9a3d26d4a5b35858f1062c54b7d.jpg",
+                    "ЯРИАТП.jpg": "embedded\u002F611aef9e14aecf675a3bbe5c002a6cfcddd46b629dd42a5c3622c3a6bfd260d6.jpg",
+                    "АНУИТМ.jpg": "embedded\u002F0828ce71933137863d62b0299ea92fc06b0aa99bd11e2627f436023e7ada9d42.jpg",
+                    "ОМСОЛА.jpg": "embedded\u002F3db3791f20da659a6466796a92906d8269f459e049bf681e39172d223e0bd2d7.jpg",
+                    "ХГООТР.jpg": "embedded\u002F51b66ce4aaba631d3450b1b167e10cbe2dd43493a04a335027d3c15bbd4a1b93.jpg",
+                    "ЛКБОАО.jpg": "embedded\u002F06c20b2f6e40bda27e0d06b52cdcacd4bf73217025ff93cf6a2327a02d081b29.jpg",
+                    "ПАГПРУ.jpg": "embedded\u002Fed88b0010e8d577e38e39f2eb4c1793610b63d0dde0ed5aa97ba46449dc32925.jpg",
+                    "ЕСОЛКО.jpg": "embedded\u002F309ec2d9e77b5c88432b0719d4c2aa307bdf6d33960915ce905755b01a9a359a.jpg",
+                    "ШНАМАИ .jpg": "embedded\u002Fd7c29f21180770d4446acd4e30fb1f6dafc3f0783a9ce96dead929fb91696c12.jpg",
+                    "АНККПО.jpg": "embedded\u002F8926db93249675c97df9f408c3c93a16c5869433393ab3c58226ce9d522591ca.jpg",
+                    "КЛУНВА.jpg": "embedded\u002Ff8098ed1edca0622e98c0b3850a2ece57bad07c94aab361abb9fb1f2de211d66.jpg",
+                    "НКМАРА.jpg": "embedded\u002Fe8e21903714eb4460bba936897126e12bec38a140393e5df5aec51b3121a1c5f.jpg",
+                    "ТООГЬН.jpg": "embedded\u002F19818f80d0e9c20946adbe9c09a30116c2e76da60152e79a34ded87db83fa98a.jpg",
+                    "НОАДИР.jpg": "embedded\u002Fa230f099ab129cf4ed1f70a400a8847f5fb91735d6ccce031347f63f9cf4c36b.jpg",
+                    "ЦВОЕДР.jpg": "embedded\u002F41552fc193077c7e833f80ed3df5c4fb02446106b14da18da3a43ab0b8baeb1f.jpg",
+                    "АБКАИН.jpg": "embedded\u002F596f62b8f93c090d0e267883aa61abe64c56cce310f2504ae1349acc10bba3aa.jpg",
+                    "УАТКРК.jpg": "embedded\u002F4a6eb7897dfb1c481c3917bd1853df7909b2c7234e4de2763b1e97bc954ebdfd.jpg",
+                    "БЛГУЬО.jpg": "embedded\u002F3ee43ac6443d6874c8c957431ffb1168750c57a9d3539b3b7460b9de5b73f014.jpg",
+                    "ЛУЖНРА.jpg": "embedded\u002F5a47c7be48cb9ad21b7e7a2c12d10e397fd216ed2e72bd7416a3f72f57a8e102.jpg",
+                    "УШКИВН.jpg": "embedded\u002F230ccf7c3462cabf8d841116eef3cd611cbe9550064ba365c079698c8c55dbb1.jpg",
+                    "ВДОЗЬГ.jpg": "embedded\u002F3eb1083b91658106fa8462de9991aa9b7a7d6bfd7c4d09b32a7e8a55a9148d79.jpg",
+                    "АОБЛТ.jpg": "embedded\u002F19850453bc1f5b897dd654d36bd4f12dc0a80b845c2be8c3bf8e4ade0fc5959a.jpg",
+                    "ВСОТЛ.jpg": "embedded\u002Febd62b821a22edc2113f698baa367904722301179fce6d405b3e7760fbdf2265.jpg",
+                    "ШМРАИ.jpg": "embedded\u002F3cfc6252dc032cc9a7b9ea3bfbdd06f83851776d290294cff0dcb7691d42c423.jpg",
+                    "ЛООГД.jpg": "embedded\u002Fbdf7acd1fad8bb196300362b90d4ed97558d9b67e712ac106ba2b84d51cfe393.jpg",
+                    "ПТАСО.jpg": "embedded\u002Ffbc02148fa5b24fa7af4875c60501759f9f0cae1cf032031d41600ea6928baa0.jpg",
+                    "ТАЛПИ.jpg": "embedded\u002F6c558334876f134e0f062dd6f9f468217095e3f388bd65241a3c3b87fe728d08.jpg",
+                    "АУМСК.jpg": "embedded\u002F6f6e6a22a712924fab09eecb157796f37581767854e6bad8d01561d0fb688f3d.jpg",
+                    "ДССОУ.jpg": "embedded\u002Fe06bd55bd5a86b698a66a25396ce8178b6827d981ca97afce0b2bf930e78e536.jpg",
+                    "ЗОГАЛ.jpg": "embedded\u002F99698309651e49a3e3af719f33c961d8bc2a265f5a88ca310f4006ddf37a1fe9.jpg",
+                    "САИВТ.jpg": "embedded\u002F6247498804fcdb515173c69b5908a2ea28dd8afdccfb874e5fe0e4447926a22a.jpg",
+                    "ОЕПЧЛ.jpg": "embedded\u002Fd8ec305efe2fc6972689a1f7787526c71cea16469ef8d96006f244355cf56dad.jpg",
+                    "УТНБО.jpg": "embedded\u002F2edebbd31f7e8d20818ee3b8de87ba3eb6902006114e97525e75ef022d3fc4b0.jpg",
+                    "АЕСМХ.jpg": "embedded\u002Fbd3b9c229a8c1d33da40808edf81bd0411b4aa6948d83c46d29aeb32e845f0de.jpg",
+                    "АВОВД.jpg": "embedded\u002F403cfda224e7736acb8a22881fc01a0aac620cb1788f6f4c50d80c3fc93a5ae8.jpg",
+                    "УРЕСБ.jpg": "embedded\u002Fffd8a3a33daebc22b2fc32a5ff37505b942b96cdb14ab6a4d11b00073d9b4cd1.jpg",
+                    "СОУМР.jpg": "embedded\u002F7577f1154d3ab839d1e6a44e14709a64e901e8bce88692ed5068a14900450135.jpg",
+                    "РИГАВ.jpg": "embedded\u002F2cd4ef3015fdc497a11b3e74ad22452fa2354f56094e332ba2dc3e3a5d8b80fe.jpg",
+                    "МРОНЕ.jpg": "embedded\u002F8144c0595e3ac8b6c58678a61ba22816b05602f5f31dd0380d898ed1538d2ff8.jpg",
+                    "КВОИС.jpg": "embedded\u002Fefc02f496ea24d16a03adc95204a15fdf77b82f7a321b6fa935462c1b8704d92.jpg",
+                    "ОАДКС.jpg": "embedded\u002F3121d386e08bc430aa1edfc511d73413bbeb88533cf9ad36a08a644d22a96bf4.jpg",
+                    "КУОРГ.jpg": "embedded\u002F9f367291d23fb883ad1451ddb182361115a442efc57489349f01c0c67ad48e23.jpg",
+                    "РПИАК.jpg": "embedded\u002Fd25c30829ee5c9f00ae16149990252baae8c74ad6a1a5262572bc6df24b23920.jpg",
+                    "ЕАНПЛ.jpg": "embedded\u002F08c5ced92f64dbbe6ee66d34735438ce2262ae39402e6c817ed0ae463fc06b9e.jpg",
+                    "ТНКПУ.jpg": "embedded\u002Fd82282df379f1008665dbd29e978795c9f54048ba0a063927828951e93afc6a4.jpg",
+                    "РКПУА.jpg": "embedded\u002F6e74e7b7017220ff54c4fdaba4eff827c98da99e7b5cdef26f1f32005028000e.jpg",
+                    "ПКОУЛ.jpg": "embedded\u002F5a7e6d798536622690dee9fd319b738374fdf27fcf6de01650cf9ef752042081.jpg",
+                    "ДЛСОЕ.jpg": "embedded\u002F1b5c723fd572e42b6a279c8ad1010c98b74cc3b1cde8a1c79cd53fbabbc5a5da.jpg",
+                    "УЬГРД.jpg": "embedded\u002F1755ed8051c2fcbc729ec0aad56ff37b5bdcdb9cde76a9edadc37eb5ba0aa812.jpg",
+                    "ЗПАТО.jpg": "embedded\u002Fb825dca62549a3ddff95e49318dc978583d49ae00e854c26c55562cf81b2a506.jpg",
+                    "ЖАВОК.jpg": "embedded\u002F2958c42671778d420056cf4e33ade12b23d01b5ead14d177706b48b7ff9ee887.jpg",
+                    "НВИАД.jpg": "embedded\u002Fbf4b4dc38b57044245bbdda08542e67112aafcc7e039b4cffe82fa31caa14f21.jpg",
+                    "ЕНЛЬО.jpg": "embedded\u002Fc53d612d959af279e5f78d4b8f687a5712c9a92c9c56ab9d2e0e93580da406dc.jpg",
+                    "ЖКРАА.jpg": "embedded\u002Fe98a12274231ced5ab05817021ef3463516c8cb2d4e352a5130cc7465d18ea2c.jpg",
+                    "АПУРД.jpg": "embedded\u002F5b0f9e6774114d6d2c4b8decc4426f07ed0d44d0401d5f3b1d3973b8e7ad0eee.jpg",
+                    "ТФРЛИ.jpg": "embedded\u002F2976a2bb5b8131286a41084ce19c3beca512e852dfe9dd51c6504e7b37cac109.jpg",
+                    "ЛЕЗЯМ.jpg": "embedded\u002Fa70c4c361bdaa886e6ed8ed2471d2e88dbe667c5c27f33dc1a2995f96c29211c.jpg"
                   },
-                  "responses": {
-                    "keydown(Space)": "ответ"
-                  },
-                  "parameters": {},
-                  "messageHandlers": {
-                    "end": function anonymous(
-) {
-stimules.fill_custom_column(
-  this, 
-  ["анаграмма",	"наводка",	"кол-во букв",	"с_наводкой", "без_навод", "повторное",	"решаемость",	"ВО_сред",	"наводка_дл",	"анаграмма_дл",	"Condition",	"RUN", "MEMORY_REPEAT"],
-  {}
-)
-}
-                  },
-                  "title": "Анаграмма *код",
-                  "timeout": "${ block[parameters.i].stimules.get_anagramm_dur(parameters.counter) }",
-                  "tardy": true
-                },
-                {
-                  "type": "lab.canvas.Screen",
-                  "content": [
-                    {
-                      "type": "i-text",
-                      "left": 0,
-                      "top": 0,
-                      "angle": 0,
-                      "width": 563.41,
-                      "height": 78.11,
-                      "stroke": null,
-                      "strokeWidth": 1,
-                      "fill": "black",
-                      "text": "Назовите версии, которые у вас были\nпо ходу решения",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "fontSize": 32,
-                      "fontFamily": "sans-serif",
-                      "lineHeight": 1.16,
-                      "textAlign": "center"
-                    }
-                  ],
-                  "viewport": [
-                    800,
-                    600
-                  ],
-                  "files": {},
                   "responses": {
                     "keydown(Space)": "ответ"
                   },
                   "parameters": {},
                   "messageHandlers": {},
-                  "title": "Ответ"
+                  "title": "Анаграмма *код",
+                  "tardy": true,
+                  "timeout": "${ block[parameters.i].stimules.get_anagramm_dur(parameters.counter) }"
                 },
                 {
-                  "type": "lab.canvas.Screen",
-                  "content": [
+                  "type": "lab.html.Page",
+                  "items": [
                     {
-                      "type": "i-text",
-                      "left": 0,
-                      "top": 0,
-                      "angle": 0,
-                      "width": 18.69,
-                      "height": 36.16,
-                      "stroke": null,
-                      "strokeWidth": 1,
-                      "fill": "black",
-                      "text": "+",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                      "fontSize": 32,
-                      "fontFamily": "sans-serif",
-                      "lineHeight": 1.16,
-                      "textAlign": "center"
+                      "required": true,
+                      "type": "html",
+                      "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size()}px\"\u003EСкажите ответ\u003C\u002Fcenter\u003E \r\n  \u003Cdiv type=\"button\" class=\"resp-btn custom-btn btn-3\" onclick=\"end_button_1()\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E",
+                      "name": ""
                     }
                   ],
-                  "viewport": [
-                    800,
-                    600
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "hidden",
+                  "files": {},
+                  "responses": {},
+                  "parameters": {},
+                  "messageHandlers": {
+                    "before:prepare": async function anonymous(
+) {
+let stream_1 = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+window.recorder_1 = await setupRecorder(stream_1, "endbutton");
+this.waitFor('run').then(() => recorder_1.start())
+
+recorder_1.c = this;
+
+window.end_button_1 = function(c) {
+  if (recorder_1.state == 'recording') recorder_1.stop();
+}
+},
+                    "run": function anonymous(
+) {
+block[this.parameters.i].stimules.fill_custom_column(
+  this, 
+  ["анаграмма",	"наводка",	"кол-во букв",	"с_наводкой", "без_навод", "повторное",	"решаемость",	"ВО_сред",	"наводка_дл",	"анаграмма_дл",	"Condition",	"RUN", "MEMORY_REPEAT"],
+  {}
+)
+this.state['seq'] = seq_n
+this.state['block_seq'] = block_seq
+
+document.body.style.cursor = 'default';
+}
+                  },
+                  "title": "Ответ *код",
+                  "tardy": true
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "required": true,
+                      "type": "html",
+                      "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size()}px\"\u003E\r\n  Назовите все версии\r\n  \u003Cbr\u003E\r\n  \u003Cdiv type=\"button\" class=\"resp-btn custom-btn btn-3\" onclick=\"end_button_2()\"\u003E\u003Cspan\u003EДалее\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\r\n\r\n\u003C\u002Fcenter\u003E",
+                      "name": ""
+                    }
                   ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "hidden",
+                  "files": {},
+                  "responses": {},
+                  "parameters": {},
+                  "messageHandlers": {
+                    "before:prepare": async function anonymous(
+) {
+let stream_2 = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+window.recorder_2 = await setupRecorder(stream_2, "endbutton");
+this.waitFor('run').then(() => recorder_2.start())
+
+recorder_2.c = this;
+
+window.end_button_2 = function(c) {
+  if (recorder_2.state == 'recording') recorder_2.stop();
+}
+
+},
+                    "end": function anonymous(
+) {
+document.body.style.cursor = 'none';
+}
+                  },
+                  "title": "Версии *код",
+                  "tardy": true
+                },
+                {
+                  "type": "lab.html.Page",
+                  "items": [
+                    {
+                      "required": true,
+                      "type": "html",
+                      "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size()}px\"\u003E+\u003C\u002Fcenter\u003E",
+                      "name": ""
+                    }
+                  ],
+                  "scrollTop": true,
+                  "submitButtonText": "Continue →",
+                  "submitButtonPosition": "hidden",
                   "files": {},
                   "responses": {
                     "": ""
@@ -362,8 +452,8 @@ stimules.fill_custom_column(
                   "parameters": {},
                   "messageHandlers": {},
                   "title": "Фиксационный крест",
-                  "timeout": "${ block[parameters.i].stimules.get_fixation_time(parameters.counter) }",
-                  "tardy": true
+                  "tardy": true,
+                  "timeout": "${ block[parameters.i].stimules.get_fixation_time(parameters.counter) }"
                 }
               ]
             }
@@ -374,7 +464,7 @@ stimules.fill_custom_column(
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter div class=\"detect_card\" style=\"width: 600px; height: 250px\"\u003E \r\n\u003Ch3\u003E\r\n  ${ block[parameters.i].info }\r\n\u003C\u002Fh3\u003E\r\n\r\n\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EПродолжить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E \u003C\u002Fcenter\u003E\r\n",
+                "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size() * 0.6 }px\"\u003E \r\n${ block[parameters.i].info } \u003Cbr\u003E\u003Cbr\u003E\r\n\u003C\u002Fcenter\u003E\r\n\r\n",
                 "name": ""
               }
             ],
@@ -383,7 +473,7 @@ stimules.fill_custom_column(
             "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
-              "keydown(Enter)": "Enter"
+              "keydown(Space)": "Space"
             },
             "parameters": {},
             "messageHandlers": {
@@ -408,29 +498,7 @@ document.body.style.cursor = 'none';
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  350px\"\u003E\r\n\u003Clabel for=\"sex\"\u003EПожалуйста, укажите свой пол:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n  \u003Cselect class=\"custom-btn custom_select\" name=\"sex\"\u003E\r\n  \u003Coption value=\"m\" selected\u003Eмужской\u003C\u002Foption\u003E\r\n  \u003Coption value=\"f\"\u003Eженский\u003C\u002Foption\u003E\r\n\u003C\u002Fselect\u003E\u003Cbr\u003E\r\n\u003Clabel for=\"age\"\u003EВведите возраст:\u003C\u002Flabel\u003E\u003Cbr\u003E\r\n\u003Cinput type=\"number\" id=\"age\" name=\"age\"\r\n       min=\"10\" max=\"90\" required\u003E\u003Cbr\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EОтправить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
-          "name": ""
-        }
-      ],
-      "scrollTop": true,
-      "submitButtonText": "Continue →",
-      "submitButtonPosition": "hidden",
-      "files": {},
-      "responses": {
-        "": ""
-      },
-      "parameters": {},
-      "messageHandlers": {},
-      "title": "Анкета",
-      "tardy": true
-    },
-    {
-      "type": "lab.html.Page",
-      "items": [
-        {
-          "required": true,
-          "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: ${ sizes.card_width }px; height:  200px\"\u003E\r\n\u003Ch3\u003EБлагодарим за участие в эксперименте!\u003C\u002Fh3\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter style=\"font-size: ${ sizes.get_font_size() * 0.6 }px; color: white;\"\u003E\r\n\u003Cdiv style=\"text-align: left;\"\u003E\r\n  Благодарим за участие в эксперименте!\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
@@ -443,15 +511,9 @@ document.body.style.cursor = 'none';
       },
       "parameters": {},
       "messageHandlers": {
-        "before:prepare": function anonymous(
+        "run": function anonymous(
 ) {
-stimules.send_form(
-  this, 
-  ["Стимулы *код", "Проверка_на_бессознательность", "Анкета"], 
-  [
-    ['group', seq_n],
-  ]
-)
+document.body.style.cursor = 'default';
 }
       },
       "title": "Финал *код",
