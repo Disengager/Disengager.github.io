@@ -1,0 +1,275 @@
+---
+title: "Науменко, репликация"
+output: html_document
+date: "2024-02-26"
+---
+
+```{r setup}
+library(tidyverse)
+library(pwr)
+library(lme4)
+library('lmerTest')
+library(readxl)
+library(simr)
+```
+
+#  Анализ мощности
+#### Группа с однозначными примерами
+```{r}
+naum_data <- read_excel("C:/Users/allahverdov.vm/Desktop/work/meta_cognitive_signal/naumenko_rep/original_exp/все данные.xls", 
+    sheet = "все данные")
+naum_3group <- naum_data %>% filter(Группа == 3)
+naum_3group$Тип_прайма <- naum_3group$`Верный / неверный прайм` %>% as.factor()
+naum_3group_mn <- naum_3group %>% 
+                    group_by(`#`, Тип_прайма) %>% 
+                    mutate(Группа) %>% 
+                    summarise(Время_ср = mean(Время))
+
+naum_3group_mn <- naum_3group_mn %>% ungroup()
+#t.test paired
+rstatix::t_test(naum_3group_mn, Время_ср ~ Тип_прайма, paired = TRUE, alternative = "two.sided")
+#размер эффекта
+rstatix::cohens_d(naum_3group_mn, Время_ср ~ Тип_прайма, paired = TRUE)
+
+pwr::pwr.t.test(d = 0.5229, power = 0.8, sig.level = 0.04, type = "paired")
+```
+Для однозначных 37 человек.
+
+#### Группа с трёхзначными примерами
+```{r}
+naum_7group <- naum_data %>% filter(Группа == 7)
+naum_7group$Тип_прайма <- naum_7group$`Верный / неверный прайм` %>% as.factor()
+naum_7group$Тип_цели <- naum_7group$`Верный/ неверный целевой стимул` %>% as.factor()
+naum_7group$Правильность <- naum_7group$`Правильно / неправильно` %>% as.factor()
+naum_7group_mn <- naum_7group %>% 
+                    group_by(`#`, Тип_прайма) %>% 
+                    mutate(Группа) %>% 
+                    summarise(Время_ср = mean(Время))
+
+naum_7group_mn <- naum_7group_mn %>% ungroup()
+#t.test paired
+rstatix::t_test(naum_7group_mn, Время_ср ~ Тип_прайма, paired = TRUE, alternative = "two.sided")
+naum_7group_mn <- naum_7group %>% 
+                    group_by(`#`, Тип_прайма, Тип_цели) %>% 
+                    mutate(Группа) %>% 
+                    summarise(Время_ср = mean(Время))
+naum_7group_mn <- naum_7group_mn %>% ungroup()
+#t.test paired
+rstatix::t_test(naum_7group_mn %>% filter(Тип_цели == "верно"), Время_ср ~ Тип_прайма, paired = TRUE, alternative = "two.sided")
+rstatix::t_test(naum_7group_mn %>% filter(Тип_цели == "неверно"), Время_ср ~ Тип_прайма, paired = TRUE, alternative = "two.sided")
+
+naum_7group$Правильность %>% table()
+naum_7group$Тип_прайма <- (naum_7group$Тип_прайма == "верно") %>% as.numeric() + 1
+naum_7group$Тип_цели <- (naum_7group$Тип_цели == "верно") %>% as.numeric() + 1
+naum_7group$Правильность <- naum_7group$Правильность %>% as.numeric()
+naum_7group_mn <- naum_7group %>% 
+                    group_by(`#`, Тип_прайма, Тип_цели, Правильность) %>% 
+                    mutate(Группа) %>% 
+                    summarise(Время_ср = mean(Время), 
+                              Наблюдений_в_условии = n())
+
+#чекаем всё на анове
+anova_model1 <- lm(Время_ср ~ Тип_прайма+Тип_цели+Правильность, naum_7group_mn)
+car::Anova(anova_model1)
+#с переменной группы
+naum_7group_mn$Группа <- str_c(naum_7group_mn$Тип_прайма, naum_7group_mn$Тип_цели, naum_7group_mn$Правильность) %>% as.factor
+anova_model1 <- lm(Время_ср ~ Группа, naum_7group_mn)
+
+
+#размер эффекта
+#rstatix::cohens_d(naum_7group_mn, Время_ср ~ Тип_прайма, paired = TRUE)
+```
+Ничего нет, ни каких значимостей.
+
+# Загрукза данных
+```{r}
+base_data <- read_csv('data/naumenko_rep - responses.csv')
+
+# тип прайма
+base_data$prime_type <- base_data$df_prime_correctness
+base_data$rt <- base_data$duration
+base_data$tg_type <- base_data$df_target_correctness
+
+base_data$prime_type <- (base_data$prime_type == "верно") %>% as.numeric() + 1
+base_data$prime_type <- base_data$prime_type %>% as.factor()
+base_data$tg_type <- (base_data$tg_type == "верно") %>% as.numeric() + 1
+base_data$tg_type <- base_data$tg_type %>% as.factor()
+base_data$prime_visible %>% table()
+base_data$prime_example %>% unique()
+base_data %>% str()
+
+```
+# Предобработка
+## Выбросы
+Выброс тех, кто приводил пример праймов, а также тех кто сильно выбивается по возрасту
+```{r, eval=FALSE}
+base_data %>% filter(prime_example == "9*9=72") #59
+base_data %>% filter(prime_example == "5*5=35 9*9=...") #21
+base_data %>% filter(age == 67) #25
+```
+
+```{r emissions}
+base_data <- base_data %>% filter(id != 25 & id != 21 & id != 59)
+base_data[base_data$id == 44, 'age'] <- 25
+```
+
+## Предобработка
+```{r preprocessing}
+base_data %>% 
+  arrange(id) %>%
+  group_by(id) %>%
+  mutate(group = first(group), age = last(age), sex = last(sex), prime_visible = last(prime_visible[sender == "Проверка_на_бессознательность"]), prime_example = first(prime_example)) -> data
+
+```
+
+## Демография
+```{r demographic}
+demographic <- data %>% 
+                  filter(is_online == 0 & group == 1) %>% 
+                  group_by(id, age, sex, is_online, prime_visible, group) %>% 
+                  summarise(mean_rt = mean(rt))
+demographic %>% summary()
+demographic$sex %>% table()
+```
+
+## Чистка
+```{r clean}
+data <- data %>% filter(prime_visible != 'yes')
+data <- data %>% filter(sender != is.na(sender))
+data <- data %>% filter(sender != "Проверка_на_бессознательность") 
+data <- data %>% filter(sender != "Анкета")
+data <- data %>% filter(group == 1)
+data$is_online %>% table()
+data$id %>% unique()
+data$id %>% unique() %>% length()
+```
+# Группа 1
+## Усреденние офлайн
+data_mn_1 - усреднение по человеку и типу прайма
+data_mn_2 - усреднение по правильности не правильности
+targets - усреднение по целям
+
+data_group_1_online - онлайн данные по 1 группе
+data_group_1_offline - офлайн данные по 1 группе
+```{r cleaner}
+mix_data <- data %>% filter(is_online == 0)
+data_mn_1 <- data %>% 
+  filter(is_online == 0) %>% 
+  group_by(id, prime_type) %>% 
+  summarise(mean_rt = mean(rt))
+
+
+data_mn_2 <- data %>% 
+  filter(is_online == 0) %>% 
+  group_by(id, prime_type, tg_type) %>% 
+  summarise(mean_rt = mean(rt))
+
+targets <- data %>% 
+  filter(is_online == 0) %>% 
+  group_by(counter, df_target, prime_type) %>% 
+  summarise(mean_rt = mean(rt))
+
+data_mn_1 <- data_mn_1 %>% ungroup()
+data_mn_2 <- data_mn_1 %>% ungroup()
+targets <- targets %>% ungroup()
+```
+
+## Чистка данных - удаление всех проб с одинаковыми множителями
+```{r h}
+mix_data$df_prime_correctness
+mix_data %>% 
+  group_by(df_target, df_prime_correctness) %>% 
+  summarise(rt = mean(duration)) %>% 
+  View()
+
+deletion = c("6*6=36"
+ #            "5*5=35",
+  #           "4*4=18",
+  #           "6*6=30",
+  #           "7*7=42",
+   #          "8*8=63",
+   #          "8*8=64",
+    #         "9*9=72",
+)
+mix_data <- data %>% filter(is_online == 0)
+mix_data <- data %>% filter(!(df_target %in% deletion))
+
+mix_data$цель_ <- mix_data$df_target_correctness %>% as.factor()
+mix_data$прайм_ <- mix_data$df_prime_correctness %>% as.factor()
+
+
+data_mn_1 <- mix_data %>% 
+  group_by(id, цель_, прайм_) %>% 
+  summarise(mean_rt = mean(rt))
+data_mn_1 <- data_mn_1 %>% ungroup()
+```
+
+## Сравнение средних между условиями прайминга***
+```{r}
+
+
+#распределение разницы между условий 
+subtraction <- filter(data_mn_1, прайм_ == "верно")$mean_rt - filter(data_mn_1, прайм_ == "неверно")$mean_rt
+subtraction %>% mean()
+subtraction %>% sd()
+#нормальность
+shapiro.test(subtraction)
+#t.test paired
+rstatix::t_test(data_mn_1, mean_rt ~ прайм_, paired = TRUE, alternative = "two.sided")
+#wilcoxtest
+rstatix::wilcox_test(data_mn_1, mean_rt ~ прайм_, paired = TRUE, alternative = "two.sided")
+#размер эффекта
+rstatix::cohens_d(data_mn_1, mean_rt ~ прайм_, paired = TRUE)
+
+
+
+#картинка
+data_mn_1 %>% 
+  ggplot(aes(y = mean_rt, x = прайм_, color = прайм_))+
+  geom_boxplot(width=0.1, color="grey", alpha=0.5) +
+  stat_summary(fun=mean, geom='point', shape= 20, size = 8) +
+  geom_jitter(shape=16, position=position_jitter(0.2)) +
+  labs (x = "Тип прайма", y = "Время реакции", color ="Тип прайма (1 - негативные, 2 - позитивные)")+
+  theme_bw()
+
+data_mn_1 %>% 
+  mutate(группа = str_c(прайм_, ' / ', цель_)) %>% 
+  ggplot(aes(y = mean_rt, x = группа, color = группа))+
+  geom_boxplot(width=0.1, color="grey", alpha=0.5) +
+  stat_summary(fun=mean, geom='point', shape= 20, size = 8) +
+  geom_jitter(shape=16, position=position_jitter(0.2)) +
+  labs (x = "Тип прайма / тип цели", y = "Время реакции", color ="Тип прайма / тип цели")+
+  theme_bw()
+
+
+#средние значения по разным типам прайма
+data_mn_1 %>% 
+  group_by(прайм_) %>% 
+  summarise(rt = mean(mean_rt))
+
+
+#смешанная модель с одним случайным предиктором
+mix_model_1 <- lmer(rt ~ прайм_ + (1|id), REML = FALSE, data = mix_data)
+summary(mix_model_1)
+
+
+#смешанная модель с одним случайным предиктором
+mix_model_0 <- lmer(rt ~ 1 + (1|id), REML = FALSE, data = mix_data)
+
+mix_model_1 <- lmer(rt ~ прайм_*цель_ + (1|id), REML = FALSE, data = mix_data)
+summary(mix_model_1)
+
+mix_model_2 <- lmer(rt ~ прайм_:цель_ + (1|id) + (1|df_target), REML = FALSE, data = mix_data)
+summary(mix_model_2)
+
+mix_model_2.5 <- lmer(rt ~ прайм_*цель_ + (1|id) + (1|df_target), REML = FALSE, data = mix_data)
+summary(mix_model_2.5)
+anova(mix_model_2, mix_model_2.5)
+
+mix_model_3 <- lmer(rt ~ цель_ + (1|id) + (1|df_target), REML = FALSE, data = mix_data)
+summary(mix_model_3)
+anova(mix_model_2, mix_model_3)
+
+anova(mix_model_2, mix_model_0)
+
+```
