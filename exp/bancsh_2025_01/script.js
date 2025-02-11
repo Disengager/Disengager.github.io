@@ -4738,7 +4738,7 @@ console.log(stimules.length)
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\r\nВидели ли Вы это слово раньше?\r\n\u003Chr\u003E\r\n\u003Ccenter style=\"font-size: 20px;\"\u003E${ parameters['seq_' + sequence + '_stimul'] }\u003C\u002Fcenter\u003E\r\n\u003Chr\u003E\r\n\u003Cdiv id=\"progressbarcontainer\"\u003E\r\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ parseInt(parameters.counter) \u002F 160 * 100 }%\"\u003E\r\n    \u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\r\n\u003Cdiv class=\"bottom_block\"\u003E\r\n\u003Cdiv\u003E← Видел(а)\u003C\u002Fdiv\u003E\r\n\u003Cdiv\u003EНе видел(а) →\u003C\u002Fdiv\u003E \r\n\u003C\u002Fdiv\u003E",
+                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"height: 200px\"\u003E\r\nВидели ли Вы это слово раньше?\r\n\u003Chr\u003E\r\n\u003Ccenter style=\"font-size: 20px;\"\u003E${ parameters['seq_' + sequence + '_stimul'] }\u003C\u002Fcenter\u003E\r\n\u003Chr\u003E\r\n\u003Cdiv id=\"progressbarcontainer\"\u003E\r\n    \u003Cdiv id=\"progressbar\" style=\"width: ${ parseInt(parameters.counter) \u002F 160 * 100 }%\"\u003E\r\n    \u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003Ccenter\u003E\r\n\u003Cdiv class=\"bottom_block\"\u003E\r\n\u003Cdiv\u003E← Не видел(а)\u003C\u002Fdiv\u003E \r\n\u003Cdiv\u003EВидел(а) →\u003C\u002Fdiv\u003E\r\n\u003C\u002Fdiv\u003E",
                 "name": ""
               }
             ],
@@ -4747,8 +4747,8 @@ console.log(stimules.length)
             "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
-              "keydown(ArrowLeft)": "nofiller",
-              "keydown(ArrowRight)": "filler"
+              "keydown(ArrowRight)": "nofiller",
+              "keydown(ArrowLeft)": "filler"
             },
             "parameters": {},
             "messageHandlers": {
