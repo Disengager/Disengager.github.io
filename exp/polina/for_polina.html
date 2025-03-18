@@ -1,0 +1,440 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta
+name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мини-игра: Стрельба по мишени</title> <style> body { display: flex;
+flex-direction: column; justify-content: center; align-items: center; height:
+100vh; margin: 0; background-color: #212121; font-family: Arial,
+sans-serif; }
+        #game-area {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(#16161d, #1f1f3a, #3b2f4a);
+            overflow: hidden;
+            color:white;
+        }
+        .t_red, .t_red::after  {
+            background-color: red;
+        }
+        .t_blue, .t_blue::after {
+            background-color: blue;
+        }
+        .t_skyblue, .t_skyblue::after {
+            background-color: skyblue;
+        }
+        .t_yellow, .t_yellow::after {
+            background-color: yellow;
+        }
+        .t_black, .t_black::after {
+            background-color: black;
+        }
+        .t_pink, .t_pink::after {
+            background-color: black;
+        }
+        #target {
+            position: relative;
+            width: 60px;
+            height:60px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        #target::before,
+        #target::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #target::before {
+            width: 42px;
+            height: 42px;
+            top: 9px;
+            left: 9px;
+            background-color: white;
+        }
+
+        #target::after {
+            width: 14px;
+            height: 14px;
+            
+            top: 23px;
+            left: 23px;
+        }
+
+        #bullet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+        }
+        #cannon {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background-color: #dedede;
+            bottom: -20px; /* Часть пушки видна за границей экрана */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px 5px 0 0;
+        }
+        #shoot-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #timer {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        input[type="file"] {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="game-area"> <!-- Область игры -->
+            <div id="target" class="t_skyblue"></div> <!-- Мишень -->
+            <div id="bullet"></div> <!-- Пуля -->
+            <div id="cannon"></div> <!-- Пушка -->
+        </div>
+        <div id="timer"></div> <!-- Таймер -->
+        <input type="file" id="csv_file" accept=".csv" />
+        <a id="downloadLink" style="display:none;">Download CSV File</a>
+        <button id="start_button">Запустить</button>
+    </div>
+
+    <script>
+        // Результаты
+        let results = {
+            items: [],
+            index: -1,
+            new_item: function() {
+                this.items.push({})
+                this.index++
+            },
+            add: function(elem, value) {
+                this.items[this.index][elem] = value
+            },
+            save: function() {
+                
+                const array = typeof this.items !== 'object' ? JSON.parse(this.items) : this.items;
+                let str = '';
+
+                // Заголовки CSV
+                const headers = Object.keys(array[0]);
+                str += headers.join(',') + '\r\n';
+
+                // Данные CSV
+                for (let i = 0; i < array.length; i++) {
+                    let line = '';
+                    for (let j = 0; j < headers.length; j++) {
+                        if (line !== '') line += ',';
+                        line += array[i][headers[j]];
+                    }
+                    str += line + '\r\n';
+                }
+
+                const blob = new Blob([str], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+
+                const downloadLink = document.getElementById('downloadLink');
+                downloadLink.href = url;
+                downloadLink.download = 'data.csv';
+                downloadLink.style.display = 'block';
+                downloadLink.style.color = 'white';
+                downloadLink.click();
+
+            }
+        }
+
+        // Игра
+        let game = {
+            area_html: document.getElementById('game-area'),
+            duration: 3000000, // Длительность игры в мс
+            start_time: null,
+            ended: false,
+            start: function(type, duration, t_speed, t_amplitude, t_frequency, t_x, t_x_koef, t_y_intersept, t_color, b_speed) {
+                game.start_time = Date.now()
+                timer.start()
+                results.new_item()
+
+                results.add("Начало пробы", game.start_time)
+                results.add("Тип пробы", type)
+                results.add("Заданная длительность пробы", duration)
+                results.add("Скорость мишени", t_speed)
+                results.add("Амплитуда мишени", t_amplitude )
+                results.add("Частота колебания мишени", t_frequency)
+                results.add("Х мишени", t_x)
+                results.add("Коэффициент при Х мишени", t_x_koef)
+                results.add("У интерсепт мишени", t_y_intersept)
+                results.add("Цвет мишени", t_color)
+                results.add("Скорость пули", b_speed)
+
+                this.duration = duration
+                target.speed = t_speed
+                target.amplitude = t_amplitude
+                target.frequency = t_frequency
+                target.x = t_x
+                target.x_koef = t_x_koef
+                target.y_intersept = t_y_intersept
+                target.html.className = ""
+                target.html.classList.add(t_color)
+                bullet.speed = b_speed
+                bullet.is_shoot = false
+                bullet.reset()
+                target.html.style.opacity = 1
+                target.is_blink = false
+
+                game.ended = false
+            },
+            end: function() {
+                this.ended = true
+                results.add("Конец пробы", Math.floor((Date.now() - game.start_time)))
+                results.add("Номер пробы", session_manager.index + 1)
+                session_manager.end_session()
+            }
+        }
+        // Мишень
+        let target = {
+            html: document.getElementById('target'), // Элемент DOM
+            speed: 3, // Скорость движения мишени
+            amplitude: 0, // Амплитуда синусоидальной траектории
+            frequency: 0.05, // Частота синусоидальной траектории
+            x: -60, // Координата x - по дефолту за границами экранами
+            x_koef: 0, // Коээфициент для того чтобы задавать разное движение по x
+            y: 0, // Координата y
+            y_intersept: 100,
+            radius: document.getElementById('target').offsetHeight / 2, // Радиус мишени
+            blink_interval: null, // Интервал для мигания
+
+            // движение
+            move: function() {
+                this.x += this.speed
+                this.y = this.y_intersept + (this.x*this.x_koef) + this.amplitude * Math.sin(this.x * this.frequency)
+                this.html.style.left = `${this.x}px`
+                this.html.style.top = `${this.y}px`
+            },
+
+            // мерцание
+            is_blink: false, 
+            blink: function() {
+                let is_white = false
+                if(this.is_blink) { 
+                    clearInterval(this.blink_interval)
+                    return true
+                }
+                this.blink_interval = setInterval(() => {
+                    this.html.style.opacity = is_white ? 1 : 0
+                    is_white = !is_white
+                }, 100); // Мигание каждые 100 мс
+                this.is_blink = !this.is_blink
+            },
+        }
+
+        // Пуля
+        let bullet = {
+            html: document.getElementById('bullet'),
+            y: 390,
+            x: function() {
+                return this.html.offsetLeft
+            }, 
+            is_shoot: false, 
+            flying: false,
+            hit: false,
+            speed: 10, // Скорость пули
+            radius: 5, // Радиус
+            reset: function() {
+                this.flying = false
+                this.html.style.display = 'none'
+                this.y = 390
+                this.hit = false
+            },
+            shoot: function() {
+                if (!this.flying && !game.ended) {
+                    this.flying = true
+                    this.is_shoot = true
+                    this.html.style.display = 'block'
+                    this.html.style.top = `${this.y}px`
+                    results.add('Разница между мишенью и пулей на момент нажатия кнопки', target.x + target.radius - this.x())
+                }
+            },
+            move: function() {
+                if (this.flying) {
+                    this.y -= this.speed
+                    this.html.style.top = `${this.y}px`
+                }
+            },
+            collision_check: function() {
+                
+                // Проверка на попадание (пересечение двух кругов)
+                const m_x = target.x + target.radius
+                const m_y = target.y + target.radius
+
+                let y = this.y - m_y
+                let x = this.x() - m_x
+
+                // Регистрация попадания
+                // Если разница между координатами x и y меньше радиуса, значит попало в область круга
+                if (Math.abs(x) < target.radius && 
+                    Math.abs(y) < target.radius) {
+                    if (!this.hit) {
+                        results.add("Разница между центром мишени и пулей (px)", x); //разница между центром мишени и левым верхнем краем пули
+                        this.hit = true;
+                        bullet.reset(); // Уничтожаем пулю
+                        target.blink(); // Запускаем мигание мишени
+                        setTimeout(() => target.blink(), 300); // Останавливаем через 0.3 секунды
+                    }
+                }
+
+                // Если пуля уходит за границы экрана, сбрасываем её
+                if (this.y < 0) {
+                    this.reset();
+                }
+            }
+        };
+
+        // Таймер
+        let timer = {
+            html: document.getElementById('timer'),
+            interval: null,
+            start: function() {
+                this.interval = setInterval(() => this.update(), 1);
+            },
+            update: function() {
+                if (game.start_time && !game.ended) {
+                    const elapsedTime = Math.floor((Date.now() - game.start_time));
+                   
+                    if (elapsedTime >= game.duration) {
+                        game.end()
+                        clearInterval(this.interval)
+                    }
+                }
+            }
+        };
+
+        let session_manager = {
+            sessions: [],
+            index: 0,
+
+            // Метод для загрузки и парсинга CSV файла
+            load_csv(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onload = (event) => {
+                        const text = event.target.result
+                        const lines = text.split('\n')
+                        const headers = lines[0].split(',')
+                        console.log(lines)
+                        this.sessions = lines.slice(1).map(line => {
+                            const data = line.split(',')
+                            return headers.reduce((obj, header, index) => {
+                                obj[header.trim()] = data[index].trim()
+                                return obj
+                            }, {});
+                        });
+
+                        resolve(this.sessions)
+                    };
+                    reader.onerror = () => reject(reader.error)
+                    reader.readAsText(file)
+                });
+            },
+
+            // Метод для запуска текущей сессии
+            start_session() {
+                if (this.index < this.sessions.length) {
+                    // Начало игры
+                    game.start(
+                        this.sessions[this.index]["type"],  
+                        parseFloat(this.sessions[this.index]["duration"]), 
+                        parseFloat(this.sessions[this.index]["t_speed"]), 
+                        parseFloat(this.sessions[this.index]["t_amplitude"]), 
+                        parseFloat(this.sessions[this.index]["t_frequency"]), 
+                        parseFloat(this.sessions[this.index]["t_x"]), 
+                        parseFloat(this.sessions[this.index]["t_x_koef"]), 
+                        parseFloat(this.sessions[this.index]["t_y_intersept"]), 
+                        this.sessions[this.index]["t_color"], 
+                        parseFloat(this.sessions[this.index]["b_speed"])
+                    );
+
+                    // Здесь можно добавить логику для запуска сессии
+                    // Например, отображение данных сессии на экране и т.д.
+
+                    // Симуляция окончания сессии через 2 секунды
+                    /* setTimeout(() => {
+                        this.end_session();
+                    }, 2000); */
+                } else {
+                    console.log('Все сессии завершены');
+                    alert('Исследование завершено')
+                    results.save()
+                }
+            },
+
+            // Метод для завершения текущей сессии и запуска следующей
+            end_session() {
+                console.log(`Конец сессии ${this.index + 1}`)
+                this.index++
+                this.start_session()
+            }
+        };
+
+        // Движение мишени и пули
+        function animation() {
+            //if (game.ended) return;
+
+            console.log('animation')
+
+            target.move() // Движение мишени
+            bullet.move() // Движение пули
+            bullet.collision_check() //Проверка коллизии пули
+
+            // Если мишень уходит за границы экрана, завершаем игру
+            /*if (target.x > 600) {
+                game.ended = true
+                game.start()
+                return
+            }*/
+
+            requestAnimationFrame(animation);
+        }
+
+        // Обработчик нажатия на кнопку "Стрелять"
+
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode === 32) {
+                if (bullet.is_shoot)
+                    return true
+
+                results.add("Время ответа", Math.floor((Date.now() - game.start_time)))
+                bullet.shoot()
+            }
+        });
+
+        document.getElementById('start_button').addEventListener('click', () => {
+            const file_input = document.getElementById('csv_file');
+            if (file_input.files.length === 0) {
+                alert('Please select a CSV file.')
+                return
+            }
+
+            session_manager.load_csv(file_input.files[0])
+                .then(() => {
+                    console.log('CSV file loaded successfully.')
+                    session_manager.start_session()
+                    file_input.style.display = "none"
+                    document.getElementById('start_button').style.display = "none"
+                    animation();
+                })
+                .catch(error => {
+                    console.error('Error loading CSV file:', error)
+                });
+        });
+    </script>
+</body>
+</html>
