@@ -627,6 +627,75 @@ print(ad_test)</code></pre>
 <pre><code>## Saving 7 x 5 in image
 ## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 </div>
+<div id="сравнение-по-критериям" class="section level3">
+<h3>Сравнение по критериям</h3>
+<pre class="r"><code>chi_test &lt;- function(i) {
+  dt %&gt;% 
+    filter(condition_direction == &#39;clockwise&#39; &amp;
+           order == &#39;asc&#39; &amp; 
+           response == &#39;clockwise&#39; &amp;
+           condition_image != &#39;curve&#39; &amp;
+           interval == i) %&gt;% 
+    mutate(condition = condition_image) %&gt;% 
+    select(condition) %&gt;% 
+    table() %&gt;% 
+    chisq.test() %&gt;% 
+    print()
+}</code></pre>
+<pre class="r"><code>chi_test(4)</code></pre>
+<pre><code>## Warning in chisq.test(.): аппроксимация на основе хи-квадрат может быть
+## неправильной</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 2.7778, df = 1, p-value = 0.09558</code></pre>
+<pre class="r"><code>chi_test(8)</code></pre>
+<pre><code>## Warning in chisq.test(.): аппроксимация на основе хи-квадрат может быть
+## неправильной</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 0.66667, df = 1, p-value = 0.4142</code></pre>
+<pre class="r"><code>chi_test(12)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 0.81818, df = 1, p-value = 0.3657</code></pre>
+<pre class="r"><code>chi_test(16)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 1.6364, df = 1, p-value = 0.2008</code></pre>
+<pre class="r"><code>chi_test(20)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 1.0588, df = 1, p-value = 0.3035</code></pre>
+<pre class="r"><code>chi_test(24)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 0.85714, df = 1, p-value = 0.3545</code></pre>
+<pre class="r"><code>chi_test(28)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 0.78261, df = 1, p-value = 0.3763</code></pre>
+<pre class="r"><code>chi_test(32)</code></pre>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  .
+## X-squared = 0.53191, df = 1, p-value = 0.4658</code></pre>
+<p>Хи-квадрат похоже на таких маленьких частотах не улавливает</p>
+</div>
 </div>
 </div>
 <div id="анализ-времени-ответа" class="section level1">
@@ -734,7 +803,7 @@ ks.test(dt_rt$log_duration, y = &quot;rnorm&quot;)</code></pre>
 ##  Asymptotic one-sample Kolmogorov-Smirnov test
 ## 
 ## data:  dt_rt$log_duration
-## D = 4.2767, p-value &lt; 2.2e-16
+## D = 4.6483, p-value &lt; 2.2e-16
 ## alternative hypothesis: two-sided</code></pre>
 <p>Логорифмирование не помогает</p>
 <p>стоит попрбовать гамма распределение</p>
@@ -881,7 +950,7 @@ arrow_right и arrow_left, а arrow_right и curve - нет</p>
 <pre><code>## Saving 7 x 5 in image
 ## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 </div>
-<div id="сравнение-по-критериям" class="section level3">
+<div id="сравнение-по-критериям-1" class="section level3">
 <h3>Сравнение по критериям</h3>
 <pre class="r"><code>w_test &lt;- function(i) {
   dt %&gt;% 
