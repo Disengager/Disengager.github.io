@@ -79,7 +79,7 @@ window.email = this.data.email
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 650px; height: 550px\"\u003E  \r\n\r\n\u003Ch3\u003EПервый этап исследования.\u003C\u002Fh3\u003E\r\n\u003Cp\u003EВам будут продемонстрированы 16 стимулов-псевдослов, каждый из которых состоит из 5 букв.\u003C\u002Fp\u003E\r\n\u003Cp\u003EДемонстрация ряда будет произведена очень быстро (меньше секунды).\r\nВаша задача - постараться запомнить, как можно больше псевдослов. \r\nНа следующем этапе эксперимента Вам надо будет их узнать, отличив от филлеров – псевдослов, которые похожи на те, что мы Вам покажем, но ими не являющиеся.\u003C\u002Fp\u003E\r\n\u003Cp\u003EУ вас будет 5 попыток. Постарайтесь каждый раз улучшать свой результат.\u003C\u002Fp\u003E\r\n\u003Cp\u003E Если Вам понятны условия, нажмите кнопку \"Начать\".\r\nПосле нажатия кнопки сконцентрируйтесь на крестике в центре экрана, через 1.5 секунды в этом месте начнется демонстрация стимулов. \u003C\u002Fp\u003E\r\n\r\n\r\n\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 650px; height: 550px\"\u003E  \r\n\r\n\u003Ch3\u003EПервый этап исследования.\u003C\u002Fh3\u003E\r\n\u003Cp\u003EВам будут продемонстрированы 16 стимулов-псевдослов, каждый из которых состоит из 5 букв.\u003C\u002Fp\u003E\r\n\u003Cp\u003EДемонстрация стимула будет произведена очень быстро (меньше секунды).\r\nВаша задача - постараться запомнить, как можно больше псевдослов. \r\nНа следующем этапе эксперимента Вам надо будет их узнать, отличив от филлеров – псевдослов, которые похожи на те, что мы Вам покажем, но ими не являющиеся.\u003C\u002Fp\u003E\r\n\u003Cp\u003EУ вас будет 5 попыток. Постарайтесь каждый раз улучшать свой результат.\u003C\u002Fp\u003E\r\n\u003Cp\u003E Если Вам понятны условия, нажмите кнопку \"Начать\".\r\nПосле нажатия кнопки сконцентрируйтесь на крестике в центре экрана, через 1.5 секунды в этом месте начнется демонстрация стимулов. \u003C\u002Fp\u003E\r\n\r\n\r\n\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
           "name": ""
         }
       ],
@@ -489,7 +489,7 @@ window.email = this.data.email
         {
           "required": true,
           "type": "html",
-          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 526px; height:  415px\"\u003E\r\nДалее Вам будет последовательно предъявлено 32 буквенных ряда.\u003Cp\u003E\r\nЕсли Вы считаете, что видели ранее этот буквенный ряд, нажмите \u003Cb style=\"color: rgba(69, 192, 250, 1)\"\u003E→ \u003C\u002Fb\u003E на своей клавиатуре. \u003Cp\u003EЕсли Вы считаете, что ранее НЕ видели эту комбинацию букв, нажмите \u003Cb style=\"color: rgba(69, 192, 250, 1)\"\u003E ←\u003C\u002Fb\u003E на своей клавиатуре.\r\n\u003Cp\u003E\u003Cb\u003EНе задумывайтесь над своими ответами, действуйте интуитивно.\r\n\u003Cp\u003EПостарайтесь сделать это как можно скорее!\u003C\u002Fb\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
+          "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 526px; height:  445px\"\u003E\r\nДалее Вам будет последовательно предъявлено 32 стимулов-псевдослов.\u003Cp\u003E\r\nЕсли Вы считаете, что видели на этапе предъявляения этот стимул-псевдослово, нажмите \u003Cb style=\"color: rgba(69, 192, 250, 1)\"\u003E→ \u003C\u002Fb\u003E на своей клавиатуре. \u003Cp\u003EЕсли Вы считаете, что ранее НЕ видели этот стимул, нажмите \u003Cb style=\"color: rgba(69, 192, 250, 1)\"\u003E ←\u003C\u002Fb\u003E на своей клавиатуре.\r\n\u003Cp\u003E\u003Cb\u003EНе задумывайтесь над своими ответами, действуйте интуитивно.\r\n\u003Cp\u003EПостарайтесь сделать это как можно скорее!\u003C\u002Fb\u003E\u003Cp\u003E\r\n\u003Ccenter\u003E\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EНачать\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E",
           "name": ""
         }
       ],
@@ -4928,7 +4928,7 @@ console.log(this.data)
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 350px\"\u003E   \r\n\u003Cp\u003EМожете сделать небольшой перерыв. \u003C\u002Fp\u003E\r\n\u003Cp\u003EПосле перерыва вам снова будут продемонстрированы 16 буквенных ряда, каждый из которых состоит из 5 букв. \u003C\u002Fp\u003E\r\n\u003Cp\u003EПосле этого Вам снова потребуется опознать продемонстрированные буквенные ряды.\u003Cbr\u003E\u003Cbr\u003E\r\nПосле того как будете готовы, нажмите \u003Cb\u003E\"Продолжить\"\u003C\u002Fb\u003E.\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EПродолжить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
+                "content": "\u003Ccenter\u003E\r\n\u003Cdiv class=\"detect_card\" style=\"text-align: left; width: 600px; height: 350px\"\u003E   \r\n\u003Cp\u003EМожете сделать небольшой перерыв. \u003C\u002Fp\u003E\r\n\u003Cp\u003EПосле перерыва вам снова будут продемонстрированы 16 стимулов псевдо-слов, каждый из которых состоит из 5 букв. \u003C\u002Fp\u003E\r\n\u003Cp\u003EПосле этого Вам снова потребуется опознать продемонстрированные стимулы-псевдослова.\u003Cbr\u003E\u003Cbr\u003E\r\nПосле того как будете готовы, нажмите \u003Cb\u003E\"Продолжить\"\u003C\u002Fb\u003E.\r\n\u003Ccenter\u003E\u003Cbutton type=\"submit\" class=\"custom-btn btn-3\"\u003E\u003Cspan\u003EПродолжить\u003C\u002Fspan\u003E\u003C\u002Fbutton\u003E\u003C\u002Fcenter\u003E\r\n\u003C\u002Fdiv\u003E\r\n\u003C\u002Fcenter\u003E\r\n",
                 "name": ""
               }
             ],
@@ -4944,6 +4944,42 @@ console.log(this.data)
             "title": "перерыв",
             "skip": "${ !parameters.is_repeat }",
             "tardy": true
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 18.69,
+                "height": 36.16,
+                "stroke": "#000000",
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "+",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "фиксационный крест",
+            "timeout": "1500",
+            "skip": "${ !parameters.is_repeat }"
           },
           {
             "type": "lab.flow.Loop",
