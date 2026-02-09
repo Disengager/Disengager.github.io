@@ -284,7 +284,7 @@ if(stimules.is_rev(this.parameters.prob_i)) {
 let prob = stimules.targets[this.parameters.prob_i]
 console.log(prob)
 
-this.parameters['peref_arr'] = prob.fade_direction == "по часовой"?"🠆":"🠄"
+this.parameters['peref_arr'] = prob.distractor_direction == "по часовой"?"🠆":"🠄"
 this.parameters['center_arr'] = prob.arrow_direction == "по часовой"?"🠆":"🠄"
 
 console.log(this.parameters['peref_arr'] )
