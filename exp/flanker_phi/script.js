@@ -431,6 +431,7 @@ this.state.flanker_rt = window.flanker_rt
 
 // сохранение данных о пробе
 this.state.fade_direction = stimules.get_by_key('fade_direction', this.parameters.prob_i)
+this.state.distractor_direction = stimules.get_by_key('distractor_direction', this.parameters.prob_i)
 this.state.arrow_direction = stimules.get_by_key('arrow_direction', this.parameters.prob_i)
 this.state.interval = stimules.get_by_key('interval', this.parameters.prob_i)
 this.state.trial_id = stimules.get_by_key('trial_id', this.parameters.prob_i)
