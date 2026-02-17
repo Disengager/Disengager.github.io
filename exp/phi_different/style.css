@@ -1,0 +1,388 @@
+/* Please define your custom styles here */
+body {
+  background-color: #0f131a;
+}
+.container {
+  border: none;
+}
+.w-m {
+  max-width: 700px;
+}
+.bottom_block {
+  position: absolute;
+  margin-bottom: 0;
+  margin: auto;
+  width: 160px;
+}
+.bottom_block div {
+  border-radius: 5px;
+  padding: 5px;
+  color: #ffffff7d;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+/* 3 */
+.btn-3 {
+  background: rgb(0,172,238);
+background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  
+}
+.custom_select {
+  background: rgb(0,172,238);
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 100px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  color: #11263d;
+  font-weight: 700;
+  text-align: center;
+}
+.custom_select:hover {
+  color: black;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover{
+   color: rgba(2,126,251,1);
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+#progressbarcontainer{
+  position: relative;
+  margin: 2% 15%;
+  width: 70%;
+  height: 8px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #dddddd;
+  padding: 1px;
+  box-shadow: 0 0 2px #153687;
+  cursor: pointer;
+}
+#divtext{
+    position: relative;
+    margin: 5% 15% 0% 15%;
+    width: 70%;
+    color: #ffffff;
+    -webkit-transition: color .5s; 
+    transition: color .5s;
+}
+#progressbar{
+  position: absolute;
+  z-index: 1;
+  width: 0%;
+  margin: 0;
+  left: 0;
+  right: auto;
+  height: 100%;
+  background-color: #0468ff;
+  -webkit-transition: width .5s;
+  transition: width .5s;
+  box-shadow: 0 0 3px #0468ff;
+}
+.detect_card {
+  background-color: #0f131a;
+  color:white;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  width: 300px;
+  height: 500px;
+  padding: 20px;
+}
+
+.bottom_block {
+  position: fixed;
+  width: 360px;
+  margin: 5% auto; /* Only centers horizontally not vertically! */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  position: center;
+}
+.bottom_block div {
+  padding: 10px;
+  width: 180px;
+}
+.prime_and_target_font {
+  color: white;
+  font-size: 32px;
+}
+.elem {
+  width: 100px; 
+  height: 100px;
+	text-align: center;
+  position: absolute;
+  background-color: white; /* Оранжевый */
+  clip-path: circle(50% at 50% 50%); 
+}
+
+.el_0 {
+  top: 16px;
+  left: 314px;
+  background-color: darkred;
+  transform: rotate(45deg);
+    clip-path: polygon(
+    50% 0%,    /* Верхняя точка */
+    70% 20%,   /* Сдвиг вправо */
+    100% 50%,  /* Крайняя правая точка */
+    70% 80%,   /* Сдвиг вниз и вправо */
+    50% 100%,  /* Нижняя точка */
+    30% 80%,   /* Сдвиг влево и вниз */
+    0% 50%,    /* Крайняя левая точка */
+    30% 20%    /* Сдвиг влево и вверх */
+  );
+}
+.el_1 {
+  top: 71px;
+  left: 459px;
+  background-color: darkblue;
+  transform: rotate(81deg);
+  clip-path: polygon(
+        45% 5%,     /* Левее верхней точки - вмятина */
+        55% 8%,     /* Правее центра - маленький выступ */
+        75% 20%,    /* Выступ справа сверху */
+        92% 40%,    /* Сильный выступ справа */
+        88% 60%,    /* Вмятина справа снизу */
+        70% 85%,    /* Выступ снизу справа */
+        45% 92%,    /* Почти по центру снизу, но немного левее */
+        25% 80%,    /* Вмятина слева снизу */
+        12% 60%,    /* Сильная вмятина слева */
+        18% 35%,    /* Выступ слева */
+        35% 18%     /* Переход к началу */
+    );
+}
+.el_2 {
+  top: 193px;
+  left: 536px;
+  background-color: darkcyan;
+  transform: rotate(117deg);
+      clip-path: polygon(
+        22% 8%,    /* ухаб слева сверху */
+        40% 2%,    /* сильная вмятина сверху */
+        63% 7%,    /* бугорок ближе к правому краю */
+        82% 18%,   /* правый верхний выступ */
+        95% 38%,   /* почти край справа — выпирает */
+        90% 60%,   /* правая сторона, вогнутость */
+        75% 80%,   /* правый нижний выступ */
+        52% 95%,   /* почти центр снизу — сильно вниз */
+        33% 88%,   /* левый нижний «мешок» */
+        15% 73%,   /* впадина слева снизу */
+        6% 52%,    /* сильный выступ влево */
+        10% 30%    /* левый верхний скос */
+    );
+}
+.el_3 {
+  top: 332px;
+  left: 531px;
+  transform: rotate(153deg);
+  width: 130px;
+  height: 80px;
+  background-color: darkgoldenrod;
+  clip-path: polygon(
+        15% 20%,    /* левый край — выступ */
+        28% 12%,    /* левая верхняя вмятина */
+        45% 8%,     /* верхний край — почти плоский */
+        62% 10%,    /* правый верх */
+        78% 18%,    /* правый бок — выпуклость */
+        92% 32%,    /* правый край — сильно наружу */
+        88% 52%,    /* правая нижняя часть — вогнутость */
+        76% 70%,    /* нижний правый выступ */
+        58% 86%,    /* низ — центр смещён */
+        40% 88%,    /* левая нижняя часть */
+        22% 78%,    /* левый бок — вогнутость */
+        8% 58%,     /* левый край — выступ */
+        10% 35%     /* левый верх — переход */
+    );
+}
+.el_4 {
+  top: 500px;
+  left: 500px;
+  background-color: darkkhaki;
+  transform: rotate(189deg);
+  clip-path: polygon(
+    50% 0%,    /* Верхняя точка */
+    70% 20%,   /* Сдвиг вправо */
+    100% 50%,  /* Крайняя правая точка */
+    70% 80%,   /* Сдвиг вниз и вправо */
+    50% 100%,  /* Нижняя точка */
+    30% 80%,   /* Сдвиг влево и вниз */
+    0% 50%,    /* Крайняя левая точка */
+    30% 20%    /* Сдвиг влево и вверх */
+  );
+}
+.el_5 {
+  top: 540px;
+  left: 280px;
+  background-color: darkorchid;
+  transform: rotate(225deg);
+  width: 120px;
+  clip-path: polygon(
+      15% 20%,    /* левый край — выступ */
+      28% 12%,    /* левая верхняя вмятина */
+      45% 8%,     /* верхний край — почти плоский */
+      62% 10%,    /* правый верх */
+      78% 18%,    /* правый бок — выпуклость */
+      90% 20%,    /* правый край — сильно наружу */
+      88% 52%,    /* правая нижняя часть — вогнутость */
+      76% 70%,    /* нижний правый выступ */
+      58% 86%,    /* низ — центр смещён */
+      40% 80%,    /* левая нижняя часть */
+      20% 80%,    /* левый бок — вогнутость */
+      8% 99%,     /* левый край — выступ */
+      10% 35%     /* левый верх — переход */
+  );
+}
+.el_6 {
+  top: 400px;
+  left: 200px;
+  background-color: darkslategray;
+  transform: rotate(261deg);
+}
+.el_7 {
+  top: 323px;
+  left: 82px;
+  background-color: darkseagreen;
+  transform: rotate(297deg);
+    clip-path: polygon(
+      30% 40%,    /* левый край — выступ */
+      100% 13%,    /* левая верхняя вмятина */
+      1% 1%,     /* верхний край — почти плоский */
+      1% 90%,    /* правый верх */
+      78% 8%,    /* правый бок — выпуклость */
+      90% 20%,    /* правый край — сильно наружу */
+      88% 52%,    /* правая нижняя часть — вогнутость */
+      76% 70%,    /* нижний правый выступ */
+      58% 86%,    /* низ — центр смещён */
+      40% 80%,    /* левая нижняя часть */
+      20% 80%,    /* левый бок — вогнутость */
+      8% 99%,     /* левый край — выступ */
+      10% 35%     /* левый верх — переход */
+  );
+}
+.el_8 {
+  top: 182px;
+  left: 79px;
+  background-color: darkgrey;
+  transform: rotate(333deg);
+  clip-path: polygon(
+      15% 20%,    /* левый край — выступ */
+      28% 12%,    /* левая верхняя вмятина */
+      45% 8%,     /* верхний край — почти плоский */
+      62% 10%,    /* правый верх */
+      78% 18%,    /* правый бок — выпуклость */
+      92% 32%,    /* правый край — сильно наружу */
+      88% 52%,    /* правая нижняя часть — вогнутость */
+      76% 70%,    /* нижний правый выступ */
+      58% 86%,    /* низ — центр смещён */
+      40% 88%,    /* левая нижняя часть */
+      22% 78%,    /* левый бок — вогнутость */
+      8% 58%,     /* левый край — выступ */
+      10% 35%     /* левый верх — переход */
+  );
+}
+.el_9 {
+  top: 64px;
+  left: 168px;
+  transform: rotate(369deg);
+}
+.hide {
+  display: none;
+}
+.parent {
+  position: fixed;
+  top: 20px;
+  left: calc(50% - 425px);
+  margin-top: 200px;
+  margin-left: 20px;
+}
+.hint {
+  display: flex;
+  font-size: 28px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.hint div {
+  width: 340px
+}
