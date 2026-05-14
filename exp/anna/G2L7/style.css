@@ -1,0 +1,295 @@
+#inst12{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%)
+}
+
+#pic{
+	position: fixed;
+	left: 50%;
+	top: 60%;
+	transform: translate(-50%,-50%)
+}
+p12 {
+	font-size: 30px;
+	color: #000000;	
+}
+
+#counter{
+color: #717d88;	
+}
+#post{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%)
+}
+#strelka1{
+	position: fixed;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%,-50%)
+}
+
+#cross{
+	position: fixed;
+	left: 50%;
+	top: 30%;
+	transform: translate(-50%,-50%)
+}
+
+#triad{
+	position: fixed;
+	left: 50%;
+	top: 30%;
+	transform: translate(-50%,-50%)
+}
+
+#strelka{
+	position: fixed;
+	left: 50%;
+	top: 85%;
+	transform: translate(-50%,-50%);
+	color: #717d88;
+}
+p10 {
+	font-size: 35px;
+	color: #df0505;	
+}
+
+p11 {
+	font-size: 30px;
+	color: #000000;	
+}
+
+.text_input {
+	width: 350px;
+}
+#aha{
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%,-50%)
+}
+#yesno{
+	position: fixed;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%,-50%)
+}
+
+#how1{
+	position: fixed;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%,-50%)
+}
+
+#how2{
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%,-50%);}
+
+p1{
+	font-size: 80px;
+}
+
+p2 {
+  font-size: 35px;
+}
+
+p3{
+	font-size: 16px	
+}
+
+p4{
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+p5{
+	font-size: 20px;
+}
+
+p6{
+	font-size: 30px;
+	color: #717d88;
+}
+
+p7 {
+	font-size: 30px
+}
+
+p8{
+	font-size: 30px;
+	color: #000000;
+}
+
+img{
+	width: 700px;
+}
+
+#counter{
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	top: 80%;
+	background-color: rgb(255, 255, 255);
+	border-color: #FFFFFF;
+}
+
+#triad2{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%)
+}
+
+.container{
+	position: fixed;
+}
+
+
+/* Простой вариант с overflow: visible */
+.slider {
+    position: absolute;
+    width: 800px;
+    height: 60px;
+    overflow: visible; /* Разрешаем выходить за границы */
+}
+
+#fader {
+    width: 800px;
+    height: 60px;
+    background: linear-gradient(90deg, white, rgb(255, 136, 0));
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border-radius: 0;
+    /* Убираем все отступы */
+    margin: 0;
+    padding: 0;
+    /* Важно для некоторых браузеров */
+    box-sizing: border-box;
+    /* Центрируем внутри контейнера */
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Серая тень со всех сторон */
+    
+    /* ИЗМЕНЕНИЕ 1: Делаем весь слайдер некликабельным */
+    pointer-events: none;
+}
+
+#fader::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 70px;
+    border-radius: 0;
+    background: #000000;
+    border: 2px solid #000000;
+    cursor: pointer;
+    transition: background-color 0s;
+    /* Смещаем бегунок чтобы он выровнялся с краями */
+    margin-top: -5px;
+    /* Компенсируем половину ширины бегунка */
+    position: relative;
+    
+    /* ИЗМЕНЕНИЕ 2: Включаем pointer-events ТОЛЬКО для бегунка */
+    pointer-events: auto;
+    
+    /* ИЗМЕНЕНИЕ 3: Добавляем курсоры для перетаскивания */
+    cursor: grab;
+}
+
+/* Курсор при активном перетаскивании бегунка */
+#fader::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+/* ИЗМЕНЕНИЕ 4: Делаем трек (полоску слайдера) некликабельной */
+#fader::-webkit-slider-runnable-track {
+    pointer-events: none;
+    width: 100%;
+    height: 60px;
+    cursor: default; /* Обычный курсор, не pointer */
+    background: transparent;
+}
+
+/* ЗЕЛЕНЫЙ БЕГУНОК после подтверждения */
+#fader.green-thumb::-webkit-slider-thumb {
+    background: #6cc717; /* Зеленый цвет */
+    border-color: #6cc717;
+}
+
+
+#filler{
+	color: #FFFFFF;
+}
+
+#box1{
+	position: fixed;
+	left: 50%;
+	top: 70%;
+	transform: translate(-50% -50%)
+}
+
+#box2{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50% -50%)
+}
+
+#box3{
+	position: fixed;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50% -50%)
+}
+
+#how3{
+	position: fixed;
+	left: 50%;
+	top: 25%;
+	transform: translate(-50%,-50%)
+}
+
+#strelka3{
+	position: fixed;
+	left: 50%;
+	top: 70%;
+	transform: translate(-50%,-50%);
+	color: #717d88;
+}
+
+#fader3 {
+	position: relative;
+	width: 800px;
+	height: 40px;
+	background: #098eed;
+	-webkit-appearance: none;
+	outline: none;
+	border-radius: 6px;
+}
+#fader3::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background: #000000;
+}
+ #pic1 img {
+        display: block;
+        margin-left: 0;
+        text-align: left;
+    }
+
+ #pic2 img {
+        display: block;
+        margin-left: 0;
+        text-align: left;
+    }
+
